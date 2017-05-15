@@ -1,0 +1,98 @@
+<div class="jumbotron" data-pages="parallax">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="inner" style="transform: translateY(0px); opacity: 1;">
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li><a href="#" class="active">CUSTOMERS</a>
+                </li>
+            </ul>
+            <!-- END BREADCRUMB -->
+        </div>
+    </div>
+</div>
+<div class="header-container">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div>
+            <h1>CUSTOMERS</h1>
+        </div>
+        <div>
+            <h3 class="inline">This is a complete list of all current customers</h3>
+           <!--  <button class="btn btn-custom btn-cons pull-right" ng-click="save()">SAVE</button> -->
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-fixed-lg">
+    <!-- START PANEL -->
+    <div class="panel panel-transparent">
+    <div class="panel-heading">
+            <div class="panel-title">
+            </div>
+            <div class="pull-right">
+                <div class="col-xs-12">
+                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body" >
+            <table class="table expanding table-hover table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
+                <thead>
+                <tr>
+                    <th width="70%" class="">NAME</th>
+                    <th width="30%" class="sorting_disabled">MARKET</th>
+                    <th width="20%" class="sorting_disabled">COUNTRY</th>
+                    <th width="30%" class="">REGION|STATE</th>
+                    <th width="20%" class="sorting_disabled">CITY</th>
+                    <th width="30%" class="sorting_disabled">TERRITORY|DIVISION</th>
+                    <th width="20%" class="">DATE CREATED</th>
+                    <th width="30%">STATUS</th>
+                    <th width="20%" class="sorting_disabled">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr >
+                   <!--  <td colspan="2" width="70%" class="">
+                       COCA COLA
+                    </td>
+                    <td colspan="2" width="30%" class="">
+                        
+                    </td>
+                    <td width="20%" class="">
+                       
+                    </td>
+                     <td colspan="2" width="20%" class="">
+                       
+                    </td>
+                    <td colspan="2" width="30%" class="">
+                       
+                    </td>
+                    <td width="20%" class="">
+                       
+                    </td>
+                     <td colspan="2" width="20%" class="">
+                       
+                    </td>
+                    <td colspan="2" width="30%" class="">
+                       
+                    </td>
+                    <td width="20%" class="">
+                       
+                    </td> -->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END PANEL -->
+</div>
+
+
+<!-- END MODAL STICK UP  -->
+<script type="text/javascript">
+     $('#table').dataTable({
+"aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ 1,2,4,5,8 ] }]
+});
+</script>
