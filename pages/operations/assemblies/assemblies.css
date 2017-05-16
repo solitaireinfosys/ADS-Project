@@ -1,0 +1,11 @@
+.dataTables_length{
+    display: none
+}
+h3{
+    color: #0e94c5 !important;
+}
+table{
+        display: block;
+    width: 1234px;
+    overflow: auto;
+}

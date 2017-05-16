@@ -1,0 +1,277 @@
+BEGIN SIDEBAR -->
+    <div class="page-sidebar" data-pages="sidebar" pg-sidebar>
+      <div id="appMenu" class="sidebar-overlay-slide from-top">
+      </div>
+      <!-- BEGIN SIDEBAR HEADER -->
+      <div class="sidebar-header">
+        <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
+        <div class="sidebar-header-controls">
+          <button data-pages-toggle="#appMenu" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" type="button"><i class="fa fa-angle-down fs-16"></i>
+          </button>
+          <button data-toggle-pin="sidebar" class="btn btn-link visible-lg-inline" type="button"><i class="fa fs-12"></i>
+          </button>
+        </div>
+      </div>
+      <!-- END SIDEBAR HEADER -->
+      <!-- BEGIN SIDEBAR MENU -->
+      <div class="sidebar-menu">
+        <ul class="menu-items">
+        <li>
+            <a href="#">
+              <span class="title">Sales</span>
+              <span class="arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+            <li>
+            <a ui-sref="app.customers" class="detailed">
+              <span class="title">Customers</span>
+            </a>
+          </li>
+             <!--  <li>
+                <a href="#/app/sales/customers">Customers</a>
+                <span class="icon-thumbnail">CS</span>
+              </li> -->
+              <li>
+                <a href="#">Orders</a>
+                <span class="icon-thumbnail">OR</span>
+              </li>
+            </ul>
+          </li>
+           <li>
+            <a href="#">
+              <span class="title">Marketing</span>
+              <span class="arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+              <li>
+                <a href="#">Targets</a>
+                <span class="icon-thumbnail">TR</span>
+              </li>
+            </ul>
+          </li>
+           <li>
+            <a href="#">
+              <span class="title">Operations</span>
+              <span class="arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+              <li>
+                 <a ui-sref="app.assemblies" class="detailed">
+              <span class="title">Assemblies</span>
+            </a>
+              </li>
+              <li >
+                <a href="#">Products</a>
+                <span class="icon-thumbnail">PS</span>
+              </li>
+               <li>
+                <a href="#">Inventory</a>
+                <span class="icon-thumbnail">IV</span>
+              </li>
+            </ul>
+          </li>
+         <!--  <li class="m-t-30" ng-class="{'open active':includes('app.dashboard')}">
+            <a href="#" class="detailed">
+              <span class="title">Dashboard</span>
+              <span class="details">12 notifications</span>
+            </a>
+            <span class="icon-thumbnail "><i class="pg-mail"></i></span>
+          </li>
+          <li ng-class="{'open active':includes('app.calendar')}">
+            <a href="#/app/calendar">
+              <span class="title">Calendar</span>
+            </a>
+            <span class="icon-thumbnail "><i class="pg-social"></i></span>
+          </li> -->
+          <!--marketing-->
+         <!--  <li>
+            <a href="#">
+              <span class="title">Marketing</span>
+              <span class=" arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+              <li ng-class="{'open active':includes('app.marketing_dashboard')}">
+                <a href="#/app/marketing_dashboard">Dashboard</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.targeting')}">
+                <a href="#/app/targeting">Targeting</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.demographics')}">
+                <a href="#/app/demographics">Demographics</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.cohorts')}">
+                <a href="#/app/cohorts">Cohorts</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+            </ul>
+          </li> -->
+          <!--crm-->
+         <!--  <li>
+            <a href="#">
+              <span class="title">CRM</span>
+              <span class=" arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+              <li ng-class="{'open active':includes('app.crm_dashboard')}">
+                <a href="#/app/crm_dashboard">Dashboard</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_customers')}">
+                <a href="#/app/our_customers">Our customers</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_opportunities')}">
+                <a href="#/app/our_opportunities">Our opportunities</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_contracts')}">
+                <a href="#/app/our_contracts">Our contracts</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+            </ul>
+          </li> -->
+          <!--production-->
+          <!-- <li >
+            <a href="#">
+              <span class="title">Production</span>
+              <span class=" arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+              <li ng-class="{'open active':includes('app.production_dashboard')}">
+                <a href="#/app/production_dashboard">Dashboard</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.schedule_live')}">
+                <a href="#/app/schedule_live">Schedule Live</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.work_in_progress')}">
+                <a href="#/app/work_in_progress">Work In Progress</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_lines')}">
+                <a href="#/app/our_lines">Our Lines</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_equipment')}">
+                <a href="#/app/our_equipment">Our Equipment</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_plans')}">
+                <a href="#/app/our_plans">Our Plans</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_work_orders')}">
+                <a href="#/app/our_work_orders">Our Work Orders</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.kan_ban')}">
+                <a href="#/app/kan_ban">Kan Ban</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+            </ul>
+          </li> -->
+          <!--materials-->
+         <!--  <li>
+            <a href="#">
+              <span class="title">Materials</span>
+              <span class=" arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+              <li ng-class="{'open active':includes('app.materials_dashboard')}">
+                <a href="#/app/materials_dashboard">Dashboard</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.materials_training')}">
+                <a href="#/app/materials_training">Materials Training</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.bill_of_materials')}">
+                <a href="#/app/bill_of_materials">Bill of Materials</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+            </ul>
+          </li> -->
+          <!--hr-->
+         <!--  <li >
+            <a href="">
+              <span class="title">Human Resources</span>
+              <span class=" arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+              <li ng-class="{'open active':includes('app.our_people')}">
+                <a href="#/app/our_people">Our People</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_skills')}">
+                <a href="#/app/our_skills">Our Skills</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_cip')}">
+                <a href="#/app/our_cip">Our CIP</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_organization_matrix')}">
+                <a href="#/app/our_organization_matrix">Our Organization Matrix</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_organization')}">
+                <a href="#/app/our_organization">Our Organization</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+            </ul>
+          </li> -->
+          <!--site settings-->
+          <!-- <li ng-class="{'open active':includes('app.site_settings')}">
+            <a href="#/app/site_settings">
+              <span class="title">Site Settings</span>
+            </a>
+            <span class="icon-thumbnail "><i class="pg-social"></i></span>
+          </li> -->
+          <!--configuration-->
+          <!-- <li>
+            <a href="">
+              <span class="title">Configuration</span>
+              <span class=" arrow"></span>
+            </a>
+            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+            <ul class="sub-menu">
+              <li ng-class="{'open active':includes('app.our_shifts')}">
+                <a href="#/app/our_shifts">Our Shifts</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+              <li ng-class="{'open active':includes('app.our_locations')}">
+                <a href="#/app/our_locations">Our Locations</a>
+                <span class="icon-thumbnail">sp</span>
+              </li>
+            </ul>
+          </li>
+          <li ng-class="{'open active':includes('app.table')}">
+            <a href="#/app/table">
+              <span class="title">Table</span>
+            </a>
+            <span class="icon-thumbnail "><i class="pg-social"></i></span>
+          </li>
+          <li ng-class="{'open active':includes('app.table')}">
+            <a href="/alpha/">
+              <span class="title">Alpha</span>
+            </a>
+            <span class="icon-thumbnail "><i class="pg-social"></i></span>
+          </li> -->
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR
