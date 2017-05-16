@@ -26,14 +26,17 @@
 </div>
 <div class="container-fluid container-fixed-lg page-create_assembly">
 
+    <hr/>
     <div class="row">
-        <div class="col-md-4">
+
+        <div class="col-md-4" style="max-width: 422px;">
             <div class="input-group product-search-group">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
                 <input type="text" class="form-control search-group-box" placeholder="Search Parts, Bundles etc"
                        aria-describedby="basic-addon1"
                        ng-model="_groupFilter.name">
             </div>
+
             <div class="color-black" style="margin-top: 35px;">
                 <tree-dnd tree-class="table table-product-group"
                     tree-data="leftTreeData"
@@ -46,12 +49,35 @@
                     icon-leaf="none"
                     icon-expand="glyphicon glyphicon-chevron-down"
                     icon-collapse="glyphicon glyphicon-chevron-right"
-                    expand-level="100">                    
-                </tree-dnd>
+                    expand-level="100"
+                ></tree-dnd>
             </div>
         </div>
-        <div class="col-md-8" >
-            <div class="row"> 
+
+        <div class="col-md-8" style="width: 1234px;">
+
+            <div class="row">
+                <div class="col-md-4" style="width: auto; margin: 0; padding: 0;">
+                    <div class="form-group-attached">
+                        <div pg-form-group="" class="form-group form-group-default required customer">
+                            <label> Assembly Name (ID)</label>
+                            <input type="text" class="form-control" required="" placeholder="Select a current customer">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style=" margin-left: 10px; padding-left: 0px;">
+                    <div pg-form-group="" class="form-group form-group-default form-group-default-select">
+                        <label class="">Assembly Manufacture</label>
+                        <ui-select ng-model="country.selected" theme="bootstrap">
+                            <ui-select-match placeholder="Select a manufacturer">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices group-by="" repeat="country in countries | filter: $select.search">
+                                <span ng-bind-html="trustAsHtml((country.name | highlight: $select.search))"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+            </div>
+            <div>
                 <tree-dnd tree-class="table table-hover table-striped table-product-description"
                           tree-data="rightTreeData"
                           tree-control="rightTreeCtrl"
@@ -151,7 +177,7 @@
                 </a>
 
 
-                <span class="product-info">Product Name, Product SKU</span>
+                <span class="product-info">Product Name123, Product SKU</span>
                 <div ng-if="node.edit" style="margin-left: 1.3em;">
                     <input type="text" ng-model="node['description']" />
                 </div>
@@ -178,7 +204,6 @@
         </tbody>
     </table>
 </script>
-
 <script type="text/javascript">
 //    (function ($) {
 //        $('body').on('click', '.spinner .btn:first-of-type', function() {

@@ -62,7 +62,7 @@
 </div>
 
 <!-- MODAL STICK UP  -->
-<div class="modal fade stick-up" id="createOrEdit" tabindex="-1" role="dialog" aria-labelledby="createOrEdit" aria-hidden="true">
+<div class="modal stick-up" id="createOrEdit" tabindex="-1" role="dialog" aria-labelledby="createOrEdit" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header clearfix ">
@@ -78,7 +78,7 @@
 
         <div class="form-group form-group-default" ng-class="{ 'has-error' : userForm.assembly.$invalid && !userForm.assembly.$pristine }">
             <label for="assembly">Name</label>
-            <input type="text" name="assembly" class="form-control" ng-model="regex" ng-pattern="regex" required>
+            <input type="text" name="assembly" class="form-control" ng-model="date" ng-pattern="regex" required>
            <!--  <p ng-show="userForm.assembly.$invalid && !userForm.assembly.$pristine" class="help-block">You assemblyid is required.</p> -->
              <!--  <p ng-show="userForm.assembly.$valid " class="help-block">Valid pattern is required.</p> -->
              <span style="color:red" ng-show="userForm.assembly.$error.pattern">Not a valid Id</span>

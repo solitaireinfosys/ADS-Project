@@ -6,10 +6,10 @@ angular.module('app')
 .controller('AssembliesBuilderCtrl', function($scope, $sce, $filter, $http, $compile, $TreeDnDConvert) {
 
 
-    // $http.get('assets/js/api/country_region.json').success(function(data) {
-    //     $scope.countries = data.country;
-    //     $scope.regions = data.region;
-    // });
+    $http.get('assets/js/api/country_region.json').success(function(data) {
+        $scope.countries = data.country;
+        $scope.regions = data.region;
+    });
 
     var tree;
     $scope.leftTreeData = {};
@@ -30,41 +30,41 @@ angular.module('app')
         {
             'id': 1,
             'ParentId':      null,
-            'name': 'PRODUCT CATEGORY_1',
+            'name': 'Product Group',
             'type': 'group'
         },{
             'id': 2,
             'ParentId': 1,
-            'name': 'PRODUCT TYPE',
+            'name': 'Product Group',
             'type': 'group'
         },{
             'id': 3,
             'ParentId': 2,
-            'name': 'PRODUCT ITEM PRODUCT SKU',
+            'name': 'Product Item Product SKU',
             'type': 'product',
             'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
         },{
             'id': 4,
             'ParentId': 2,
-            'name': 'PRODUCT ITEM PRODUCT SKU',
+            'name': 'Product Item Product SKU',
             'type': 'product',
             'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
         },{
             'id': 5,
             'ParentId': 2,
-            'name': 'PRODUCT ITEM PRODUCT SKU',
+            'name': 'Product Item Product SKU',
             'type': 'product',
             'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
         },{
             'id': 6,
             'ParentId': 2,
-            'name': 'PRODUCT ITEM PRODUCT SKU',
+            'name': 'Product Item Product SKU',
             'type': 'product',
             'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
         },{
             'id': 7,
             'ParentId': 2,
-            'name': 'PRODUCT ITEM PRODUCT SKU',
+            'name': 'Product Item Product SKU',
             'type': 'product',
             'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
         },
