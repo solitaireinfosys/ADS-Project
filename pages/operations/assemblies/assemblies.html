@@ -19,7 +19,7 @@
             <h1>ASSEMBLIES</h1>
         </div>
         <div>
-            <h3 class="inline">This is a complete list of all current customers</h3>
+            <h4 class="inline">This is a complete list of all current customers</h4>
             <button class="btn btn-custom btn-cons pull-right" ng-click="showModal()">CREATE NEW ASSEMBLY</button>
         </div>
     </div>
@@ -68,16 +68,16 @@
             <div class="modal-header clearfix ">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
                 </button>
-                <h4 class="p-b-5"><span class="semi-bold">New</span> Assembly</h4>
+                <h5 class="pull-left"><span class="semi-bold">New</span> Assembly</h5>
             </div>
             <div class="modal-body">
-                <p class="small-text">Form create a new assembly</p>
+                <p>Form creates a new assembly.</p>
                
 
                 <form name="userForm" novalidate>
 
         <div class="form-group form-group-default" ng-class="{ 'has-error' : userForm.assembly.$invalid && !userForm.assembly.$pristine }">
-            <label for="assembly">Name</label>
+            <label for="assembly">Assembly id</label>
             <input type="text" name="assembly" class="form-control" ng-model="date" ng-pattern="regex" required>
            <!--  <p ng-show="userForm.assembly.$invalid && !userForm.assembly.$pristine" class="help-block">You assemblyid is required.</p> -->
              <!--  <p ng-show="userForm.assembly.$valid " class="help-block">Valid pattern is required.</p> -->
@@ -85,13 +85,13 @@
         </div>
       
         <div class="form-group form-group-default" ng-class="{ 'has-error' : userForm.manufacturer.$invalid && !userForm.manufacturer.$pristine }">
-            <label>Manufacturer</label>
+            <label>Manufacture</label>
             <input type="text" name="manufacturer" class="form-control" ng-model="user.manufacturer" required>
            <!--  <p ng-show="userForm.manufacturer.$error.minlength" class="help-block">Username is too short.</p> -->
         </div>
-        <div class="modal-footer">
-        <button type="submit" class="btn btn-warning pull-left" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary btn-custom  btn-cons pull-right" ng-disabled="userForm.$invalid" ng-click="Save()">Submit</button>
+        <div class="form-group-default">
+        <button type="submit" class="btn btns btn-warning pull-left" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btns btn-primary btn-custom  btn-cons pull-right" ng-disabled="userForm.$invalid" ng-click="Save()">Submit</button>
         </div>
     </form>
             </div>

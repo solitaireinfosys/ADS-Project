@@ -16,3 +16,9 @@
     border-color: black;
     color:#fffefe;
 }
+.table {
+     margin-top: 10px !important; 
+
+h5{
+ text-transform: none !important;
+}

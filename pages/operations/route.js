@@ -46,4 +46,22 @@ angular.module('app')
                         }]
                     }
                 })
+                .state('app.products', {
+                    url: "/products",
+                    templateUrl: "pages/operations/products/products.html",
+                    controller: 'ProductsCtrl',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load(['dataTables'], {
+                                insertBefore: '#lazyload_placeholder',
+                            })
+                            .then(function () {
+                                return $ocLazyLoad.load([
+                                    'pages/operations/products/products.js',
+                                    'pages/operations/products/products.css'
+                                ]);
+                            });
+                        }]
+                    }
+                })
         }]);

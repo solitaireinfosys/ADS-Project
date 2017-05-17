@@ -1,16 +1,20 @@
 <!-- START PAGE COVER -->
-<div class="container-fluid container-fixed-lg ">
-    <ul class="breadcrumb">
-        <li>
-            <a href="#">DASHBOARD</a>
-        </li>
-        <li><a href="#">ASSEMBLY BUILDER</a>
-        </li>
-        <li><a class="active" href="#">ASSEMBLY NAME</a>
-        </li>
-    </ul>
-    <!-- END BREADCRUMB -->
-    <h3 class="page-title"></h3>
+<div class="jumbotron" data-pages="parallax">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="inner" style="transform: translateY(0px); opacity: 1;">
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">DASHBOARD</a>
+                </li>
+                <li><a href="#">ASSEMBLY BUILDER</a>
+                </li>
+                 <li><a href="#" class="active">ASSEMBLY NAME</a>
+                </li>
+            </ul>
+            <!-- END BREADCRUMB -->
+        </div>
+    </div>
 </div>
 <div class="header-container">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
@@ -18,7 +22,7 @@
             <h1>ASSEMBLYNAME</h1>
         </div>
         <div>
-            <h3 class="inline">Build the assemble save it and add more later.</h3>
+            <h5 class="inline" style="text-transform: none !important;">Build the assemble save it and add more later.</h5>
              <button class="btn btnSave btn-success pull-right" ng-click="showModal()">SAVE ASSEMBLY</button>
                         <button class="btn btnImport btn-cons pull-right" ng-click="showModal()">IMPORT ASSEMBLY</button>
         </div>
@@ -29,7 +33,7 @@
     <hr/>
     <div class="row">
 
-        <div class="col-md-4" style="max-width: 422px;">
+        <div class="col-md-4">
             <div class="input-group product-search-group">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
                 <input type="text" class="form-control search-group-box" placeholder="Search Parts, Bundles etc"
@@ -54,9 +58,9 @@
             </div>
         </div>
 
-        <div class="col-md-8" style="width: 1234px;">
+        <div class="col-md-8">
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-4" style="width: auto; margin: 0; padding: 0;">
                     <div class="form-group-attached">
                         <div pg-form-group="" class="form-group form-group-default required customer">
@@ -76,7 +80,7 @@
                         </ui-select>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div>
                 <tree-dnd tree-class="table table-hover table-striped table-product-description"
                           tree-data="rightTreeData"
@@ -153,7 +157,7 @@
     <table ng-class="$tree_class">
         <thead>
         <tr>
-            <th ng-class="expandingProperty.titleClass" ng-style="expandingProperty.titleStyle"
+            <th style="width: 47%;" ng-class="expandingProperty.titleClass" ng-style="expandingProperty.titleStyle"
 
                 compile="expandingProperty.titleTemplate">
                 {{expandingProperty.displayName || expandingProperty.field || expandingProperty}}
@@ -177,7 +181,7 @@
                 </a>
 
 
-                <span class="product-info">Product Name123, Product SKU</span>
+                <span class="product-info">Product Name, Product SKU</span>
                 <div ng-if="node.edit" style="margin-left: 1.3em;">
                     <input type="text" ng-model="node['description']" />
                 </div>
