@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('app')
-.controller('AssembliesBuilderCtrl', function($scope, $sce, $filter, $http, $compile, $TreeDnDConvert) {
+.controller('CreateOrdersCtrl', function($scope, $sce, $filter, $http, $compile, $TreeDnDConvert) {
 
 
     $http.get('assets/js/api/country_region.json').success(function(data) {
@@ -30,12 +30,12 @@ angular.module('app')
         {
             'id': 1,
             'ParentId':      null,
-            'name': 'PRODUCT GROUP',
+            'name': 'Product Category_1',
             'type': 'group'
         },{
             'id': 2,
             'ParentId': 1,
-            'name': 'Product GROUP',
+            'name': 'Product Type',
             'type': 'group'
         },{
             'id': 3,

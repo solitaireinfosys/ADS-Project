@@ -1,79 +1,82 @@
 BEGIN SIDEBAR -->
-    <div class="page-sidebar" data-pages="sidebar" pg-sidebar>
-      <div id="appMenu" class="sidebar-overlay-slide from-top">
-      </div>
-      <!-- BEGIN SIDEBAR HEADER -->
-      <div class="sidebar-header">
+<div class="page-sidebar" data-pages="sidebar" pg-sidebar>
+    <div id="appMenu" class="sidebar-overlay-slide from-top">
+    </div>
+    <!-- BEGIN SIDEBAR HEADER -->
+    <div class="sidebar-header">
         <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
         <div class="sidebar-header-controls">
-          <button data-pages-toggle="#appMenu" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" type="button"><i class="fa fa-angle-down fs-16"></i>
-          </button>
-          <button data-toggle-pin="sidebar" class="btn btn-link visible-lg-inline" type="button"><i class="fa fs-12"></i>
-          </button>
+            <button data-pages-toggle="#appMenu" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" type="button"><i class="fa fa-angle-down fs-16"></i>
+            </button>
+            <button data-toggle-pin="sidebar" class="btn btn-link visible-lg-inline" type="button"><i class="fa fs-12"></i>
+            </button>
         </div>
-      </div>
-      <!-- END SIDEBAR HEADER -->
-      <!-- BEGIN SIDEBAR MENU -->
-      <div class="sidebar-menu">
+    </div>
+    <!-- END SIDEBAR HEADER -->
+    <!-- BEGIN SIDEBAR MENU -->
+    <div class="sidebar-menu">
         <ul class="menu-items">
-        <li>
-            <a href="#">
-              <span class="title">Sales</span>
-              <span class="arrow"></span>
-            </a>
-            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            <ul class="sub-menu">
             <li>
-            <a ui-sref="app.customers" class="detailed">
-              <span class="title">Customers</span>
-            </a>
-          </li>
-             <!--  <li>
+                <a href="#">
+                    <span class="title">Sales</span>
+                    <span class="arrow"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+                <ul class="sub-menu">
+                    <li>
+                        <a ui-sref="app.customers" class="detailed">
+                            <span class="title">Customers</span>
+                        </a>
+                    </li>
+                    <!--  <li>
                 <a href="#/app/sales/customers">Customers</a>
                 <span class="icon-thumbnail">CS</span>
               </li> -->
-              <li>
-                <a href="#">Orders</a>
-                <span class="icon-thumbnail">OR</span>
-              </li>
-            </ul>
-          </li>
-           <li>
-            <a href="#">
-              <span class="title">Marketing</span>
-              <span class="arrow"></span>
-            </a>
-            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            <ul class="sub-menu">
-              <li>
-                <a href="#">Targets</a>
-                <span class="icon-thumbnail">TR</span>
-              </li>
-            </ul>
-          </li>
-           <li>
-            <a href="#">
-              <span class="title">Operations</span>
-              <span class="arrow"></span>
-            </a>
-            <span class="icon-thumbnail"><i class="pg-grid"></i></span>
-            <ul class="sub-menu">
-              <li>
-                 <a ui-sref="app.assemblies" class="detailed">
-              <span class="title">Assemblies</span>
-            </a>
-              </li>
-              <li >
-                <a href="#">Products</a>
-                <span class="icon-thumbnail">PS</span>
-              </li>
-               <li>
-                <a href="#">Inventory</a>
-                <span class="icon-thumbnail">IV</span>
-              </li>
-            </ul>
-          </li>
-         <!--  <li class="m-t-30" ng-class="{'open active':includes('app.dashboard')}">
+                    <li>
+                      <a ui-sref="app.orders" class="detailed">
+                            <span class="title">Orders</span>
+                        </a>
+                        <!-- <span class="icon-thumbnail">OR</span> -->
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="title">Marketing</span>
+                    <span class="arrow"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="#">Targets</a>
+                        <span class="icon-thumbnail">TR</span>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="title">Operations</span>
+                    <span class="arrow"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+                <ul class="sub-menu">
+                    <li>
+                        <a ui-sref="app.assemblies" class="detailed">
+                            <span class="title">Assemblies</span>
+                        </a>
+                    </li>
+                      <li>
+                        <a ui-sref="app.products" class="detailed">
+                            <span class="title">Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Inventory</a>
+                        <span class="icon-thumbnail">IV</span>
+                    </li>
+                </ul>
+            </li>
+            <!--  <li class="m-t-30" ng-class="{'open active':includes('app.dashboard')}">
             <a href="#" class="detailed">
               <span class="title">Dashboard</span>
               <span class="details">12 notifications</span>
@@ -86,8 +89,8 @@ BEGIN SIDEBAR -->
             </a>
             <span class="icon-thumbnail "><i class="pg-social"></i></span>
           </li> -->
-          <!--marketing-->
-         <!--  <li>
+            <!--marketing-->
+            <!--  <li>
             <a href="#">
               <span class="title">Marketing</span>
               <span class=" arrow"></span>
@@ -112,8 +115,8 @@ BEGIN SIDEBAR -->
               </li>
             </ul>
           </li> -->
-          <!--crm-->
-         <!--  <li>
+            <!--crm-->
+            <!--  <li>
             <a href="#">
               <span class="title">CRM</span>
               <span class=" arrow"></span>
@@ -138,8 +141,8 @@ BEGIN SIDEBAR -->
               </li>
             </ul>
           </li> -->
-          <!--production-->
-          <!-- <li >
+            <!--production-->
+            <!-- <li >
             <a href="#">
               <span class="title">Production</span>
               <span class=" arrow"></span>
@@ -180,8 +183,8 @@ BEGIN SIDEBAR -->
               </li>
             </ul>
           </li> -->
-          <!--materials-->
-         <!--  <li>
+            <!--materials-->
+            <!--  <li>
             <a href="#">
               <span class="title">Materials</span>
               <span class=" arrow"></span>
@@ -202,8 +205,8 @@ BEGIN SIDEBAR -->
               </li>
             </ul>
           </li> -->
-          <!--hr-->
-         <!--  <li >
+            <!--hr-->
+            <!--  <li >
             <a href="">
               <span class="title">Human Resources</span>
               <span class=" arrow"></span>
@@ -232,15 +235,15 @@ BEGIN SIDEBAR -->
               </li>
             </ul>
           </li> -->
-          <!--site settings-->
-          <!-- <li ng-class="{'open active':includes('app.site_settings')}">
+            <!--site settings-->
+            <!-- <li ng-class="{'open active':includes('app.site_settings')}">
             <a href="#/app/site_settings">
               <span class="title">Site Settings</span>
             </a>
             <span class="icon-thumbnail "><i class="pg-social"></i></span>
           </li> -->
-          <!--configuration-->
-          <!-- <li>
+            <!--configuration-->
+            <!-- <li>
             <a href="">
               <span class="title">Configuration</span>
               <span class=" arrow"></span>
@@ -271,7 +274,7 @@ BEGIN SIDEBAR -->
           </li> -->
         </ul>
         <div class="clearfix"></div>
-      </div>
-      <!-- END SIDEBAR MENU -->
     </div>
-    <!-- END SIDEBAR
+    <!-- END SIDEBAR MENU -->
+</div>
+<!-- END SIDEBAR

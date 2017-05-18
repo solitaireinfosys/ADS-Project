@@ -20,7 +20,6 @@
         </div>
         <div>
             <h4 class="inline">This is a complete list of all current products</h4>
-            <button class="btn btn-custom btn-cons pull-right" ng-click="showModal()">CREATE NEW ASSEMBLY</button>
         </div>
     </div>
 </div>
@@ -29,14 +28,14 @@
     <div class="col-lg-3 col-md-3">
         <div class="filterBox">
             <h5 class="filtertitle">FILTERBAR</h5>
-            <div class="filterItem">
-            <div class="row">
-                <p class="col-md-6" style="margin:10px"><b>YOUR FILTERS</b></p>
-                <p class="col-md-4 pull-right" style="margin:10px"><b>CLEAR</b></p>
-                </div>               
-                <div class="">
+            <div class="filterItem">                           
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" style="margin-bottom: 20px;">
+                <div class="FilteredORclear">
+                    <label class="pull-left"><b>YOUR FILTERS</b></label>
+                    <label class="pull-right ClearAll"><b>CLEAR ALL</b></label>
+                </div>
                             <div class="panel-heading costf" role="tab">
                                <p class="panel-title">
                                     <span class="glyphicon glyphicon-education"></span> <span class="grouptitle"> PARTID_121 <i class="fs-14 pg-close pull-right"></i></span>
@@ -45,7 +44,7 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default" ng-repeat="group in group1">
+                        <div class="panel BgColor_1 panel-default" ng-repeat="group in group1">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
                             <a ng-class="{collapsed:!collapseOne}" ng-click="collapseOne=!collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class={{group.icon}}></span>
@@ -61,25 +60,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel BgColor_1 panel-default">
                             <div class="panel-heading costf">
                                 <p class="panel-title">
                                     <span class="glyphicon glyphicon-list-alt"></span> <span class="grouptitle"> COST|MSRP</span>
                                 </p>
-                                <div class="row">
-                                    <p class="col-md-6">FROM</p>
-                                     <p class="col-md-6">TO</p>
+                                <div class="col-md-12">
+                                     <span class="SearchFromLbl_1">FROM</span>
+                                     <span class="SearchFromLbl_2">TO</span>
                                 </div>
-                                <div class="">
-                                    <input type="text" class="searchFrom col-md-5"/>
-                                    <input type="text" class="searchTo col-md-5"/>
+                                <div class="SearchForm">
+                                    <input type="text" class="searchFrom form-control"/>
+                                    <input type="text" class="searchTo form-control"/>
                                     <span class="glyphicon glyphicon-search"></span> 
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" ng-repeat="group in group2">
+                        <div class="panel FA_Icon BgColor_1 panel-default" ng-repeat="group in group2">
                             <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
+                                <h4 class="panel-title FA_Icon">
                             <a ng-class="{collapsed:!collapseOne}" ng-click="collapseOne=!collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class={{group.icon}}></span>
                                 <span class="grouptitle">{{group.title}} </span></a>
                           </h4>
@@ -95,17 +94,18 @@
                     </div>
                 </div>
             </div>
+           
         </div>
     </div>
     <div class="panel panel-transparent col-lg-9 col-md-9">
         <div class="panel-heading">
             <div class="panel-title">
             </div>
-            <!-- <div class="pull-right">
-                <div class="col-xs-12">
+            <div class="pull-right">
+                <div class="Tbl_Search">
                     <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                 </div>
-            </div> -->
+            </div>
             <div class="clearfix"></div>
         </div>
         <div class="panel-body">
@@ -113,20 +113,25 @@
                 <thead>
                     <tr>
                         <th width="30%" class="">NAME</th>
-                        <th width="30%" class="">DESCRIPTION</th>
-                        <th width="20%" class="">INVENTORY</th>
-                        <th width="30%" class="">$COST</th>
+                        <th width="40%" class="">DESCRIPTION</th>
+                        <th width="30%" class="">INVENTORY</th>
+                        <th width="20%" class="">$COST</th>
                         <th width="20%" class="">$MSRP</th>
-                        <th width="30%">STATUS</th>
+                        <th width="20%">STATUS</th>
                         <th width="20%" class="">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    </tr>
+                   
                 </tbody>
             </table>
         </div>
     </div>
     <!-- END PANEL -->
 </div>
+
+ <script type="text/javascript">
+     $('#table').dataTable({
+        "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ 1,2,6 ] }]
+        });
+</script>

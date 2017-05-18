@@ -58,7 +58,8 @@ angular.module('app')
                             .then(function () {
                                 return $ocLazyLoad.load([
                                     'pages/operations/products/products.js',
-                                    'pages/operations/products/products.css'
+                                    'pages/operations/products/products.css',
+                                    'core/css/table.css'
                                 ]);
                             });
                         }]

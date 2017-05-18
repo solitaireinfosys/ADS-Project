@@ -7,15 +7,13 @@ h4 {
 }
 
 .filterBox {
-    min-height: 400px;
-    border: 1px solid #b5b5b5;
-    margin-top: 47px;
+    border: 1px solid #ededed;
+    margin: 20px 0px;
+    display: inline-block;
 }
 
 .filterItem {
-    margin: 10px;
-    border: 1px solid #b5b5b5;
-    min-height: 390px;
+
 }
 
 .filtertitle {
@@ -32,8 +30,6 @@ h4 {
 }
 
 .searchTo {
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 .glyphicon {
@@ -41,11 +37,87 @@ h4 {
     margin-top: 5px;
 }
 .grouptitle{
-	margin-left: 10px;
+    margin-left: 10px;
+    font-size: 13px;
 }
 ul {
   list-style-type: none;
 }
 .pg-close{
-	margin-top: 10px;
+    margin-top: 10px;
+}
+.clear{
+    margin-top:10px;
+    color:#1c91f9;
+}
+
+/*Om*/
+.jumbotron{
+    margin-bottom:0!important;
+}
+.header-container {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 5px;
+}
+.header-container h1{
+    margin:0!important;    
+}
+.header-container h4{
+    margin: -9px 0px!important;
+    font-size:20px;
+}
+.header-container h1,
+.header-container h4{
+    color: #00698c;
+}
+.FilteredORclear{
+    float: left;
+    padding: 10px 15px;
+    width: 100%;
+}
+.FilteredORclear label.ClearAll{
+    color: #00698c;
+}
+
+.filterBox .panel.BgColor_1{
+    background-color: #fbfbfb!important;
+}
+.filterBox .filterItem .panel p{
+    font-size: 12px;
+    font-family: arial;
+    color: #9c9c9c;
+}
+.filterBox .SearchFromLbl_1{
+
+position: relative;
+
+left: -13px;
+}
+.filterBox .SearchFromLbl_2{
+
+position: relative;
+
+left: 44px;
+}
+.filterBox .SearchForm .form-control{
+    width: 42%;
+    display: initial;
+    padding: 0px 6px;
+    margin: 0px 4px 0px 0px;
+}
+.filterBox .SearchForm span{
+position: relative;
+left: 8px;
+cursor: pointer;
+}
+
+.filterBox .panel-group .panel-heading .panel-title > a.collapsed:after {
+  content: "\f054";
+  color: rgba(98, 98, 98, 0.7);
+}
+.filterBox .panel-group .panel-heading .panel-title > a:after {
+    content: "\f078";
+}
+
+.filterBox .panel-group .panel-heading .panel-title.FA_Icon > a:after {
+    content: "\f0dc"!important;
 }

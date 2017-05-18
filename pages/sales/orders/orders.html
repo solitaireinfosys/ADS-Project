@@ -1,0 +1,123 @@
+<div class="jumbotron" data-pages="parallax">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="inner" style="transform: translateY(0px); opacity: 1;">
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li><a href="#" class="active">ORDERS</a>
+                </li>
+            </ul>
+            <!-- END BREADCRUMB -->
+        </div>
+    </div>
+</div>
+<div class="header-container">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div>
+            <h1>ORDERS</h1>
+        </div>
+        <div>
+            <h4 class="inline linetext">This is a complete list of all current orders.</h4>
+            <button class="btn btn-custom btn-cons pull-right" ng-click="showModal()">CREATE NEW ORDER</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-fixed-lg">
+    <!-- START PANEL -->
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+            </div>
+            <div class="pull-right">
+                <div class="col-xs-12">
+                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <table class="table expanding table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
+                <thead>
+                    <tr>
+                        <th width="30%" class="">CUSTOMERS</th>
+                        <th width="40%" class="">DESCRIPTION</th>
+                        <th width="20%" class="">INVENTORY</th>
+                        <th width="20%" class="">$COST</th>
+                        <th width="20%" class="">$MSRP</th>
+                        <th width="20%">STATUS</th>
+                        <th width="30%" class="">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="order in Orders">
+                    <td>{{order.customers}}</td>
+                    <td>{{order.description}}</td>
+                    <td>{{order.inventory}}</td>
+                    <td>{{order.cost}}</td>
+                    <td>{{order.msrp}}</td>
+                    <td>{{order.status}}</td>
+                    <td><a href="#/app/invoice">View</a> <a href="">Edit</a> <a href="">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END PANEL -->
+</div>
+
+
+<div class="modal stick-up" id="createOrder" tabindex="-1" role="dialog" aria-labelledby="createOrder" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                    <h5><span style="color:#8a8a8a !important;">New</span> <span class="semi-bold">Order</span></h5>
+                    <p class="p-b-10">Form creates a new order.</p>
+                </div>
+                <div class="modal-body">
+                    <form role="orderForm" novalidate>
+                        <div class="form-group-attached">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error' : orderForm.customer.$invalid && !orderForm.customer.$pristine }">
+                                        <label for="customer">Customer</label>
+                                        <input type="text" name="customer" class="form-control" ng-model="date" required>
+                                        <span style="color:red" ng-show="orderForm.customer.$error.pattern">Not a valid Assembly Id</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error' : orderForm.description.$invalid && !orderForm.description.$pristine }">
+                                        <label>Description</label>
+                                        <input type="text" name="description" class="form-control" ng-model="user.description" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 m-t-10 sm-m-t-10 ">
+                            <button type="submit" class="btn btn-warning btn-block m-t-5" data-dismiss="modal">Cancel</button>
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 m-t-10 sm-m-t-10">
+                            <button type="submit" class="btn btn-complete active btn-block m-t-5" ng-disabled="orderForm.$invalid" ng-click="Save()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+
+  
+ <script type="text/javascript">
+     $('#table').dataTable({
+        "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ 1,2,6 ] }]
+        });
+</script>
