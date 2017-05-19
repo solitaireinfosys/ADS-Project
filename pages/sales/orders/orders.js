@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('OrdersCtrl', ['$scope', '$location', '$window', '$filter',
-        function($scope, $location, $window, $filter) {
+    .controller('OrdersCtrl', ['$scope', '$location', '$window', '$filter','OrderService',
+        function($scope, $location, $window, $filter,OrderService) {
             $scope.showModal = showModal;
 
             function showModal() {
@@ -18,19 +18,14 @@ angular.module('app')
                 }, 10);
             }
 
-            $scope.Orders = [{
-                'customers':'COCA COLA',
-                'description': 'Long text area.',
-                'inventory':202,
-                'cost':'$100',
-                'msrp':'$200',
-                'status':'PENDING',
-                'actions':[{
-                    'action1':'View',
-                    'action2':'Edit',
-                    'action3':'Delete'
-                }],
-                
-            }]
+            $scope.getOrders = function() {
+
+                OrderService.getAllOrders()
+                    .success(function(result) {
+                        $scope.Orders = result;
+                    });
+            };
+            $scope.getOrders();
+
         }
     ]);

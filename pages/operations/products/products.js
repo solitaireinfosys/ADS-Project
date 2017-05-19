@@ -3,8 +3,17 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('ProductsCtrl', ['$scope', '$location', '$window', '$filter',
-        function($scope, $location, $window, $filter) {
+    .controller('ProductsCtrl', ['$scope','ProductService',
+        function($scope, ProductService) {
+
+            $scope.getProducts = function() {
+
+                ProductService.getAllProducts()
+                    .success(function(result) {
+                        $scope.products = result;
+                    });
+            };
+            $scope.getProducts();
 
             $scope.group1 = [{
                 title: "PRODUCT",
@@ -14,8 +23,8 @@ angular.module('app')
                 title: "TYPE",
                 icon: "glyphicon glyphicon-list-alt",
                 items: [{ "item-title": "TYPE 3" }, { "item-title": "TYPE 4" }]
-            },];
-              $scope.group2 = [{
+            }, ];
+            $scope.group2 = [{
                 title: "BRAND",
                 icon: "glyphicon glyphicon-list-alt",
                 items: [{ "item-title": "BRAND 1" }, { "item-title": "BRAND 2" }]
@@ -23,7 +32,7 @@ angular.module('app')
                 title: "APPLICATION",
                 icon: "glyphicon glyphicon-list-alt",
                 items: [{ "item-title": "APPLICATION 3" }, { "item-title": "APPLICATION 4" }]
-            },];
+            }, ];
 
 
         }

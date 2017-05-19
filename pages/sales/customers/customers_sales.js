@@ -3,11 +3,16 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('CustomerSalesCtrl', ['$scope', 'SETTINGS','DTOptionsBuilder', 'DTColumnDefBuilder','DTColumnBuilder',
-     function($scope,SETTINGS,DTOptionsBuilder, DTColumnDefBuilder,DTColumnBuilder) {
+    .controller('CustomerSalesCtrl', ['$scope', 'CustomerService', '$http',
+        function($scope, CustomerService, $http) {
 
-		var myEl = angular.element(document.querySelector('.sorting_disabled'));
-		myEl.removeClass('sorting'); 
+            $scope.getCustomers = function() {
 
-     
-    }]);
+                CustomerService.getAllCustomers()
+                    .success(function(result) {
+                        $scope.customer = result;
+                    });
+            };
+            $scope.getCustomers();
+        }
+    ]);

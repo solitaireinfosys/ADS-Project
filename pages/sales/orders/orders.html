@@ -38,25 +38,25 @@
             <div class="clearfix"></div>
         </div>
         <div class="panel-body">
-            <table class="table expanding table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
+            <table datatable="ng" class="table expanding table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
                 <thead>
                     <tr>
-                        <th width="30%" class="">CUSTOMERS</th>
-                        <th width="40%" class="">DESCRIPTION</th>
-                        <th width="20%" class="">INVENTORY</th>
-                        <th width="20%" class="">$COST</th>
-                        <th width="20%" class="">$MSRP</th>
-                        <th width="20%">STATUS</th>
-                        <th width="30%" class="">Actions</th>
+                        <th class="">CUSTOMERS</th>
+                        <th class="sorting_disabled">DESCRIPTION</th>
+                        <th class="">INVENTORY</th>
+                        <th class="">$COST</th>
+                        <th class="">$MSRP</th>
+                        <th>STATUS</th>
+                        <th class="">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="order in Orders">
-                    <td>{{order.customers}}</td>
+                    <td>{{}}</td>
                     <td>{{order.description}}</td>
-                    <td>{{order.inventory}}</td>
+                    <td>{{order.inventoryOnHand}}</td>
                     <td>{{order.cost}}</td>
-                    <td>{{order.msrp}}</td>
+                    <td>{{}}</td>
                     <td>{{order.status}}</td>
                     <td><a href="#/app/invoice">View</a> <a href="">Edit</a> <a href="">Delete</a></td>
                 </tr>
@@ -116,8 +116,8 @@
 </div>
 
   
- <script type="text/javascript">
+<!--  <script type="text/javascript">
      $('#table').dataTable({
         "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ 1,2,6 ] }]
         });
-</script>
+</script> -->
