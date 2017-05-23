@@ -41,28 +41,37 @@
             <table datatable="ng" class="table expanding table-hover table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
                 <thead>
                     <tr>
-                        <th class="">NAME</th>
-                        <th class="">MARKET</th>
-                        <th class="">COUNTRY</th>
-                        <th class="">REGION|STATE</th>
-                        <th class="">CITY</th>
-                        <th class="">TERRITORY|DIVISION</th>
+                        <th class="">COMPANY</th>
+                        <th class="">FIRST NAME</th>
+                        <th class="">LAST NAME</th>
+                        <th class="">EMAIL</th>
+                        <th class="">PHONE</th>
                         <th class="">DATE CREATED</th>
-                        <th>STATUS</th>
-                        <th class="">Actions</th>
+                        <th class="">DATE MODIFIED</th>
+                        <th class="">STORE CREDIT</th>
+                        <th class="">IP ADDRESS</th>
+                        <th class="">GROUP ID</th>
+                        <th class="">NOTES</th>
+                        <th class="">TAX EXEMPT CATEGORY</th>
+                        <!--<th>STATUS</th>-->
+                        <!--<th class="">Actions</th>-->
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="cust in customer">
                         <td>{{cust.company}}</td>
-                        <td>{{}}</td>
-                        <td>{{}}</td>
-                        <td>{{}}</td>
-                        <td>{{}}</td>
-                        <td>{{}}</td>
+                        <td>{{cust.first_name}}</td>
+                        <td>{{cust.last_name}}</td>
+                        <td>{{cust.email}}</td>
+                        <td>{{cust.phone}}</td>
                         <td>{{cust.date_created| date:"yyyy/MM/dd"}}</td>
-                        <td>{{}}</td>
-                        <td>{{}}</td>
+                        <td>{{cust.date_modified| date:"yyyy/MM/dd"}}</td>
+                        <td>{{cust.store_credit}}</td>
+                        <td>{{cust.registration_ip_address}}</td>
+                        <td>{{cust.customer_group_id}}</td>
+                        <td>{{cust.notes}}</td>
+                        <td>{{cust.tax_exempt_category}}</td>
+                        <!--<td><VIEW</td>-->
                     </tr>
                 </tbody>
             </table>

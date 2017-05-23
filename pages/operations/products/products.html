@@ -37,49 +37,78 @@
                                 <label class="pull-right ClearAll"><b>CLEAR ALL</b></label>
                             </div>
                             <div class="panel-heading costf" role="tab">
-                                <p class="panel-title">
-                                    <span class="glyphicon glyphicon-education"></span> <span class="grouptitle"> PARTID_121 <i class="fs-14 pg-close pull-right"></i></span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="panel BgColor_1 panel-default" ng-repeat="group in group1">
-                            <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                            <a ng-class="{collapsed:!collapseOne}" ng-click="collapseOne=!collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class={{group.icon}}></span>
-                                <span class="grouptitle">{{group.title}} </span></a>
-                            <p>SOME EXAMPLE SKILL</p>
-                          </h4>
-                            </div>
-                            <div class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" ng-class="{in:collapseOne}">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li ng-repeat="item in group.items">{{item['item-title']}}</li>
-                                    </ul>
-                                </div>
+                                    <span class="glyphicon glyphicon-education"></span> <span class="grouptitle"> PARTID_121 <i class="fs-16 pg-close pull-right"></i></span>
+                                </h4>
                             </div>
                         </div>
                         <div class="panel BgColor_1 panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <span class="glyphicon glyphicon-education"></span>
+                                    <a class="filtersmenu" uib-popover-template="categoryPopover.templateUrl" popover-is-open="isOpen" popover-placement="right"
+                                        popover-trigger="outsideClick"><span class="grouptitle">CATEGORY</span></a>
+                                    <p>SOME EXAMPLE SKILL</p>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="panel BgColor_1 panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                    <a class="filtersmenu" uib-popover-template="typePopover.templateUrl" popover-is-open="isOpens" popover-placement="right"
+                                        popover-trigger="outsideClick"><span class="grouptitle">TYPE</span></a>
+                                    <p>SOME EXAMPLE SKILL</p>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <script type="text/ng-template" id="CategoryTemplate.html">
+                                <h5>Filter by Category<a ng-click="close()"><span><i class="fs-16 pg-close pull-right"></i></span></a></h5>
+                                <div ng-repeat="category in categories">
+                                    <div>
+                                        <h5 class="col-md-6"><span class="filsize">{{category.text}}</span><span class="pull-right filtval">{{category.value}}</span></h5>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success pull-right filterBtn">Submit</button>
+                            </script>
+                        </div>
+                        <div class="col-md-12">
+                            <script type="text/ng-template" id="TypeTemplate.html">
+                                <h5>Filter by Type<a ng-click="close()"><span><i class="fs-16 pg-close pull-right"></i></span></a></h5>
+                                <div ng-repeat="type in types">
+                                    <div>
+                                        <h5 class="col-md-6"><span class="filsize">{{type.text}}</span><span class="pull-right filtval">{{type.value}}</span></h5>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success pull-right filterBtn">Submit</button>
+                            </script>
+                        </div>
+                        <div class="panel BgColor_1 panel-default">
                             <div class="panel-heading costf">
-                                <p class="panel-title">
-                                    <span class="glyphicon glyphicon-list-alt"></span> <span class="grouptitle"> COST|MSRP</span>
-                                </p>
+                                <h4 class="panel-title">
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                    <span class="grouptitle"> COST|MSRP</span>
+                                </h4>
                                 <div class="col-md-12">
-                                    <span class="SearchFromLbl_1">FROM</span>
-                                    <span class="SearchFromLbl_2">TO</span>
+                                    <span class="SearchFromLbl_1 grouptitle col-md-4 pull-left">FROM</span>
+                                    <span class=" grouptitle col-md-4">TO</span>
                                 </div>
                                 <div class="SearchForm">
-                                    <input type="text" class="searchFrom form-control" />
-                                    <input type="text" class="searchTo form-control" />
-                                    <span class="glyphicon glyphicon-search"></span>
+                                    <h4 class="panel-title">
+                                        <input type="text" class="searchFrom form-control" />
+                                        <input type="text" class="searchTo form-control" />
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </h4>
                                 </div>
                             </div>
                         </div>
                         <div class="panel FA_Icon BgColor_1 panel-default" ng-repeat="group in group2">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title FA_Icon">
-                            <a ng-class="{collapsed:!collapseOne}" ng-click="collapseOne=!collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class={{group.icon}}></span>
+                                    <a ng-class="{collapsed:!collapseOne}" ng-click="collapseOne=!collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class={{group.icon}}></span>
                                 <span class="grouptitle">{{group.title}} </span></a>
-                          </h4>
+                                </h4>
                             </div>
                             <div class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" ng-class="{in:collapseOne}">
                                 <div class="panel-body">
@@ -106,7 +135,8 @@
             <div class="clearfix"></div>
         </div>
         <div class="panel-body">
-            <table datatable="ng" class="table expanding table-hover table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
+            <table datatable="ng" class="table expanding table-hover table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options"
+                dt-instance="dtInstance">
                 <thead>
                     <tr>
                         <th class="">NAME</th>
@@ -126,7 +156,7 @@
                         <td>{{product.price}}</td>
                         <td>{{product.price}}</td>
                         <td>{{}}</td>
-                        <td><a href="">View</a></td>
+                        <td><a href="#/products/{{product._id}}">View</a></td>
                     </tr>
                 </tbody>
             </table>

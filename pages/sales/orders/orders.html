@@ -41,25 +41,41 @@
             <table datatable="ng" class="table expanding table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
                 <thead>
                     <tr>
-                        <th class="">CUSTOMERS</th>
+                        <th class="">CUSTOMERS ID</th>
                         <th class="sorting_disabled">DESCRIPTION</th>
                         <th class="">INVENTORY</th>
                         <th class="">$COST</th>
-                        <th class="">$MSRP</th>
+                        <th class="">PRICE</th>
+                        <th>ADDRESS</th>
+                        <th>CREATED DATE</th>
+                        <th>UPDATED DATE</th>
+                        <th>DISCOUNT</th>
+                        <th>QUANTITY</th>
+                        <th>TEENANT ID</th>
+                        <th>USERID</th>
+                        <th>SYS STATE</th>
                         <th>STATUS</th>
                         <th class="">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="order in Orders">
-                    <td>{{}}</td>
-                    <td>{{order.description}}</td>
-                    <td>{{order.inventoryOnHand}}</td>
-                    <td>{{order.cost}}</td>
-                    <td>{{}}</td>
-                    <td>{{order.status}}</td>
-                    <td><a href="#/app/invoice">View</a> <a href="">Edit</a> <a href="">Delete</a></td>
-                </tr>
+                    <tr ng-repeat="order in Orders">
+                        <td>{{order.customerId}}</td>
+                        <td>{{order.description}}</td>
+                        <td>{{order.inventoryOnHand}}</td>
+                        <td>{{order.cost}}</td>
+                        <td>{{order.price}}</td>
+                        <td>{{order.billing_address}}</td>
+                        <td>{{order.dateCreated| date:"yyyy/MM/dd"}}</td>
+                        <td>{{order.dateUpdated| date:"yyyy/MM/dd"}}</td>
+                        <td>{{order.discount}}</td>
+                        <td>{{order.qty}}</td>
+                        <td>{{order.tenantId}}</td>
+                        <td>{{order.userId}}</td>
+                        <td>{{order.sysState}}</td>
+                        <td>{{order.status}}</td>
+                        <td><a href="#/app/invoice">View</a> <a href="">Edit</a> <a href="">Delete</a></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -115,7 +131,7 @@
     </div>
 </div>
 
-  
+
 <!--  <script type="text/javascript">
      $('#table').dataTable({
         "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ 1,2,6 ] }]
