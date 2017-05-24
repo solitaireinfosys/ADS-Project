@@ -25,6 +25,17 @@
                 })
                 .error(function(data) {})
         }
+
+        // function getProductbyId(id){
+        //     return $http({
+        //         method:'GET',
+        //         url:SETTINGS.PRODUCT_GETBYID_SERVICE,
+        //     })
+        //     .success(function(data){
+        //         return data;
+        //     })
+        //     .error(function(data){})
+        // }
     }
 })();
 

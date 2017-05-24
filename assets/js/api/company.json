@@ -1,0 +1,36 @@
+{
+  "category":[
+    {
+      "id":"1",
+      "name":"cat1"
+    },
+    {
+      "id":"2",
+      "name":"cat2"
+    }
+    {
+      "id":"3",
+      "name":"cat3"
+    }
+  ],
+  "type":[
+    {
+      "id":"1",
+      "name":"type1"
+    },
+    {
+      "id":"2",
+      "name":"type2"
+    }
+  ],
+  "stock_symbol":[
+    {
+      "id":"1",
+      "name":"symbol1"
+    },
+    {
+      "id":"2",
+      "name":"symbol2"
+    }
+  ]
+}

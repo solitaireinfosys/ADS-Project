@@ -1,0 +1,513 @@
+$border-color: #868695;
+$light-border-color: #EDEDED;
+
+body {
+  //letter-spacing: normal !important;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('../fonts/segoeui.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('../fonts/segoeui.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('../fonts/SEGOEUIB.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Titillium';
+  src: url('../fonts/Titillium-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Titillium';
+  src: url('../fonts/Titillium-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5 {
+  text-transform: uppercase;
+  //font-weight: bold !important;
+}
+.page {
+  padding: 0px 15px;
+  background: white;
+}
+.sub-title {
+  padding: 20px 30px;
+  color: black;
+  display: flex;
+  > div:first-child {
+    padding-left: 5px;
+  }
+  h3 {
+    font-family: "Titillium";
+    font-size: 35px;
+    margin-top: 0px;
+  }
+  p {
+    margin: 0;
+    font-size: 20px;
+    font-family: "Segoe UI Light";
+  }
+}
+.sub-title-bar {
+  padding: 10px;
+}
+
+.light-border-box {
+  border: 1px solid $light-border-color;
+}
+.webix-view {
+  margin-top: 8px;height: 724px;
+}
+.page-create_assembly {
+  font-family: Montserrat;
+  .btn-success {
+    background: #238c00;
+    border-radius: 0px;
+    border-width: 0px;
+    padding: 10px 0px;
+    line-height: 21px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    width: 175px;
+    font-size: 15px;
+  }
+  .btn-success:hover {
+    padding: 15px 30px;
+    border-width: 0px;
+  }
+  .form-group {
+    border: 1px solid #DBDBEA;
+    width: 399px;
+    border-radius: 2px;
+    color: #606060 !important;
+    height: 54px;
+  }
+  .form-group input, .ui-select-container {
+    font-family: "Segoe UI" !important;
+    font-size: 14px;
+  }
+}
+table.table-product-description {
+  tbody {
+    font-family: "Segoe UI";
+  }
+  .product-info {
+    display: inline-block;
+    color: black !important;
+    font-weight: bold !important;
+    line-height: 22px;
+  }
+  .description {
+    font-size: 11px;
+    color: #919191 !important;
+    line-height: 19px;
+    margin-left: 17px;
+  }
+
+  thead th{
+    text-transform: uppercase ;
+    font-weight: bold;
+    color: black !important;
+    padding-bottom: 20px;
+  }
+}
+table.table-product-description th:not(.tree-dnd-handle), table.table-product-description td:not(.tree-dnd-handle) {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+table.table-product-description tr td, table.table-product-description tr th {
+  border-color: #a6a5a5;
+}
+table.table-product-description tr td {
+  padding: 10px 20px 10px 15px;
+  vertical-align: middle;
+}
+table.table-product-description td.description strong{
+  color: black !important;
+}
+table.table-product-description td.description input {
+  width: 100%;
+}
+ul.tree-dnd-nodes {
+  text-transform: uppercase ;
+  div.list-group-item {
+    padding: 1px 0px;
+  }
+
+  .expand-handler {
+    display: inline-block;
+    width: 12px; height: 12px;
+    background: url('../icons/collapse.fw.png') no-repeat center center;
+    &.expanded {
+      background: url('../icons/expand.fw.png') no-repeat center center;
+    }
+  }
+
+  .list-group-item.group {
+    font-family: "Montserrat";
+    &.level-1 {
+      font-weight: bold;
+    }
+  }
+  .list-group-item.product {
+    font-family: "Segoe UI";
+    span:nth-child(2) {
+      margin-left: 70px;
+    }
+  }
+  .description {
+    font-size: 11px;
+    font-family: "Segoe UI";
+    color: #919191 !important;
+    margin-left: 20px;
+    line-height: 1.2em;
+    text-transform: none;
+    max-width: 285px;
+  }
+}
+.product-search-group {
+  border-width: 0px;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+.product-search-group span.input-group-addon {
+  background: url('../icons/search.png') no-repeat 0px 3px;
+  color: transparent;
+  width: 30px;
+  line-height: 20px;
+  padding: 0;
+  border-width: 0px;
+}
+.product-search-group input.form-control {
+  border-width: 0px;
+  border-left: 0px;
+  padding-left: 9px;
+}
+.product-search-group input:focus {
+  border-width: 0px;
+  color: black;
+  font-weight: normal;
+}
+.input-search-group {
+  display: inline-block;
+  padding: 5px;
+  position: relative;
+  border: 1px solid #dbdbea;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+.input-search-group > div {
+  text-transform: uppercase;
+}
+.input-search-group input.form-control {
+  border: 0px !important;
+}
+.input-search-group.required:after {
+  position: absolute;
+  content: '*';
+  color: red;
+  right: 1em;
+  top: 0.5em;
+}
+.input-search-group input:focus {
+  border-width: 0px;
+  width: 100%;
+}
+.input-search-group select {
+  border-width: 0;
+  padding: 7px;
+  color: #999;
+}
+.expand-handler {
+  cursor: pointer;
+}
+.btn-add-product, .icon-button {
+  cursor: pointer;
+}
+.tree-dnd-handle {
+  font-weight: normal !important;
+}
+table tbody.tree-dnd-nodes tr.tree-dnd-node.active td {
+  background-color: #daeffd !important;
+}
+
+.form-control:focus {
+  background: transparent;
+}
+.color-black .text-info {
+  color: black !important;
+}
+[tree-dnd-nodes] > * > div {
+  padding-left: 0px;
+}
+.icon-button {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+.icon-button.icon-plus {
+  background: url('../icons/plus-circle.fw.png') no-repeat center center;
+  float: right;
+}
+.icon-button.icon-edit {
+  background: url('../icons/edit.fw.png') no-repeat center center;
+}
+.icon-button.icon-remove {
+  background: url('../icons/delete.fw.png') no-repeat center center;
+}
+.spinner {
+  width: 100px;
+}
+.spinner input {
+  text-align: right;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+.title-block{
+  display: inline-block;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  font-family: 'Montserrat';
+  > a {
+    z-index: 5;
+    position: relative;
+  }
+  .btn-toggle {
+    display: inline-block;
+    width: 30px;
+    height: 25px;
+    background: url('../icons/logo-toggle.png') no-repeat;
+  }
+  .logo-thumnbail {
+    width: 129px; height: 57px;
+    margin-bottom: 5px;
+  }
+  .logo-panel {
+    z-index: 3;
+    width: 0px !important;
+    height: 0px;
+    overflow: hidden;
+    position: absolute;
+    bottom: -6px;
+    right: -1px;
+    width: 700px;
+    background: white;
+    color: black;
+    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    text-transform: uppercase;
+    line-height: 19px;
+    img {
+      height: 50px;
+    }
+    .circle {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      border-radius: 25px;
+      margin-bottom: 10px;
+      background-color: #00698c;
+    }
+    a {
+      color: #00698c !important;
+      font-family: "Segoe UI";
+      font-size: 11px !important;
+      color: #00698C;
+    }
+    table {
+      border: 1px solid #868695;
+      background: white;
+      margin: 0;
+      td{
+        border-color: #868695;
+        padding: 9px 17px;
+        font-size: 12px !important;
+        vertical-align: bottom;
+      }
+    }
+    .gray {
+      color: #2F2F2F !important;
+    }
+    strong {
+      font-size: 12px !important;
+    }
+  }
+  &.active .logo-panel {
+    width: 524px !important;
+    height: 281px;
+  }
+  .logo-inner-panel {
+    width: 524px;
+    height: 281px;
+  }
+  &.blue .logo-panel table td {
+    background: #00698C;
+    color: white !important;
+    a {
+      color: white !important;
+    }
+    .circle {
+      background: white;
+    }
+  }
+}
+.no-left-border {
+  border-left-width: 0px !important;
+}
+.no-right-border {
+  border-right-width: 0px !important;
+}
+.no-top-border {
+  border-top-width: 0px !important;
+}
+.no-bottom-border {
+  border-bottom-width: 0px !important;
+}
+.no-padding, .no-padding * {
+  padding: 0;
+}
+
+.icon-md-button {
+  width: 25px;
+  height: 30px;
+  display: inline-block;
+  background: url('../icons/tool.png') no-repeat 0px -20px;
+
+  &.camera {
+    background-position-x: 0px;
+  }
+  &.list {
+    background-position-x: -28px;
+  }
+}
+.border-veritcal {
+  border-top: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0;
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid #ECECEC;
+  }
+  &:after {
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid #ECECEC;
+  }
+}
+.no-margin {
+  margin: 0;
+}
+
+.page-picture_wall {
+  font-family: "Montserrat";
+  color: black !important;
+  .train-description {
+    font-family: "Segoe UI Light";
+    font-size: 20px;
+  }
+  .title {
+    text-transform: uppercase;
+  }
+  .desc {
+    color: #CACAD8;
+  }
+  .area-reserved {
+    border: 1px dashed #fd632f;
+    font-family: "Segoe UI Light";
+    font-size: 20px;
+  }
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.page-chart {
+  .flex {
+    align-items: flex-end;
+  }
+  .gant-toolbar {
+    font: normal 12px "Segoe UI";
+    line-height: 23px;
+    span {
+      &:first-child {
+        margin-right: 20px;
+      }
+      display: inline-block;
+      margin-right: 27px;
+    }
+    a {
+      display: inline-block;
+      color: #BFBFBF;
+    }
+    .active {
+      color: black;
+      border-bottom: 2px solid #3DB9D3;
+    }
+  }
+}
+
+
+@import 'plan';
