@@ -64,6 +64,56 @@ angular.module('app')
                         }]
                     }
                 })
+
+
+            .state('app.editOrders', {
+                url: "/editOrders/:id",
+                templateUrl: "pages/sales/editOrders/editOrders.html",
+                controller: 'editOrdersCtrl',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'switchery',
+                                'select',
+                                'tagsInput',
+                                'dropzone' ], {
+                                insertBefore: '#lazyload_placeholder'
+                            })
+                            .then(function () {
+                                return $ocLazyLoad.load([
+                                    'pages/sales/editOrders/editOrders.js',
+                                    'pages/sales/editOrders/editOrders.css',
+                                    'assets/lib/angular-tree-dnd/dist/ng-tree-dnd.css'
+                                ]);
+                            });
+                        }]
+                    }
+                })
+
+
+                .state('app.editAssemblies', {
+                    url: "/editAssemblies/:id",
+                    templateUrl: "pages/operations/editAssemblies/editAssemblies.html",
+                    controller: 'editAssembliesCtrl',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'switchery',
+                                'select',
+                                'tagsInput',
+                                'dropzone'], {
+                                    insertBefore: '#lazyload_placeholder'
+                                })
+                                .then(function () {
+                                    return $ocLazyLoad.load([
+                                        'pages/operations/editAssemblies/editAssemblies.js',
+                                        'pages/operations/editAssemblies/editAssemblies.css',
+                                        'assets/lib/angular-tree-dnd/dist/ng-tree-dnd.css'
+                                    ]);
+                                });
+                        }]
+                    }
+                })
                 .state('app.invoice', {
                     url: "/invoice",
                     templateUrl: "pages/sales/invoice/invoice.html",

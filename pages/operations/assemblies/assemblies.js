@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('AssembliesCtrl', ['$scope', '$location', '$window', '$filter', 'AssembliesService',
-        function ($scope, $location, $window, $filter, AssembliesService) {
+    .controller('AssembliesCtrl', ['$scope', '$location', '$window', '$filter', 'AssembliesService', '$state',
+        function ($scope, $location, $window, $filter, AssembliesService, $state) {
 
             $scope.showModal = showModal;
             $scope.time = Date.now();
@@ -29,6 +29,11 @@ angular.module('app')
                     $location.path("/app/assemblies_builder");
                     $scope.$apply();
                 }, 10);
+            }
+
+
+            $scope.clickThis = function (val) {
+                $state.go("app.editAssemblies", { id: val });
             }
 
         }]);

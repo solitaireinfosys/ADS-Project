@@ -11,7 +11,7 @@
 
         return {
             getAllOrders: getAllOrders,
-
+           
         };
 
         /** @ngInject */
@@ -25,6 +25,7 @@
                 })
                 .error(function(data) {})
         }
+        
     }
 })();
 

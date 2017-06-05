@@ -3,29 +3,36 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('OrdersCtrl', ['$scope', '$location', '$window', '$filter','OrderService',
-        function($scope, $location, $window, $filter,OrderService) {
+    .controller('OrdersCtrl', ['$scope', '$location', '$window', '$filter', 'OrderService', '$state',
+        function ($scope, $location, $window, $filter, OrderService, $state) {
             $scope.showModal = showModal;
-
+            $scope.userInput = [];
             function showModal() {
                 $('#createOrder').modal('show');
             }
-            $scope.Save = function() {
+            $scope.Save = function () {
                 angular.element('#createOrder .close').click();
-                setTimeout(function() {
+                setTimeout(function () {
                     $location.path("/app/createorders");
                     $scope.$apply();
                 }, 10);
             }
 
-            $scope.getOrders = function() {
+            $scope.getOrders = function () {
 
                 OrderService.getAllOrders()
-                    .success(function(result) {
+                    .success(function (result) {
                         $scope.Orders = result;
                     });
             };
+
             $scope.getOrders();
 
+            $scope.clickThis = function (val) {
+                $state.go("app.editOrders", { id: val });
+            }
         }
+       
+
+        
     ]);

@@ -12,6 +12,8 @@ table{
 .btns{
 	width: 165px;
 }
+
+
 @media (min-width: 768px){
 .modal-dialog {
     width: 472px;

@@ -1,0 +1,115 @@
+
+<div class="jumbotron" data-pages="parallax">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="inner" style="transform: translateY(0px); opacity: 1;">
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">ORDERS</a>
+                </li>
+                <li>
+                    <a href="#" class="active">{{OrderName._id}}</a>
+                </li>
+            </ul>
+            <!-- END BREADCRUMB -->
+        </div>
+    </div>
+</div>
+
+<div class="header-container">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div>
+            <h1>ORDERNAME</h1>
+        </div>
+        <div>
+            <h3 class="inline linetext">Create an Order and Send it later</h3>
+            <button class="btn btn-primary pull-right" style="background-color:green;color:white">SAVE & SEND ORDERS</button>
+            <button class="btn btn-custom btn-cons pull-right" style="background-color:black;color:white">SAVE AS DRAFT</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+    <!-- START PANEL -->
+    <div class="panel panel-transparent">
+
+        <div class="panel-body">
+            <script type="text/ng-template" id="nodes_renderer.html">
+                <div ui-tree-handle class="tree-node tree-node-content">
+                    <a class="btn-xs" ng-if="node.name && node.name.length > 0" data-nodrag ng-click="toggle(this)">
+                        <span class="glyphicon" ng-class="{'glyphicon-chevron-right': !collapsed,'glyphicon-chevron-down': collapsed}"></span>
+                    </a>
+                    {{node.name}}
+                    
+                    <a class="pull-right btn-xs" data-nodrag ng-click="newSubItem(this)">
+                        <span class="fa fa-plus-circle"></span>
+                    </a>
+                </div>
+                <ol ui-tree-nodes="" ng-model="node.categories" ng-class="{hidden: !collapsed}">
+                    <li ng-repeat="node in node.categories" ui-tree-node>
+                        {{node}}
+                    </li>
+                </ol>
+            </script>
+
+            <div class="row">
+                <div class="col-sm-3 Bundles">
+                    <div class="form-group has-feedback">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        <input type="text" ng-model="search" ng-change="findNodes()" class="form-control" id="inputValidation" placeholder="Search Parts & Bundles" />
+                    </div>
+                    <div ui-tree id="tree-root" data-clone-enabled="true">
+                        <ol ui-tree-nodes="" ng-model="data.name">
+                            <li ng-repeat="node in data | filter:search" ui-tree-node ng-include="'nodes_renderer.html'" ng-show="visible(data)"></li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- END PANEL -->
+</div>
+<style>
+    .form-control {
+        background-color: #FAFAFA;
+        background-image: none;
+        border: 1px solid black;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-radius: 0px;
+        box-shadow: none;
+        color: none;
+        display: block;
+        font-size: 14px;
+        height: 34px;
+        line-height: 1.42857;
+        padding: 6px 12px;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        vertical-align: middle;
+        width: 100%;
+    }
+
+    .Bundles {
+        padding-top: 30px;
+    }
+
+    .form-control-feedback {
+        display: block;
+        height: 34px;
+        line-height: 34px;
+        pointer-events: none;
+        position: absolute;
+        right: 95%;
+        text-align: center;
+        top: 0;
+        width: 34px;
+        z-index: 2;
+    }
+</style>

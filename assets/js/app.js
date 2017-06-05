@@ -12,6 +12,7 @@ angular.module('app', [
     'angular-jwt',
     'angular-storage',
     'oc.lazyLoad',
+    'ui.tree',
     'ntt.TreeDnD',
     'ngAnimate',
     'ui.bootstrap',

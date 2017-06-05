@@ -74,7 +74,9 @@
                         <td>{{order.userId}}</td>
                         <td>{{order.sysState}}</td>
                         <td>{{order.status}}</td>
-                        <td><a href="#/app/invoice">View</a> <a href="">Edit</a> <a href="">Delete</a></td>
+                        <td><a href="#/app/invoice">View</a> 
+                        <a href="#" ng-click='clickThis(order._id)'>Edit</a> 
+                        <a href="">Delete</a></td>
                     </tr>
                 </tbody>
             </table>
