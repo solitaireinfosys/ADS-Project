@@ -10,7 +10,10 @@
                 <li>
                     <a href="#">ORDERS</a>
                 </li>
-                <li>
+                <li ng-if="Var">
+                    <a href="#" class="active">Create New Assembly</a>
+                </li>
+                <li ng-if="myVar">
                     <a href="#" class="active">{{OrderName._id}}</a>
                 </li>
             </ul>
@@ -26,9 +29,9 @@
         </div>
         <div>
             <h3 class="inline linetext">Build the assembly save it or add more later</h3>
-            <button class="btn btn-primary pull-right" style="background-color:green;color:white">IMPORT ASSEMBLY</button>
-            <button class="btn btn-custom btn-cons pull-right" style="background-color:black;color:white">SAVE ASSEMBLY</button>
-
+            
+            <button  class="btn btn-primary pull-right" style="background-color:green;color:white"ng-click="saveAssembly()">SAVE ASSEMBLY</button>
+            <button class="btn btn-custom btn-cons pull-right" style="background-color:black;color:white">IMPORT ASSEMBLY</button>
         </div>
     </div>
 </div>
@@ -44,7 +47,7 @@
                         <span class="glyphicon" ng-class="{'glyphicon-chevron-right': !collapsed,'glyphicon-chevron-down': collapsed}"></span>
                     </a>
                     {{node.name}}
-                    
+
                     <a class="pull-right btn-xs" data-nodrag ng-click="newSubItem(this)">
                         <span class="fa fa-plus-circle"></span>
                     </a>
@@ -70,12 +73,28 @@
                 </div>
                 <div class="col-sm-3 col-lg-8 Bundles col-lg-offset-1" id="assembliestree">
                     <div class="rightbundle"><div class="space"><b><span class="col-lg-6">PRODUCT DESCRIPTION</span><span class="col-lg-1">AVAILABLE</span><span class="col-lg-1">QTY</span><span class="col-lg-1">COST</span><span class="col-lg-1">TOTAL</span><span class="glyphicon glyphicon-file" style="padding-left:35px"></span><span style="padding-left:35px" class="glyphicon glyphicon-remove"></span></b></div></div>
-                    <div class="rightbundle" ng-repeat="item in custom">
-                    <div class="" ng-click="editrow()">
-                        <b><span class="col-lg-6">{{item.name}}</span><span class="col-lg-1">{{item.availability}}</span><span class="col-lg-1">{{item.order_quantity_maximum}}</span><span class="col-lg-1">{{item.cost_price}}</span><span class="col-lg-1">{{item.calculated_price}}</span><span class="glyphicon glyphicon-file" style="padding-left:35px"></span><span style="padding-left:35px" class="glyphicon glyphicon-remove" ng-click="remove($index)"></span></b><div style='height:45px;width:550px;overflow: hidden'><span ng-show="!editMode">{{item.description}}</span><span><input ng-blur="validate()" type="text" class="form-control" ng-model="item.description" ng-show="editMode" /></span></div>
+                    <div class="rightbundle" ng-repeat="item in custom"  data-ng-click="editMode = true; editrow(item)" ng-class="{'btn-color' : item.name === idSelected}">
+                        
+                        <div >
+                            <b>
+                                <span class="col-lg-6">{{item.name}}</span>
+                                <span class="col-lg-1">{{item.availability}}</span>
+                                <span class="col-lg-1">{{item.order_quantity_maximum}}</span>
+                                <span class="col-lg-1">{{item.cost_price}}</span>
+                                <span class="col-lg-1">{{item.calculated_price}}</span>
+                                <span class="glyphicon glyphicon-file" style="padding-left:35px">
+                                </span><span style="padding-left:35px" class="glyphicon glyphicon-remove" ng-click="remove($index)">
+                                </span>
+                            </b>
+                        </div>
+                        <div style='height:45px;width:550px;overflow: hidden'>
+                            <span ng-show="item.name != idSelected">{{item.description}}</span>
+                            <span ng-show="item.name === idSelected"><input ng-blur="validate()" type="text" class="form-control" ng-model="item.description" /></span>
+                        </div>
+
                     </div>
-                    </div>
-                </div>
+                    
+</div>
             </div>
 
         </div>

@@ -19,7 +19,8 @@ angular.module('app')
             PRODUCT_GET_PRODUCT:MS13+'/products?page=1',
             BUNDLE_GET_SERVICE:MS13+'/bundles?page=1',
             ORDER_GETBYID_SERVICE: MS13 + '/orders/',
-            ASSEMBLIES_GETBYID_SERVICE: MS13 +'/bundles/',
+            ASSEMBLIES_GETBYID_SERVICE: MS13 + '/bundles/',
+            UPDATE_BUNDLE_BY_ID: MS13+'/bundles/',
             // AUTH_TOKEN: token,
                 JWT: {
                 "name": "smith_token"

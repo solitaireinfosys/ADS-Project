@@ -8,9 +8,12 @@
                     <a href="#">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#">ORDERS</a>
+                    <a href="#">Orders</a>
                 </li>
-                <li>
+                <li ng-if="Var">
+                    <a href="#" class="active">Create New Order</a>
+                </li>
+                <li ng-if="myVar">
                     <a href="#" class="active">{{OrderName._id}}</a>
                 </li>
             </ul>
@@ -26,7 +29,7 @@
         </div>
         <div>
             <h3 class="inline linetext">Create an Order and Send it later</h3>
-            <button class="btn btn-primary pull-right" style="background-color:green;color:white">SAVE & SEND ORDERS</button>
+            <button class="btn btn-primary pull-right" style="background-color:green;color:white" ng-click="saveOrder()">SAVE & SEND ORDERS</button>
             <button class="btn btn-custom btn-cons pull-right" style="background-color:black;color:white">SAVE AS DRAFT</button>
 
         </div>
@@ -56,19 +59,67 @@
                 </ol>
             </script>
 
+            <script type="text/ng-template" id="nodes_assemblies.html">
+                <div ui-tree-handle class="tree-node tree-node-content">
+                   
+                    <a class="btn-xs" ng-if="node.name.String[0] && node.name.String[0].length > 0" data-nodrag ng-click="toggle(this)">
+                        <span class="glyphicon" ng-class="{'glyphicon-chevron-right': !collapsed,'glyphicon-chevron-down': collapsed}"></span>
+                    </a>
+                    {{node.name.String[0]}}
+                    
+                    <a class="pull-right btn-xs" data-nodrag ng-click="newSubItem(this)">
+                        <span class="fa fa-plus-circle"></span>
+                    </a>
+                </div>
+               
+            </script>
+
             <div class="row">
-                <div class="col-sm-3 Bundles">
+               
+                <div class="col-sm-3 Bundles productDescription">
                     <div class="form-group has-feedback">
                         <span class="glyphicon glyphicon-search form-control-feedback"></span>
                         <input type="text" ng-model="search" ng-change="findNodes()" class="form-control" id="inputValidation" placeholder="Search Parts & Bundles" />
                     </div>
+                    <span><b>PRODUCTS</b></span>
                     <div ui-tree id="tree-root" data-clone-enabled="true">
                         <ol ui-tree-nodes="" ng-model="data.name">
                             <li ng-repeat="node in data | filter:search" ui-tree-node ng-include="'nodes_renderer.html'" ng-show="visible(data)"></li>
                         </ol>
                     </div>
+                
+                
+                    <span><b>ASSEMBLY</b></span>
+                    <div ui-tree id="tree-root" data-clone-enabled="true">
+                        <ol ui-tree-nodes="" ng-model="Data">
+                            <li ng-repeat="node in Data| filter:search" ui-tree-node ng-include="'nodes_assemblies.html'" ng-show="visible(Data)"></li>
+                        </ol>
+                    </div>
                 </div>
+                <div class="col-sm-3 col-lg-8 Bundles col-lg-offset-1" id="assembliestree">
+                    <div class="rightbundle"><div class="space"><b><span class="col-lg-6">PRODUCT DESCRIPTION</span><span class="col-lg-1">AVAILABLE</span><span class="col-lg-1">QTY</span><span class="col-lg-1">COST</span><span class="col-lg-1">TOTAL</span><span class="glyphicon glyphicon-file" style="padding-left:35px"></span><span style="padding-left:35px" class="glyphicon glyphicon-remove"></span></b></div></div>
+                    <div class="rightbundle" ng-repeat="item in custom" data-ng-click="editMode = true; editrow(item)" ng-class="{'btn-color' : item.name === idSelected}">
 
+                        <div>
+                            <b>
+                                <span class="col-lg-6">{{item.name}}</span>
+                                <span class="col-lg-1">{{item.availability}}</span>
+                                <span class="col-lg-1">{{item.order_quantity_maximum}}</span>
+                                <span class="col-lg-1">{{item.cost_price}}</span>
+                                <span class="col-lg-1">{{item.calculated_price}}</span>
+                                <span class="glyphicon glyphicon-file" style="padding-left:35px">
+                                </span><span style="padding-left:35px" class="glyphicon glyphicon-remove" ng-click="remove($index)">
+                                </span>
+                            </b>
+                        </div>
+                        <div style='height:45px;width:550px;overflow: hidden'>
+                            <span ng-show="item.name != idSelected">{{item.description}}</span>
+                            <span ng-show="item.name === idSelected"><input ng-blur="validate()" type="text" class="form-control" ng-model="item.description" /></span>
+                        </div>
+
+                    </div>
+                    
+                </div>
             </div>
 
         </div>

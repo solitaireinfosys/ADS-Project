@@ -11,17 +11,24 @@ angular.module('app')
             $scope.custom = [];
             $scope.search = "";
             $scope.description = false;
-
-
+            //$scope.name = [];
+            $scope.myVar = false;
+            $scope.Var = true;
+            $scope.OrderName = {};
+            
             getAssemblies(getid);
             getProducts();
+            
+
             $scope.visible = function (item) {
-                console.log(item)
+                //console.log(item)
                 return !($scope.query && $scope.query.length > 0
                     && item.name[$index]($scope.query) == -1);
 
             };
-            //$rootScope.collapsed = true;
+            $scope.idSelected = null;
+           
+
             $scope.remove = function (scope) {
                 scope.remove();
             };
@@ -33,7 +40,7 @@ angular.module('app')
                 $scope.data.splice(0, 0, a);
             };
             $scope.newSubItem = function (val) {
-                console.log(val);
+                //console.log(val);
                 $scope.custom.push(val.node);
             };
 
@@ -43,11 +50,26 @@ angular.module('app')
             
             function getAssemblies(getid) {
                 
-                editAssembliesService.getAssemblies(getid)
-                    .success(function (result) {
-                        $scope.OrderName = result;
-                    });
+                if (getid != "") {
+                    $scope.Var = false
+                    $scope.myVar = true;
+                    
+                    editAssembliesService.getAssemblies(getid)
+                        .success(function (result) {
+                            $scope.OrderName = result;
+                        });
+                    getordreid(getid);
+                }
+                
             };
+
+            function getordreid(val) {
+                editAssembliesService.getorderbyid(val)
+                    .success(function (result) {
+                        $scope.custom = result.products;
+                    })
+            }
+
 
             function getProducts() {                
                 editAssembliesService.getAllProducts()
@@ -56,13 +78,32 @@ angular.module('app')
                     });                
             };
 
-            $scope.editrow = function ()
+            $scope.editrow = function (idSelected)
             {
-                $scope.editMode = true;
+                $scope.idSelected = idSelected.name;
+                
             }
             $scope.validate = function () {
-                $scope.editMode = false;
+                this.editMode = false;
             };
+            $scope.saveAssembly = function (val)
+            {
+                var getid = $scope.OrderName._id;
+                if (getid == undefined)
+                {
+                    editAssembliesService.saveassembly($scope.custom, getid)
+                }
+                else
+                {
+                    editAssembliesService.updateassembly($scope.custom,getid)
+                        .success(function (data) {
+                         
+                        })
+                }
+                
+
+                    
+            }
             $rootScope.$broadcast('angular-ui-tree:collapse-all');
          
         }

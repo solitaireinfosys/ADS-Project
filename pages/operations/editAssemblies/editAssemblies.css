@@ -138,3 +138,7 @@ tr.angular-ui-tree-empty {
 {
     padding-bottom:30px;
 }
+.glyphicon-remove:hover {
+    cursor: pointer;
+    cursor: hand;
+}

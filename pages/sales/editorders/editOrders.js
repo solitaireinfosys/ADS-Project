@@ -7,93 +7,74 @@ angular.module('app')
         function ($rootScope, $scope, $location, $window, $filter, $stateParams,editOrderService) {
             $scope.id = $stateParams.id;
             var getid = $scope.id;
-            
+            $scope.myVar = false;
+            $scope.custom = [];
+            $scope.Var = true;
             $scope.search = "";
-            var jsondata = [{
-                'id': 1,
-                'title': 'amit',
-                'nodes': [
-                    {
-                        'id': 11,
-                        'title': 'amit_bug',
-                        'nodes': [
-                            {
-                                'id': 111,
-                                'title': 'tenant',
-                                'nodes': []
-                            }
-                        ]
-                    },
-                    {
-                        'id': 12,
-                        'title': 'node1.2',
-                        'nodes': []
-                    }
-                ]
-            }, {
-                'id': 2,
-                'title': 'node2',
-                'nodrop': true,
-                'nodes': [
-                    {
-                        'id': 21,
-                        'title': 'node2.1',
-                        'nodes': []
-                    },
-                    {
-                        'id': 22,
-                        'title': 'node2.2',
-                        'nodes': []
-                    }
-                ]
-            }, {
-                'id': 3,
-                'title': 'node3',
-                'nodes': [
-                    {
-                        'id': 31,
-                        'title': 'node3.1',
-                        'nodes': []
-                    }
-                ]
-            }];
             getOrders(getid);
             getProducts();
+            getassemblies();
             $scope.visible = function (item) {
                 console.log(item)
                 return !($scope.query && $scope.query.length > 0
                     && item.name[$index]($scope.query) == -1);
 
             };
-            //$rootScope.collapsed = true;
-            $scope.remove = function (scope) {
-                scope.remove();
+            $scope.visible = function (item) {
+                return !($scope.query && $scope.query.length > 0
+                    && item.name[$index]($scope.query) == -1);
+
             };
+            
+            $scope.remove = function ($index) {
+                    $scope.custom.splice($index, 1);
+            }
             $scope.toggle = function (scope) {
                 scope.toggle();
+            };
+            $scope.validate = function () {
+                this.editMode = false;
             };
             $scope.moveLastToTheBeginning = function () {
                 var a = $scope.data.pop();
                 $scope.data.splice(0, 0, a);
             };
-            $scope.newSubItem = function (scope) {
-                console.log(scope);
-                var nodeData = scope.$modelValue;
-                nodeData.nodes.push({
-                    id: nodeData.id * 10 + nodeData.nodes.length,
-                    title: nodeData.title + '.' + (nodeData.nodes.length + 1),
-                    nodes: []
-                });
-            };
+            $scope.editrow = function (idSelected) {
+                $scope.idSelected = idSelected.name;
 
-            function getOrders(getid) {
-                
-                editOrderService.getOrder(getid)
-                    .success(function (result) {
-                        console.log(result)
-                        $scope.OrderName = result;
-                    });
+            }
+            $scope.newSubItem = function (val) {
+                $scope.custom.push(val.node);
             };
+            function getOrders(getid) {
+                if (getid != "")
+                {
+                    $scope.Var = false
+                    $scope.myVar = true;
+                    editOrderService.getOrder(getid)
+                        .success(function (result) {
+                            $scope.OrderName = result;
+                            $scope.custom = result.products;
+                            console.log($scope.OrderName);
+                        });
+                }
+
+                };
+
+                $scope.saveOrder = function (val) {
+                    var getid = $scope.OrderName._id;
+                    editOrderService.updateorder($scope.custom, getid)
+                            .success(function (data) {
+
+                            })
+                }
+                function getassemblies()
+                {
+                    editOrderService.getAssemblies()
+                        .success(function (result) {
+                            $scope.Data = result;
+                        });
+                }
 
             function getProducts() {                
                 editOrderService.getAllProducts()
@@ -102,10 +83,5 @@ angular.module('app')
                         $scope.data = result;                        
                     });                
             };
-
-            $rootScope.$broadcast('angular-ui-tree:collapse-all');
-            //$scope.data = jsondata;
-
-         
         }
     ]);
