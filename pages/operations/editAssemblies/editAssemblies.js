@@ -11,17 +11,17 @@ angular.module('app')
             $scope.custom = [];
             $scope.search = "";
             $scope.description = false;
-            //$scope.name = [];
+            
             $scope.myVar = false;
             $scope.Var = true;
             $scope.OrderName = {};
             
             getAssemblies(getid);
             getProducts();
-            
+           
 
             $scope.visible = function (item) {
-                //console.log(item)
+            
                 return !($scope.query && $scope.query.length > 0
                     && item.name[$index]($scope.query) == -1);
 
@@ -40,7 +40,7 @@ angular.module('app')
                 $scope.data.splice(0, 0, a);
             };
             $scope.newSubItem = function (val) {
-                //console.log(val);
+            
                 $scope.custom.push(val.node);
             };
 
@@ -71,7 +71,7 @@ angular.module('app')
             }
 
 
-            function getProducts() {                
+            function getProducts() {   
                 editAssembliesService.getAllProducts()
                     .success(function (result) {
                         $scope.data = result;                        
@@ -80,14 +80,15 @@ angular.module('app')
 
             $scope.editrow = function (idSelected)
             {
-                $scope.idSelected = idSelected.name;
                 
+                    $scope.idSelected = idSelected.name;
             }
             $scope.validate = function () {
                 this.editMode = false;
             };
-            $scope.saveAssembly = function (val)
+            $scope.saveAssembly = function ()
             {
+                $scope.idSelected = null;
                 var getid = $scope.OrderName._id;
                 if (getid == undefined)
                 {
@@ -100,10 +101,8 @@ angular.module('app')
                          
                         })
                 }
-                
-
-                    
             }
+            
             $rootScope.$broadcast('angular-ui-tree:collapse-all');
          
         }

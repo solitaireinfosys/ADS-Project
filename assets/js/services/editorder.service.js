@@ -43,23 +43,44 @@
         }
 
         function updateorder(val, getid) {
-            var data = [];
-
-            for (var i = 0; i < val.length; i++) {
-                data.push({
-                    "name": "" + val[i].name + "", //val[i].name,
-                    "qty": "" + val[i].order_quantity_maximum + "",
-                    "availability": "" + val[i].availability + "",
-                    "cost_price": "" + val[i].cost_price + "",
-                    "calculated_price": "" + val[i].calculated_price + "",
-                    "description": "" + val[i].description + "",
-                });
-            }
+            console.log(val);
+            var assembliesdata = [];
+            var productsdata = [];
+                for (var i = 0; i < val.length; i++) {
+                    if (val[i].type == "products") {
+                        productsdata.push({
+                        "_id": "" + val[i]._id + "",
+                        "name": "" + val[i].name + "",
+                        "qty": "" + val[i].qty + "",
+                        "availability": "" + val[i].availability + "",
+                        "cost_price": "" + val[i].cost_price + "",
+                        "calculated_price": "" + val[i].calculated_price + "",
+                        "description": "" + val[i].description + "",
+                        "type": "" + val[i].type + "",
+                        });
+                    }
+                    else
+                    {
+                        assembliesdata.push({
+                            "_id": "" + val[i]._id + "",
+                            "name": "" + val[i].name + "",
+                            "qty": "" + val[i].qty + "",
+                            "availability": "" + val[i].availability + "",
+                            "cost_price": "" + val[i].cost_price + "",
+                            "calculated_price": "" + val[i].calculated_price + "",
+                            "description": "" + val[i].description + "",
+                            "type": "" + val[i].type + "",
+                        });
+                    }
+                }
+            
             return $http({
                 method: 'PUT',
                 url: SETTINGS.ORDER_GETBYID_SERVICE + getid,
                 data: {
-                    "products": data
+                    
+                    "products": productsdata,
+                    "assemblies": assembliesdata
                 }
             })
                 .success(function (data) {

@@ -41,7 +41,7 @@
     <div class="panel panel-transparent">
 
         <div class="panel-body">
-            <script type="text/ng-template" id="nodes_renderer.html">
+            <!--<script type="text/ng-template" id="nodes_renderer.html">
                 <div ui-tree-handle class="tree-node tree-node-content">
                     <a class="btn-xs" ng-if="node.name && node.name.length > 0" data-nodrag ng-click="toggle(this)">
                         <span class="glyphicon" ng-class="{'glyphicon-chevron-right': !collapsed,'glyphicon-chevron-down': collapsed}"></span>
@@ -49,7 +49,25 @@
                     {{node.name}}
                     
                     <a class="pull-right btn-xs" data-nodrag ng-click="newSubItem(this)">
-                        <span class="fa fa-plus-circle"></span>
+                        <span class="fs-14 pg-plus" style="border:1px solid black;border-radius:50%;color:black;"></span>
+                    </a>
+                </div>
+                <ol ui-tree-nodes="" ng-model="node.categories" ng-class="{hidden: !collapsed}">
+                    <li ng-repeat="node in node.categories" ui-tree-node>
+                        {{node}}
+                    </li>
+                </ol>
+            </script>-->
+
+            <script type="text/ng-template" id="nodes_renderer.html">
+                <div ui-tree-handle class="tree-node tree-node-content">
+                    <a class="btn-xs" ng-if="node.name && node.name.length > 0" data-nodrag ng-click="toggle(this)">
+                        <span class="glyphicon" ng-class="{'glyphicon-chevron-right': !collapsed,'glyphicon-chevron-down': collapsed}"></span>
+                    </a>
+                    {{node.name}}
+
+                    <a class="pull-right btn-xs" data-nodrag ng-click="newSubItem(this)">
+                        <span class="fs-14 pg-plus" style="border:1px solid #B4B4B4;border-radius:50%;color:#B4B4B4;"></span>
                     </a>
                 </div>
                 <ol ui-tree-nodes="" ng-model="node.categories" ng-class="{hidden: !collapsed}">
@@ -62,20 +80,17 @@
             <script type="text/ng-template" id="nodes_assemblies.html">
                 <div ui-tree-handle class="tree-node tree-node-content">
                    
-                    <a class="btn-xs" ng-if="node.name.String[0] && node.name.String[0].length > 0" data-nodrag ng-click="toggle(this)">
+                    <a class="btn-xs" ng-if="node._id && node._id.length > 0" data-nodrag ng-click="toggle(this)">
                         <span class="glyphicon" ng-class="{'glyphicon-chevron-right': !collapsed,'glyphicon-chevron-down': collapsed}"></span>
                     </a>
-                    {{node.name.String[0]}}
-                    
-                    <a class="pull-right btn-xs" data-nodrag ng-click="newSubItem(this)">
-                        <span class="fa fa-plus-circle"></span>
+                    {{node._id}}
+                    <a class="pull-right btn-xs" data-nodrag ng-click="newItem(this)">
+                        <span class="fs-14 pg-plus" style="border:1px solid #B4B4B4;border-radius:50%;color:#B4B4B4;"></span>
                     </a>
                 </div>
-               
             </script>
 
             <div class="row">
-               
                 <div class="col-sm-3 Bundles productDescription">
                     <div class="form-group has-feedback">
                         <span class="glyphicon glyphicon-search form-control-feedback"></span>
@@ -83,6 +98,7 @@
                     </div>
                     <span><b>PRODUCTS</b></span>
                     <div ui-tree id="tree-root" data-clone-enabled="true">
+                        
                         <ol ui-tree-nodes="" ng-model="data.name">
                             <li ng-repeat="node in data | filter:search" ui-tree-node ng-include="'nodes_renderer.html'" ng-show="visible(data)"></li>
                         </ol>
@@ -98,8 +114,7 @@
                 </div>
                 <div class="col-sm-3 col-lg-8 Bundles col-lg-offset-1" id="assembliestree">
                     <div class="rightbundle"><div class="space"><b><span class="col-lg-6">PRODUCT DESCRIPTION</span><span class="col-lg-1">AVAILABLE</span><span class="col-lg-1">QTY</span><span class="col-lg-1">COST</span><span class="col-lg-1">TOTAL</span><span class="glyphicon glyphicon-file" style="padding-left:35px"></span><span style="padding-left:35px" class="glyphicon glyphicon-remove"></span></b></div></div>
-                    <div class="rightbundle" ng-repeat="item in custom" data-ng-click="editMode = true; editrow(item)" ng-class="{'btn-color' : item.name === idSelected}">
-
+                    <div class="rightbundle" ng-repeat="item in custom" ng-click="editrow(item)" data-ng-click="editMode = true;" ng-class="{'btn-color' : item._id === idSelected}">
                         <div>
                             <b>
                                 <span class="col-lg-6">{{item.name}}</span>
@@ -113,8 +128,8 @@
                             </b>
                         </div>
                         <div style='height:45px;width:550px;overflow: hidden'>
-                            <span ng-show="item.name != idSelected">{{item.description}}</span>
-                            <span ng-show="item.name === idSelected"><input ng-blur="validate()" type="text" class="form-control" ng-model="item.description" /></span>
+                            <span ng-show="item._id != idSelected">{{item.description}}</span>
+                            <span ng-show="item._id === idSelected"><input ng-blur="validate()" type="text" class="form-control" ng-model="item.description" /></span>
                         </div>
 
                     </div>

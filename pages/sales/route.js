@@ -83,7 +83,8 @@ angular.module('app')
                                 return $ocLazyLoad.load([
                                     'pages/sales/editOrders/editOrders.js',
                                     'pages/sales/editOrders/editOrders.css',
-                                    'assets/lib/angular-tree-dnd/dist/ng-tree-dnd.css'
+                                    'assets/lib/angular-tree-dnd/dist/ng-tree-dnd.css',
+                                    'core/css/table.css'
                                 ]);
                             });
                         }]
@@ -108,7 +109,8 @@ angular.module('app')
                                     return $ocLazyLoad.load([
                                         'pages/operations/editAssemblies/editAssemblies.js',
                                         'pages/operations/editAssemblies/editAssemblies.css',
-                                        'assets/lib/angular-tree-dnd/dist/ng-tree-dnd.css'
+                                        'assets/lib/angular-tree-dnd/dist/ng-tree-dnd.css',
+                                        'core/css/table.css'
                                     ]);
                                 });
                         }]

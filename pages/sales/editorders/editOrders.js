@@ -10,6 +10,7 @@ angular.module('app')
             $scope.myVar = false;
             $scope.custom = [];
             $scope.Var = true;
+            $scope.idSelected = null;
             $scope.search = "";
             getOrders(getid);
             getProducts();
@@ -40,12 +41,36 @@ angular.module('app')
                 $scope.data.splice(0, 0, a);
             };
             $scope.editrow = function (idSelected) {
-                $scope.idSelected = idSelected.name;
+                $scope.idSelected = idSelected._id;
 
             }
+            
             $scope.newSubItem = function (val) {
-                $scope.custom.push(val.node);
+                //$scope.custom.push(val.node);
+                $scope.custom.push({
+                    "_id": "" + val.node._id + "",
+                    "name": "" + val.node.name + "", //val[i].name,
+                    "qty": "" + val.node.qty + "",
+                    "availability": "" + val.node.availability + "",
+                    "cost_price": "" + val.node.cost_price + "",
+                    "calculated_price": "" + val.node.calculated_price + "",
+                    "description": "" + val.node.description + "",
+                    "type": "" + "products" + "",
+                })
             };
+
+            $scope.newItem = function (val) {
+                $scope.custom.push({"_id": "" + val.node._id + "",
+                    "name": "" + val.node._id + "",
+                    "order_quantity_maximum": "" +"0" + "",
+                    "availability": "" +"0" + "",
+                    "cost_price": "" + "0" + "",
+                    "calculated_price": "" + "00.0" + "",
+                    "description": "" + "Test Description" + "",
+                    "type": "" + "assemblies" + "",
+                });
+            };
+            
             function getOrders(getid) {
                 if (getid != "")
                 {
@@ -54,14 +79,17 @@ angular.module('app')
                     editOrderService.getOrder(getid)
                         .success(function (result) {
                             $scope.OrderName = result;
-                            $scope.custom = result.products;
+                            $scope.pro = result.products;
+                            $scope.custom = $scope.pro.concat(result.assemblies)
                             console.log($scope.OrderName);
                         });
                 }
 
                 };
 
-                $scope.saveOrder = function (val) {
+                $scope.saveOrder = function () {
+                   
+                    $scope.idSelected = null
                     var getid = $scope.OrderName._id;
                     editOrderService.updateorder($scope.custom, getid)
                             .success(function (data) {
