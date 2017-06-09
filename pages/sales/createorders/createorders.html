@@ -20,10 +20,11 @@
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
         <div>
             <h1>ordername</h1>
+            
         </div>
         <div>
             <h5 class="inline" style="text-transform: none !important;">Create an order and send it later.</h5>
-             <button class="btn btnSave btn-success pull-right" ng-click="showModal()">SAVE & SEND ORDER</button>
+             <button class="btn btnSave btn-success pull-right" ng-click="saveOrder()">SAVE & SEND ORDER</button>
                         <button class="btn btnImport btn-cons pull-right" ng-click="showModal()">SAVE AS DRAFT</button>
         </div>
     </div>
@@ -101,8 +102,12 @@
 
         <span class="expand-handler" ng-class="{expanded:node.__expanded__}" ng-click="node.__expanded__ = !node.__expanded__"></span>
         <ng-container ng-if="node.type == 'product'">
-            <span>Product Item</span><span>Product SKU</span>
-            <span class="btn-add-product icon-button" title="Add product" ng-if="node.__expanded__" ng-click="addProductItem(node)"></span>
+            <span>{{node.name}}</span>
+            <a class="pull-right btn-xs" data-nodrag title="Add product" ng-click="addProductItem(this)">
+                <span class="fs-14 pg-plus" style="border:1px solid #B4B4B4;border-radius:50%;color:#B4B4B4;"></span>
+            </a>
+            <!--<span>Product Item</span><span>Product SKU</span>-->
+            <!--<span class="btn-add-product icon-button" title="Add product" ng-if="node.__expanded__" ng-click="addProductItem(node)"></span>-->
             <div class="description" ng-show="node.__expanded__">
                 {{node.description}}
             </div>
@@ -157,13 +162,15 @@
                      <i ng-click="toggleExpand(node)" class="tree-icon"></i>
                 </a>
 
-
-                <span class="product-info">Product Name, Product SKU</span>
+                <span class="product-info">{{node['name']}}</span> 
+                <div class="description" ng-bind-html="node['description']">                    
+                </div>
+                <!--<span class="product-info">Product Name, Product SKU</span>-->
                 <div ng-if="node.edit" style="margin-left: 1.3em;">
-                    <input type="text" ng-model="node['description']" />
+                    <input type="text" ng-model="node['description1']" />
                 </div>
                 <div class="description" ng-if="!node.edit">
-                    {{node['description']}}
+                    {{node['description1']}}
                 </div>
             </td>
             <td ng-repeat="col in colDefinitions" ng-class="col.cellClass" ng-style="col.cellStyle"

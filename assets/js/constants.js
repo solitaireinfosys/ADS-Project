@@ -5,7 +5,8 @@ angular.module('app')
         var MS06 = 'http://ec2-54-183-115-168.us-west-1.compute.amazonaws.com:8080/api';
         var MS08 = 'http://ec2-52-52-101-206.us-west-1.compute.amazonaws.com:8080/api';
         var MS10 = 'http://ec2-52-52-101-206.us-west-1.compute.amazonaws.com:8080/api';
-        var MS13 = 'http://ec2-54-153-67-154.us-west-1.compute.amazonaws.com:8080/api';
+        //var MS13 = 'http://ec2-54-153-67-154.us-west-1.compute.amazonaws.com:8080/api';
+        var MS13 = 'http://ec2-54-153-12-150.us-west-1.compute.amazonaws.com:8080/api';
         // Use the variable in your constants
         return {
             API_URL: MS06,

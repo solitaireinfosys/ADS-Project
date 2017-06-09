@@ -22,7 +22,7 @@ angular.module('app')
                         }]
                     }
                 })
-                .state('app.orders', {
+                .state('app.order', {
                     url: "/orders",
                     templateUrl: "pages/sales/orders/orders.html",
                     controller: 'OrdersCtrl',
@@ -42,7 +42,7 @@ angular.module('app')
                     }
                 })
                 .state('app.createorders', {
-                    url: "/createorders",
+                    url: "/createorders/:id",
                     templateUrl: "pages/sales/createorders/createorders.html",
                     controller: 'CreateOrdersCtrl',
                     resolve: {

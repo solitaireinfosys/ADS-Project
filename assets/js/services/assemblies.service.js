@@ -11,6 +11,7 @@
 
         return {
             getAllBundles: getAllBundles,
+            SaveAssemblies: SaveAssemblies,
 
         };
 
@@ -24,6 +25,23 @@
                     return data;
                 })
                 .error(function(data) {})
+        }
+
+        function SaveAssemblies(form) {
+            return $http({
+                method: 'POST',
+                url: SETTINGS.BUNDLE_GET_SERVICE,
+                data: {
+                    "_id": form.Assemblyid,
+                    "name": {
+                        "String": form.Name
+                    }
+                }
+            })
+                .success(function (data) {
+                    return data;
+                })
+                .error(function (data) { })
         }
     }
 })();

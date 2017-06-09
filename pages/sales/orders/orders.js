@@ -29,7 +29,7 @@ angular.module('app')
             $scope.getOrders();
 
             $scope.clickThis = function (val) {
-                $state.go("app.editOrders", { id: val });
+                $state.go("app.createorders", { id: val });
             }
         }
        

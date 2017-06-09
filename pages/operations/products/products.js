@@ -21,7 +21,7 @@ angular.module('app')
                     $scope.product=result;
                 });
             };
-             $scope.getSingleProduct(id);
+             //$scope.getSingleProduct(id);
 
             // $scope.group1 = [{
             //     title: "PRODUCT",

@@ -23,17 +23,27 @@ angular.module('app')
             };
             $scope.getBundle();
 
-            $scope.Save = function () {
+            $scope.Save = function (val) {
                 angular.element('#createOrEdit .close').click();
-                setTimeout(function () {
-                    $location.path("/app/assemblies_builder");
-                    $scope.$apply();
-                }, 10);
+
+                AssembliesService.SaveAssemblies(val)
+                    .success(function (data) {
+                        console.log(data);
+                        setTimeout(function () {
+                            $state.go("app.assemblies_builder", { id: data.data._id });
+                            console.log(val.Assemblyid)
+                            //$location.path("/app/assemblies_builder");
+                            $scope.$apply();
+                        }, 10);
+
+                        return false;
+                    })
             }
 
 
-            $scope.clickThis = function (val) {
-                $state.go("app.editAssemblies", { id: val });
+            $scope.clickThis = function (val) {                
+                //$state.go("app.assemblies_builder", { id: val });
+                $location.path("/app/assemblies_builder/" + val);
             }
 
         }]);
