@@ -3,8 +3,8 @@
 /* Controllers */
 angular.module('app')
     .controller('AssembliesBuilderCtrl', function ($rootScope, $scope, $sce, $window, $filter, $http, $compile, $stateParams, $TreeDnDConvert, editAssembliesService) {
-
-        console.log($stateParams.id);
+        
+        
         var getid = $stateParams.id;
         //alert(getid);
         //$http.get('assets/js/api/country_region.json').success(function (data) {
@@ -15,7 +15,9 @@ angular.module('app')
         var tree;
         var finalData = [];
         $scope.leftTreeData = {};
-
+        $scope.showEditModal = showEditModal;
+        $scope.notes = "";
+        $scope.selectedNode = {};
         $scope.leftTreeCtrl = tree = {};
 
         $scope.leftTreeExpandProperty = {
@@ -29,6 +31,7 @@ angular.module('app')
 
         ];
         getAssemblies();
+        
         //$scope.leftTreeData = [
         //    {
         //        'id': 1,
@@ -74,7 +77,7 @@ angular.module('app')
         //];
 
         //$scope.leftTreeData = $TreeDnDConvert.line2tree($scope.leftTreeData, 'id', 'ParentId');
-
+       
         var id = 6;
         $scope.addProductItem = function (node) {
 
@@ -225,12 +228,27 @@ angular.module('app')
                 '               <span class="icon-button icon-edit" title="Edit"></span>&nbsp;' +
                 '               <span class="icon-button icon-remove" title="Remove"></span></div>' +
                 '<div ng-if="node.edit"><span class="icon-button" ng-click="saveRightCtrlData(node)"><i class="fa fa-save"></i></span></div>',
+                //cellTemplate: '<div ng-if="!node.edit">' +
+                //'               <span class="icon-button icon-edit" title="Edit" ng-click="editRightCtrlData(node)"></span>&nbsp;' +
+                //'               <span class="icon-button icon-remove" title="Remove" ng-click="tree.remove_node(node)"></span></div>' +
+                //'<div ng-if="node.edit"><span class="icon-button" ng-click="saveRightCtrlData(node)"><i class="fa fa-save"></i></span></div>'
                 cellTemplate: '<div ng-if="!node.edit">' +
-                '               <span class="icon-button icon-edit" title="Edit" ng-click="editRightCtrlData(node)"></span>&nbsp;' +
+                '               <span class="icon-button icon-edit" title="Edit" ng-click="showEditModal(node)"></span>&nbsp;' +
                 '               <span class="icon-button icon-remove" title="Remove" ng-click="tree.remove_node(node)"></span></div>' +
                 '<div ng-if="node.edit"><span class="icon-button" ng-click="saveRightCtrlData(node)"><i class="fa fa-save"></i></span></div>'
             }
         ];
+
+        function showEditModal(node) {
+            node.selectedNode = parseInt(node.qty) * parseInt(node.cost);
+            $scope.selectedNode = node;
+            $('#createOrEdit').modal('show');
+        }
+
+        $scope.SaveNotes = function () {
+            $scope.selectedNode.total = parseInt($scope.selectedNode.qty) * parseInt($scope.selectedNode.cost);
+            $('#createOrEdit').modal('hide');
+        };
 
         //DataDemo.getDatas() can see in 'Custom Option' -> Tab 'Data Demo'
         //$scope.rightTreeData = [
@@ -326,8 +344,7 @@ angular.module('app')
                     .success(function (result) {
                         $scope.rightTreeData = result.products;
                         $scope.rightTreeData = $TreeDnDConvert.line2tree($scope.rightTreeData, 'id', 'ParentId');
-                        //$scope.rightTreeCtrl.reload_data();
-                        //$scope.rightPanelData = result.products;
+                        
                     });
 
         };
@@ -340,12 +357,6 @@ angular.module('app')
         $scope.saveRightCtrlData = function (node) {
             node.edit = false;
             node.total = parseInt(node.qty) * parseInt(node.cost);
-            //for (var i = 0; i < $scope.rightPanelData.length; i++) {
-            //    if ($scope.rightPanelData[i].id === node.id) {
-            //        $scope.rightPanelData[i] = node;
-            //        break;
-            //    }
-            //}
         }
 
     });

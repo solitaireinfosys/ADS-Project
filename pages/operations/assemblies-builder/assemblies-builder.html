@@ -84,6 +84,53 @@
     </div>
 </div>
 
+<!-- MODAL STICK UP  -->
+<div class="modal stick-up" id="createOrEdit" tabindex="-1" role="dialog" aria-labelledby="createOrEdit" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header clearfix ">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="pg-close fs-14"></i>
+                </button>
+                <h5 class="pull-left"><span class="semi-bold">Edit</span> Order</h5>
+            </div>
+            <div class="modal-body">
+                <p>Form Edit a Order.</p>
+                
+                    <div class="form-group form-group-default">
+                        <label for="assembly">Notes</label>
+                        <input type="text" name="assembly" class="form-control" ng-model="selectedNode.description1" ng-pattern="" required>
+                    </div>
+                    <div class="form-group form-group-default">
+                        <label for="assembly">Qty</label>
+                        <input type="text" name="assembly" class="form-control" ng-model="selectedNode.qty" ng-pattern="" required>
+                    </div>
+
+                <div class="form-group">
+                    <label for="assembly">Cost</label>
+                    <span>${{selectedNode.cost}}</span>
+                </div>
+                
+                <!--<div class="form-group">
+                    <label for="assembly">Total</label>
+                    <span>${{selectedNode.total}}</span>
+                </div>-->                
+                
+                
+                    <div class="row">
+                        <div class="ol-sm-4 col-md-4 m-t-10 sm-m-t-10 ">
+                            <button type="submit" class="btn btn-warning btn-block m-t-5" data-dismiss="modal">Cancel</button>
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 m-t-10 sm-m-t-10">
+                            <button type="submit" class="btn btn-complete active btn-block m-t-5" ng-click="SaveNotes()">Submit</button>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/ng-template" id="tree-dnd-template-render.html">
     <div ng-class="(treeData.length) ? '' : 'list-group-item active '" ?>
         <ul tree-dnd-nodes style="min-height: 100px">
@@ -164,9 +211,9 @@
                 <span>{{node['name']}}</span>
                 <div class="description" ng-bind-html="node['description']">
                 </div>
-                <div ng-if="node.edit" style="margin-left: 1.3em;">
+                <!--<div ng-if="node.edit" style="margin-left: 1.3em;">
                     <input type="text" class="form-control" ng-model="node['description1']" />
-                </div>
+                </div>-->
                 <div class="description" ng-if="!node.edit">
                     {{node['description1']}}
                 </div>

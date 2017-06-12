@@ -6,11 +6,15 @@ angular.module('app')
     .controller('CreateOrdersCtrl', function ($rootScope, $stateParams, $scope, $sce, $filter, $http, $compile, $TreeDnDConvert, editOrderService) {
         console.log($stateParams.id);
         var getid = $stateParams.id;
+        $scope.ordername = getid;
         var tree;
         var finalData = [];
+        
         $scope.leftTreeData = {};
         $scope.leftTreeCtrl = tree = {};
-
+        $scope.showEditModal = showEditModal;
+        $scope.notes = "";
+        $scope.selectedNode = {};
         $scope.leftTreeExpandProperty = {
             /*template: "<td>OK All</td>",*/
             field: 'name',
@@ -39,10 +43,13 @@ angular.module('app')
         }
 
 
-
+         
         function getProducts() {
             editOrderService.getAllProducts()
                 .success(function (result) {
+
+                    
+                    
 
                     finalData.push({
                         'id': 1,
@@ -59,7 +66,10 @@ angular.module('app')
                     };
                     var groubedByBrand = groupBy(result, 'brand_id')
                     var count = 1;
+                    
                     Object.keys(groubedByBrand).forEach(function (brand) {
+                        
+
                         finalData.push({
                             'id': brand,
                             'ParentId': 1,
@@ -69,7 +79,7 @@ angular.module('app')
 
 
                         groubedByBrand[brand].forEach(function (memb, i) {
-
+                            
                             finalData.push({
                                 'id': memb.id,
                                 'ParentId': brand,
@@ -81,14 +91,15 @@ angular.module('app')
                                 'description': memb.description
                             })
                         })
-
                         count++;
                     });
-
+                    
                     $scope.leftTreeData = finalData;
                     $scope.leftTreeData = $TreeDnDConvert.line2tree($scope.leftTreeData, 'id', 'ParentId');
                 });
-        };
+         };
+
+         
 
         getProducts();
         getorders();
@@ -130,12 +141,28 @@ angular.module('app')
                 '               <span class="icon-button icon-edit" title="Edit"></span>&nbsp;' +
                 '               <span class="icon-button icon-remove" title="Remove"></span></div>' +
                 '<div ng-if="node.edit"><span class="icon-button" ng-click="saveRightCtrlData(node)"><i class="fa fa-save"></i></span></div>',
+                //cellTemplate: '<div ng-if="!node.edit">' +
+                //'               <span class="icon-button icon-edit" title="Edit" ng-click="editRightCtrlData(node)"></span>&nbsp;' +
+                //'               <span class="icon-button icon-remove" title="Remove" ng-click="tree.remove_node(node)"></span></div>' +
+                //'<div ng-if="node.edit"><span class="icon-button" ng-click="saveRightCtrlData(node)"><i class="fa fa-save"></i></span></div>'
+
                 cellTemplate: '<div ng-if="!node.edit">' +
-                '               <span class="icon-button icon-edit" title="Edit" ng-click="editRightCtrlData(node)"></span>&nbsp;' +
+                '               <span class="icon-button icon-edit" title="Edit" ng-click="showEditModal(node)"></span>&nbsp;' +
                 '               <span class="icon-button icon-remove" title="Remove" ng-click="tree.remove_node(node)"></span></div>' +
                 '<div ng-if="node.edit"><span class="icon-button" ng-click="saveRightCtrlData(node)"><i class="fa fa-save"></i></span></div>'
             }
         ];
+        function showEditModal(node) {
+            node.selectedNode = parseInt(node.qty) * parseInt(node.cost);
+            //$scope.selectedNode.total = parseInt($scope.selectedNode.qty) * parseInt($scope.selectedNode.cost);
+            $scope.selectedNode = node;
+            $('#createOrEdit').modal('show');
+        }
+
+        $scope.SaveNotes = function () {
+            $scope.selectedNode.total = parseInt($scope.selectedNode.qty) * parseInt($scope.selectedNode.cost);
+            $('#createOrEdit').modal('hide');
+        };
 
         var id = 6;
         $scope.addProductItem = function (val) {
@@ -152,6 +179,7 @@ angular.module('app')
                 'qty': val.node.qty,
                 'cost': val.node.cost,
                 'total': val.node.qty * val.node.cost,
+                'type': val.node.type,
             };
 
             if ($scope.rightTreeCtrl.get_selected_node() != null) {
@@ -160,8 +188,6 @@ angular.module('app')
 
             $scope.rightTreeCtrl.add_node($scope.rightTreeCtrl.get_selected_node(), addedData);
             $scope.rightTreeCtrl.reload_data();
-
-            // $scope.rightPanelData.push(addedData);
         }
 
         $scope.saveOrder = function () {
@@ -178,6 +204,7 @@ angular.module('app')
             editOrderService.getOrder(getid)
                 .success(function (result) {
                     $scope.rightTreeData = result.products;
+                    //$scope.rightTreeData = result.products.concat(result.assemblies);
                     $scope.rightTreeData = $TreeDnDConvert.line2tree($scope.rightTreeData, 'id', 'ParentId');
                 });
         };
@@ -191,14 +218,63 @@ angular.module('app')
             console.log(node);
             node.edit = false;
             node.total = parseInt(node.qty) * parseInt(node.cost);
-            //for (var i = 0; i < $scope.rightPanelData.length; i++) {
-            //    if ($scope.rightPanelData[i].id === node.id) {
-            //        $scope.rightPanelData[i] = node;
-            //        break;
-            //    }
-            //}
         }
 
+        //Start left data for Assembly
+        var tree;
+        var finalAssembliesData = [];
+        $scope.leftTreeAssembliesData = {};
+        $scope.leftTreeAssembliesCtrl = tree = {};
 
+        $scope.leftTreeExpandAssembliesProperty = {
+            /*template: "<td>OK All</td>",*/
+            field: 'name',
+            titleClass: 'text-center',
+            cellClass: 'v-middle',
+            displayName: 'Name'
+        };
 
+        getAssemblies()
+        function getAssemblies() {
+            editOrderService.getAssemblies()
+                .success(function (result) {
+                    
+                    finalAssembliesData.push({
+                        'id': 1,
+                        'ParentId': null,
+                        'name': 'Assemblies',
+                        'type': 'group',
+                    });
+
+                    var count = 1;
+                    
+                        finalAssembliesData.push({
+                            'id': 2,
+                            'ParentId': 1,
+                            'name': 'Assemblies-Name',
+                            'type': 'group',
+                        });
+                        angular.forEach(result, function (memb,$index) {
+                                
+                            finalAssembliesData.push({
+                                'id':$index + 3,
+                                'ParentId': 2,
+                                'name': memb._id,
+                                'description': memb.description,
+                                'type': 'Assemblies',
+                            })
+                            
+                            });
+                        count++;
+                    $scope.leftTreeAssembliesData = finalAssembliesData;
+                    $scope.leftTreeAssembliesData = $TreeDnDConvert.line2tree($scope.leftTreeAssembliesData, 'id', 'ParentId');
+                });
+        };
+
+        $scope.leftTreeAssembliesCols = [
+
+        ];
+        //End left data for Assembly
+
+        
     });

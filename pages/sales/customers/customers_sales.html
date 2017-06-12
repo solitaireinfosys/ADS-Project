@@ -26,7 +26,7 @@
 </div>
 <div class="container-fluid container-fixed-lg">
     <!-- START PANEL -->
-    <div class="panel panel-transparent">
+    <div class="panel panel-transparent col-lg-12 col-md-9">
         <div class="panel-heading">
             <div class="panel-title">
             </div>
@@ -47,14 +47,14 @@
                         <th class="">EMAIL</th>
                         <th class="">PHONE</th>
                         <th class="">DATE CREATED</th>
-                        <th class="">DATE MODIFIED</th>
+                        <!--<th class="">DATE MODIFIED</th>
                         <th class="">STORE CREDIT</th>
                         <th class="">IP ADDRESS</th>
                         <th class="">GROUP ID</th>
                         <th class="">NOTES</th>
-                        <th class="">TAX EXEMPT CATEGORY</th>
+                        <th class="">TAX EXEMPT CATEGORY</th>-->
                         <!--<th>STATUS</th>-->
-                        <!--<th class="">Actions</th>-->
+                        <th class="">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,13 +65,13 @@
                         <td>{{cust.email}}</td>
                         <td>{{cust.phone}}</td>
                         <td>{{cust.date_created| date:"yyyy/MM/dd"}}</td>
-                        <td>{{cust.date_modified| date:"yyyy/MM/dd"}}</td>
+                        <!--<td>{{cust.date_modified| date:"yyyy/MM/dd"}}</td>
                         <td>{{cust.store_credit}}</td>
                         <td>{{cust.registration_ip_address}}</td>
                         <td>{{cust.customer_group_id}}</td>
                         <td>{{cust.notes}}</td>
-                        <td>{{cust.tax_exempt_category}}</td>
-                        <!--<td><VIEW</td>-->
+                        <td>{{cust.tax_exempt_category}}</td>-->
+                        <td><a href="">VIEW</a></td>
                     </tr>
                 </tbody>
             </table>

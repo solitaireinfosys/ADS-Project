@@ -47,7 +47,7 @@
             var assembliesdata = [];
             var productsdata = [];
             //for (var i = 0; i < val.length; i++) {
-            //    if (val[i].type == "products") {
+            //    if (val[i].type == "product") {
             //        productsdata.push({
             //            "id": "" + val[i].id + "",
             //            "ParentId": "" + val[i].ParentId + "",
@@ -80,7 +80,7 @@
                 data: {
 
                     "products": val,
-                    "assemblies": assembliesdata
+                    "assemblies": val
                 }
             })
                 .success(function (data) {
