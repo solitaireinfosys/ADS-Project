@@ -41,6 +41,7 @@
 
 
         function SaveAssemblies(form) {
+        	var str = form.Assemblyid + ',' + form.Name;
             return $http({
                 method: 'POST',
                 url: SETTINGS.BUNDLE_GET_SERVICE,
@@ -48,8 +49,7 @@
                     "status":"NEW",
                     "name": {
                         "String": {
-                            "Assembly_id": form.Assemblyid,
-                            "Assembly_Name": form.Name,
+                        	str
                         }
                     }
                 }

@@ -43,9 +43,7 @@ angular.module('app')
                 $state.go("app.createorders", { id: val});
             }
             $scope.delete = function(id)
-            {
-                
-                
+            {                
                 OrderService.deleteorder(id)
                     .success(function (result) {
                         $scope.getOrders();

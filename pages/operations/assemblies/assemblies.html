@@ -52,8 +52,8 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="bundle in bundles | filter:search">
-                        <td>{{bundle.Assembly_id}}</td>
-                        <td>{{bundle.Assembly_Name}}</td>
+                        <td>{{bundle.name.String[0].str.split(',')[0]}}</td>
+                        <td>{{bundle.name.String[0].str.split(',')[1]}}</td>
                         <td>{{bundle.description}}</td>
                         <td>{{bundle.dateCreated| date:"yyyy/MM/dd"}}</td>
                         <td>{{bundle.dateUpdated| date:"yyyy/MM/dd"}}</td>
