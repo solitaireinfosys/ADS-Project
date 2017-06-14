@@ -7,6 +7,7 @@ angular.module('app')
         function ($rootScope, $scope, $location, $window, $filter, $stateParams, editAssembliesService) {
             $scope.editMode = false;
             $scope.id = $stateParams.id;
+            
             var getid = $scope.id;
             $scope.custom = [];
             $scope.search = "";

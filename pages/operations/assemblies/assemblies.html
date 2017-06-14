@@ -32,7 +32,7 @@
             </div>
             <div class="pull-right">
                 <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                    <input type="text" id="search-table" class="form-control pull-right" ng-model="search" placeholder="Search">
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -41,30 +41,24 @@
             <table  datatable="ng" class="table expanding table-hover table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
                 <thead>
                     <tr>
-                        <th class="">CUSTOMER ID</th>
+                        <th class="">ASSEMBLY ID</th>
+                        <th class="">ASSEMBLY NAME</th>
                         <th class="">DESCRIPTION</th>
                         <th class="">CREATED DATE</th>
                         <th class="">UPDATED DATE</th>
-                        <th class="">PARENT ID</th>
-                        <th class="">SYS STATE</th>
-                        <th class="">TENANT ID</th>
-                        <th class="">USER ID</th>
                         <th>STATUS</th>
                         <th class="">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="bundle in bundles">
-                        <td>{{bundle.customerId}}</td>
+                    <tr ng-repeat="bundle in bundles | filter:search">
+                        <td>{{bundle.Assembly_id}}</td>
+                        <td>{{bundle.Assembly_Name}}</td>
                         <td>{{bundle.description}}</td>
                         <td>{{bundle.dateCreated| date:"yyyy/MM/dd"}}</td>
                         <td>{{bundle.dateUpdated| date:"yyyy/MM/dd"}}</td>
-                        <td>{{bundle.parentid}}</td>
-                        <td>{{bundle.sysState}}</td>
-                        <td>{{bundle.tenantId}}</td>
-                        <td>{{bundle.userId}}</td>
                         <td>{{bundle.status}}</td>
-                        <td><a href="#" ng-click='clickThis(bundle._id)'>Edit</a> | <a href="">VIEW</a></td>
+                        <td><a href="#" ng-click='clickThis(bundle._id)'>Edit</a> | <a href="">VIEW</a> | <a href="" ng-click='deleteBundle(bundle._id)'>DELETE</a></td>
                     </tr>
                 </tbody>
             </table>

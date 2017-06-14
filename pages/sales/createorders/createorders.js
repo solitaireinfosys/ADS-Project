@@ -6,10 +6,13 @@ angular.module('app')
     .controller('CreateOrdersCtrl', function ($rootScope, $stateParams, $scope, $sce, $filter, $http, $compile, $TreeDnDConvert, editOrderService) {
         console.log($stateParams.id);
         var getid = $stateParams.id;
+
+        $scope.search = "";
+        $scope.custId = "";
         $scope.ordername = getid;
         var tree;
         var finalData = [];
-        
+
         $scope.leftTreeData = {};
         $scope.leftTreeCtrl = tree = {};
         $scope.showEditModal = showEditModal;
@@ -25,7 +28,7 @@ angular.module('app')
         $scope.leftTreeCols = [
 
         ];
-
+        
         var id = 6;
         $scope.addProductItem = function (node) {
 
@@ -42,15 +45,11 @@ angular.module('app')
             console.log($scope.rightTreeData);
         }
 
-
-         
         function getProducts() {
+            console.log($stateParams.customerId)
+            console.log($stateParams)
             editOrderService.getAllProducts()
                 .success(function (result) {
-
-                    
-                    
-
                     finalData.push({
                         'id': 1,
                         'ParentId': null,
@@ -66,20 +65,34 @@ angular.module('app')
                     };
                     var groubedByBrand = groupBy(result, 'brand_id')
                     var count = 1;
-                    
+
                     Object.keys(groubedByBrand).forEach(function (brand) {
-                        
+                        var brandname = "";
+                        for (var i = 0; i < brand.length; i++) {
+
+                            if (brand == 0) {
+                                brandname = "Wagner Systems";
+                            }
+                            else if (brand == 38) {
+                                brandname = "Walther Pilot";
+                            }
+                            else {
+                                brandname = "C. A. Technologies";
+                            }
+                        }
+
+
 
                         finalData.push({
                             'id': brand,
                             'ParentId': 1,
-                            'name': 'Brand Name',
+                            'name': brandname,
                             'type': 'brand',
                         });
 
 
                         groubedByBrand[brand].forEach(function (memb, i) {
-                            
+
                             finalData.push({
                                 'id': memb.id,
                                 'ParentId': brand,
@@ -93,13 +106,11 @@ angular.module('app')
                         })
                         count++;
                     });
-                    
+
                     $scope.leftTreeData = finalData;
                     $scope.leftTreeData = $TreeDnDConvert.line2tree($scope.leftTreeData, 'id', 'ParentId');
                 });
-         };
-
-         
+        };
 
         getProducts();
         getorders();
@@ -190,21 +201,29 @@ angular.module('app')
             $scope.rightTreeCtrl.reload_data();
         }
 
-        $scope.saveOrder = function () {
-            console.log($scope.rightTreeData);
+        $scope.saveOrder = function (id) {
+            //var custid = $stateParams.customerId;            
+            console.log($stateParams);
             var getid = $stateParams.id;
-            editOrderService.updateorder($scope.rightTreeData, getid)
-                .success(function (data) {
+            if (id == 1) {
+                editOrderService.updateorder($scope.rightTreeData, getid, id, $scope.custId)
+                    .success(function (data) {
+                    })
+            }
+            else {
+                editOrderService.updateorder($scope.rightTreeData, getid, id, $scope.custId)
+                    .success(function (data) {
+                    })
+            }
 
-                })
         }
 
         function getorders() {
             var getid = $stateParams.id;
             editOrderService.getOrder(getid)
                 .success(function (result) {
+                    $scope.custId = result.customerId;
                     $scope.rightTreeData = result.products;
-                    //$scope.rightTreeData = result.products.concat(result.assemblies);
                     $scope.rightTreeData = $TreeDnDConvert.line2tree($scope.rightTreeData, 'id', 'ParentId');
                 });
         };
@@ -238,7 +257,7 @@ angular.module('app')
         function getAssemblies() {
             editOrderService.getAssemblies()
                 .success(function (result) {
-                    
+
                     finalAssembliesData.push({
                         'id': 1,
                         'ParentId': null,
@@ -247,25 +266,25 @@ angular.module('app')
                     });
 
                     var count = 1;
-                    
+
+                    finalAssembliesData.push({
+                        'id': 2,
+                        'ParentId': 1,
+                        'name': 'Assemblies-Name',
+                        'type': 'group',
+                    });
+                    angular.forEach(result, function (memb, $index) {
+
                         finalAssembliesData.push({
-                            'id': 2,
-                            'ParentId': 1,
-                            'name': 'Assemblies-Name',
-                            'type': 'group',
-                        });
-                        angular.forEach(result, function (memb,$index) {
-                                
-                            finalAssembliesData.push({
-                                'id':$index + 3,
-                                'ParentId': 2,
-                                'name': memb._id,
-                                'description': memb.description,
-                                'type': 'Assemblies',
-                            })
-                            
-                            });
-                        count++;
+                            'id': $index + 3,
+                            'ParentId': 2,
+                            'name': memb.name.String[0],
+                            'description': memb.description,
+                            'type': 'Assemblies',
+                        })
+
+                    });
+                    count++;
                     $scope.leftTreeAssembliesData = finalAssembliesData;
                     $scope.leftTreeAssembliesData = $TreeDnDConvert.line2tree($scope.leftTreeAssembliesData, 'id', 'ParentId');
                 });
@@ -276,5 +295,5 @@ angular.module('app')
         ];
         //End left data for Assembly
 
-        
+
     });

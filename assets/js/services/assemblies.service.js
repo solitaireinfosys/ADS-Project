@@ -12,6 +12,7 @@
         return {
             getAllBundles: getAllBundles,
             SaveAssemblies: SaveAssemblies,
+            deletebundle: deletebundle,
 
         };
 
@@ -26,15 +27,30 @@
                 })
                 .error(function(data) {})
         }
+        function deletebundle(id)
+        {
+            return $http({
+                method: 'DELETE',
+                url: SETTINGS.UPDATE_BUNDLE_BY_ID + id,
+            })
+                .success(function (data) {
+                    return data;
+                })
+                .error(function (data) { })
+        }
+
 
         function SaveAssemblies(form) {
             return $http({
                 method: 'POST',
                 url: SETTINGS.BUNDLE_GET_SERVICE,
                 data: {
-                    "_id": form.Assemblyid,
+                    "status":"NEW",
                     "name": {
-                        "String": form.Name
+                        "String": {
+                            "Assembly_id": form.Assemblyid,
+                            "Assembly_Name": form.Name,
+                        }
                     }
                 }
             })

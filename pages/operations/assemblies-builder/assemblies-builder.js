@@ -6,12 +6,9 @@ angular.module('app')
         
         
         var getid = $stateParams.id;
-        //alert(getid);
-        //$http.get('assets/js/api/country_region.json').success(function (data) {
-        //    $scope.countries = data.country;
-        //    $scope.regions = data.region;
-        //});
-
+        $scope.getid = $stateParams.id;
+        
+        console.log($stateParams)
         var tree;
         var finalData = [];
         $scope.leftTreeData = {};
@@ -21,7 +18,6 @@ angular.module('app')
         $scope.leftTreeCtrl = tree = {};
 
         $scope.leftTreeExpandProperty = {
-            /*template: "<td>OK All</td>",*/
             field: 'name',
             titleClass: 'text-center',
             cellClass: 'v-middle',
@@ -32,51 +28,7 @@ angular.module('app')
         ];
         getAssemblies();
         
-        //$scope.leftTreeData = [
-        //    {
-        //        'id': 1,
-        //        'ParentId': null,
-        //        'name': 'PRODUCT GROUP',
-        //        'type': 'group'
-        //    }, {
-        //        'id': 2,
-        //        'ParentId': 1,
-        //        'name': 'Product GROUP',
-        //        'type': 'group'
-        //    }, {
-        //        'id': 3,
-        //        'ParentId': 2,
-        //        'name': 'Product Item Product SKU',
-        //        'type': 'product',
-        //        'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
-        //    }, {
-        //        'id': 4,
-        //        'ParentId': 2,
-        //        'name': 'Product Item Product SKU',
-        //        'type': 'product',
-        //        'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
-        //    }, {
-        //        'id': 5,
-        //        'ParentId': 2,
-        //        'name': 'Product Item Product SKU',
-        //        'type': 'product',
-        //        'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
-        //    }, {
-        //        'id': 6,
-        //        'ParentId': 2,
-        //        'name': 'Product Item Product SKU',
-        //        'type': 'product',
-        //        'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
-        //    }, {
-        //        'id': 7,
-        //        'ParentId': 2,
-        //        'name': 'Product Item Product SKU',
-        //        'type': 'product',
-        //        'description': 'Product Description - A bunch of text goes here to show much detail can fit into one line of text here'
-        //    },
-        //];
-
-        //$scope.leftTreeData = $TreeDnDConvert.line2tree($scope.leftTreeData, 'id', 'ParentId');
+       
        
         var id = 6;
         $scope.addProductItem = function (node) {
@@ -332,7 +284,7 @@ angular.module('app')
         $scope.saveAssembly = function () {
             var getid = $stateParams.id;
             console.log($scope.rightTreeData)
-            editAssembliesService.updateassembly($scope.rightTreeData, getid)
+            editAssembliesService.updateassembly($scope.rightTreeData, $scope.assemblyid, $scope.assemblyname, getid)
                 .success(function (data) {
 
                 })
@@ -342,16 +294,16 @@ angular.module('app')
             var getid = $stateParams.id;
                 editAssembliesService.getAssemblies(getid)
                     .success(function (result) {
+                        $scope.assemblyid = result.name.String[0].Assembly_id;
+                        $scope.assemblyname = result.name.String[0].Assembly_Name;
                         $scope.rightTreeData = result.products;
                         $scope.rightTreeData = $TreeDnDConvert.line2tree($scope.rightTreeData, 'id', 'ParentId');
                         
                     });
-
         };
 
         $scope.editRightCtrlData = function (node) {
             node.edit = true;
-            
         }
 
         $scope.saveRightCtrlData = function (node) {

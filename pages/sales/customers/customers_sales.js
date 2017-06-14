@@ -5,7 +5,7 @@
 angular.module('app')
     .controller('CustomerSalesCtrl', ['$scope', 'CustomerService', '$http',
         function($scope, CustomerService, $http) {
-
+            $scope.search = "";
             $scope.getCustomers = function() {
 
                 CustomerService.getAllCustomers()

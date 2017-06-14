@@ -13,6 +13,7 @@ angular.module('app', [
     'angular-storage',
     'oc.lazyLoad',
     'ui.tree',
+    'ui.select',
     'ntt.TreeDnD',
     'ngAnimate',
     'ui.bootstrap',

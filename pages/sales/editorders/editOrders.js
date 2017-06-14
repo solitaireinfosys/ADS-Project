@@ -90,12 +90,22 @@ angular.module('app')
                 $scope.saveOrder = function () {
                    
                     $scope.idSelected = null
-                    var getid = $scope.OrderName._id;
+                    if ($scope.OrderName._id != "undefined")
+                    {
+                        var getid = $scope.OrderName._id;
+                    }
+                    else {
+                        var getid = 1;
+                    }
+                    
                     editOrderService.updateorder($scope.custom, getid)
                             .success(function (data) {
 
                             })
                 }
+
+
+                
                 function getassemblies()
                 {
                     editOrderService.getAssemblies()

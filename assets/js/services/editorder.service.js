@@ -5,7 +5,7 @@
         .factory('editOrderService', editOrderService);
 
     /** @ngInject */
-    function editOrderService($http, SETTINGS, $q) {
+    function editOrderService($http, SETTINGS, $q, $location) {
 
         var editOrder = {};
 
@@ -14,6 +14,7 @@
             getAllProducts: getAllProducts,
             getAssemblies: getAssemblies,
             updateorder: updateorder,
+
         };
 
         /** @ngInject */
@@ -29,9 +30,7 @@
                 .error(function (data) { })
         }
 
-
         function getAssemblies() {
-
             return $http({
                 method: 'GET',
                 url: SETTINGS.BUNDLE_GET_SERVICE,
@@ -42,7 +41,7 @@
                 .error(function (data) { })
         }
 
-        function updateorder(val, getid) {
+        function updateorder(val, getid, id, customerId) {
             console.log(val);
             var assembliesdata = [];
             var productsdata = [];
@@ -74,19 +73,35 @@
             //    }
             //}
 
+            if (id == 1) {
+                var STATUS = "DRAFT"
+            }
+            else {
+                var STATUS = "PUBLISHED"
+            }
+
+
             return $http({
                 method: 'PUT',
                 url: SETTINGS.ORDER_GETBYID_SERVICE + getid,
                 data: {
-
+                    "customerId": customerId,
                     "products": val,
-                    "assemblies": val
+                    "assemblies": val,
+                    "status": STATUS,
                 }
             })
                 .success(function (data) {
+                    if (id == 1) { }
+                    else {
+                        $location.path("/app/orders");
+                    }
                     return data;
+
                 })
                 .error(function (data) { })
+
+
         }
 
 

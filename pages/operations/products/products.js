@@ -5,7 +5,7 @@
 angular.module('app')
     .controller('ProductsCtrl', ['$scope', 'ProductService', '$sce',
         function ($scope, ProductService, $sce) {
-
+            $scope.search = "";
             $scope.getProducts = function () {
 
                 ProductService.getAllProducts()

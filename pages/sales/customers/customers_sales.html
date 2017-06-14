@@ -32,7 +32,7 @@
             </div>
             <div class="pull-right">
                 <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                    <input type="text" id="search-table" class="form-control pull-right" ng-model="search" placeholder="Search">
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -47,30 +47,19 @@
                         <th class="">EMAIL</th>
                         <th class="">PHONE</th>
                         <th class="">DATE CREATED</th>
-                        <!--<th class="">DATE MODIFIED</th>
-                        <th class="">STORE CREDIT</th>
-                        <th class="">IP ADDRESS</th>
-                        <th class="">GROUP ID</th>
-                        <th class="">NOTES</th>
-                        <th class="">TAX EXEMPT CATEGORY</th>-->
-                        <!--<th>STATUS</th>-->
+                        
                         <th class="">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="cust in customer">
+                    <tr ng-repeat="cust in customer | filter:search">
                         <td>{{cust.company}}</td>
                         <td>{{cust.first_name}}</td>
                         <td>{{cust.last_name}}</td>
                         <td>{{cust.email}}</td>
                         <td>{{cust.phone}}</td>
                         <td>{{cust.date_created| date:"yyyy/MM/dd"}}</td>
-                        <!--<td>{{cust.date_modified| date:"yyyy/MM/dd"}}</td>
-                        <td>{{cust.store_credit}}</td>
-                        <td>{{cust.registration_ip_address}}</td>
-                        <td>{{cust.customer_group_id}}</td>
-                        <td>{{cust.notes}}</td>
-                        <td>{{cust.tax_exempt_category}}</td>-->
+                        
                         <td><a href="">VIEW</a></td>
                     </tr>
                 </tbody>

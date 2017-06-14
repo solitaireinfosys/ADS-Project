@@ -5,7 +5,7 @@
         .factory('editAssembliesService', editAssembliesService);
 
     /** @ngInject */
-    function editAssembliesService($http, SETTINGS, $q) {
+    function editAssembliesService($http, SETTINGS, $q, $location) {
 
         var editAssemblies = {};
 
@@ -15,6 +15,7 @@
             saveassembly: saveassembly,
             updateassembly: updateassembly,
             getorderbyid: getorderbyid,
+            
         };
 
         /** @ngInject */
@@ -75,13 +76,14 @@
                 }
             })
                 .success(function (data) {
+                    $location.path("/app/assemblies");
                     return data;
                 })
                 .error(function (data) { })
         }
 
-        function updateassembly(val, getid) {
-
+        function updateassembly(val, assemblyid, assemblyname, getid ) {
+            
             //var data = [];
 
             //for (var i = 0; i < val.length; i++) {
@@ -101,10 +103,12 @@
                 method: 'PUT',
                 url: SETTINGS.UPDATE_BUNDLE_BY_ID + getid,
                 data: {
-                    "products": val
+                    "products": val,
+                    "customerId": assemblyid +','+ assemblyname,
                 }
             })
                 .success(function (data) {
+                    $location.path("/app/assemblies");
                     return data;
                 })
                 .error(function (data) { })

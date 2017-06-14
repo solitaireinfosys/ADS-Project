@@ -1,15 +1,18 @@
+
 <!-- START PAGE COVER -->
 <div class="jumbotron" data-pages="parallax">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
         <div class="inner" style="transform: translateY(0px); opacity: 1;">
             <!-- START BREADCRUMB -->
-             <ul class="breadcrumb">
+            <ul class="breadcrumb">
                 <li>
                     <a href="#">DASHBOARD</a>
                 </li>
-                <li><a href="#">ORDERS</a>
+                <li>
+                    <a href="#">ORDERS</a>
                 </li>
-                 <li><a href="#" class="active">{{ordername}}</a>
+                <li>
+                    <a href="#" class="active">{{ordername}}</a>
                 </li>
             </ul>
             <!-- END BREADCRUMB -->
@@ -23,17 +26,17 @@
         </div>
         <div>
             <h5 class="inline" style="text-transform: none !important;">Create an order and send it later.</h5>
-             <button class="btn btnSave btn-success pull-right" ng-click="saveOrder()">SAVE & SEND ORDER</button>
-                        <button class="btn btnImport btn-cons pull-right" ng-click="showModal()">SAVE AS DRAFT</button>
+            <button class="btn btnSave btn-success pull-right" ng-click="saveOrder(id = 2)">SAVE & SEND ORDER</button>
+            <button class="btn btnImport btn-cons pull-right" ng-click="saveOrder(id = 1)">SAVE AS DRAFT</button>
         </div>
     </div>
 </div>
 <div class="container-fluid buildassembl container-fixed-lg page-create_assembly">
 
-    <hr/>
+    <hr />
     <div class="row">
 
-        <div class="col-md-4 col-lg-4 groupleft" >
+        <div class="col-md-4 col-lg-4 groupleft">
             <div class="input-group product-search-group">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
                 <input type="text" class="form-control search-group-box" placeholder="Search Parts, Bundles etc"
@@ -43,42 +46,41 @@
 
             <div class="color-black" style="margin-top: 35px;float:left">
                 <tree-dnd tree-class="table table-product-group"
-                    tree-data="leftTreeData"
-                    filter="_groupFilter"
-                    tree-control="leftTreeCtrl"
-                    primary-key="id"
-                    column-defs="leftTreeCols"
-                    expand-on="leftTreeExpandProperty"
-                    template-url="tree-dnd-template-render.html"
-                    icon-leaf="none"
-                    icon-expand="glyphicon glyphicon-chevron-down"
-                    icon-collapse="glyphicon glyphicon-chevron-right"
-                    expand-level="100"
-                ></tree-dnd>
+                          tree-data="leftTreeData"
+                          filter="_groupFilter"
+                          tree-control="leftTreeCtrl"
+                          primary-key="id"
+                          column-defs="leftTreeCols"
+                          expand-on="leftTreeExpandProperty"
+                          template-url="tree-dnd-template-render.html"
+                          icon-leaf="none"
+                          icon-expand="glyphicon glyphicon-chevron-down"
+                          icon-collapse="glyphicon glyphicon-chevron-right"
+                          expand-level="100"></tree-dnd>
             </div>
 
-            
 
-                <div class="color-black" style="margin-top: 35px;float:left;clear:both">
-                    <tree-dnd tree-class="table table-product-group"
-                              tree-data="leftTreeAssembliesData"
-                              filter="_groupFilter"
-                              tree-control="leftTreeAssembliesCtrl"
-                              primary-key="id"
-                              column-defs="leftTreeAssembliesCols"
-                              expand-on="leftTreeExpandAssembliesProperty"
-                              template-url="tree-dnd-Assemblies-template-render.html"
-                              icon-leaf="none"
-                              icon-expand="glyphicon glyphicon-chevron-down"
-                              icon-collapse="glyphicon glyphicon-chevron-right"
-                              expand-level="100"></tree-dnd>
-                </div>
-            
+
+            <div class="color-black" style="margin-top: 35px;float:left;clear:both">
+                <tree-dnd tree-class="table table-product-group"
+                          tree-data="leftTreeAssembliesData"
+                          filter="_groupFilter"
+                          tree-control="leftTreeAssembliesCtrl"
+                          primary-key="id"
+                          column-defs="leftTreeAssembliesCols"
+                          expand-on="leftTreeExpandAssembliesProperty"
+                          template-url="tree-dnd-Assemblies-template-render.html"
+                          icon-leaf="none"
+                          icon-expand="glyphicon glyphicon-chevron-down"
+                          icon-collapse="glyphicon glyphicon-chevron-right"
+                          expand-level="100"></tree-dnd>
+            </div>
+
 
         </div>
 
 
-        
+
 
 
 
@@ -92,17 +94,13 @@
                           primary-key="id"
                           column-defs="rightTreeCols"
                           expand-on="rightTreeExpandProperty"
-
                           template-url="right-tree-render.html"
-
                           icon-leaf="none"
-                        
                           indent="30"
                           indent-plus="20"
                           indent-unit="px"
                           enable-drag="true"
-                          enable-drop="true"
-                >
+                          enable-drop="true">
                 </tree-dnd>
             </div>
         </div>
@@ -140,6 +138,10 @@
                     <label for="assembly">Total</label>
                     <span>${{selectedNode.total}}</span>
                 </div>-->
+                
+
+                <
+                di
 
 
                 <div class="row">
@@ -187,15 +189,15 @@
         <ng-container ng-if="node.type == 'product'">
             <span class="hidden-xs hidden-sm">{{node.name}}</span>
 
-            
+
             <span class="visible-xs visible-sm">{{ node.name | limitTo: 10 }}{{node.name.length > 10 ? '...' : ''}}</span>
-            
+
 
             <a class="pull-right btn-xs" data-nodrag title="Add product" ng-click="addProductItem(this)">
                 <span class="fs-14 pg-plus" style="border:1px solid #B4B4B4;border-radius:50%;color:#B4B4B4;"></span>
             </a>
             <div class="description" ng-show="node.__expanded__">
-                {{node.description}}
+                <span>{{ node.description | limitTo: 150 }}{{node.description.length > 150 ? '...' : ''}}</span>
             </div>
         </ng-container>
 
@@ -231,11 +233,11 @@
         <span class="expand-handler" ng-class="{expanded:node.__expanded__}" ng-click="node.__expanded__ = !node.__expanded__"></span>
         <ng-container ng-if="node.type == 'Assemblies'">
             <span>{{node.name}}</span>
-            
+
             <a class="pull-right btn-xs" data-nodrag title="Add product" ng-click="addProductItem(this)">
                 <span class="fs-14 pg-plus col-lg-offset-10" style="border:1px solid #B4B4B4;border-radius:50%;color:#B4B4B4;"></span>
             </a>
-            
+
             <div class="description" ng-show="node.__expanded__">
                 {{node.description}}
             </div>
@@ -261,71 +263,60 @@
 </script>
 
 
-<script type="text/ng-template" id="right-tree-render.html"  class="assemblyDesc">
+<script type="text/ng-template" id="right-tree-render.html" class="assemblyDesc">
     <table ng-class="$tree_class" class="descTable">
         <thead>
-        <tr>
-            <th style="width: 47%;" ng-class="expandingProperty.titleClass" ng-style="expandingProperty.titleStyle"
-
-                compile="expandingProperty.titleTemplate">
-                {{expandingProperty.displayName || expandingProperty.field || expandingProperty}}
-            </th>
-            <th ng-repeat="col in colDefinitions" ng-class="col.titleClass" ng-style="col.titleStyle"
-                compile="col.titleTemplate">
-                {{col.displayName || col.field}}
-            </th>
-        </tr>
+            <tr>
+                <th style="width: 47%;" ng-class="expandingProperty.titleClass" ng-style="expandingProperty.titleStyle"
+                    compile="expandingProperty.titleTemplate">
+                    {{expandingProperty.displayName || expandingProperty.field || expandingProperty}}
+                </th>
+                <th ng-repeat="col in colDefinitions" ng-class="col.titleClass" ng-style="col.titleStyle"
+                    compile="col.titleTemplate">
+                    {{col.displayName || col.field}}
+                </th>
+            </tr>
         </thead>
         <tbody tree-dnd-nodes>
-        <tr tree-dnd-node="node" ng-repeat="node in tree_nodes track by node.__hashKey__ "
-            ng-show="enabledFilter ? node.__filtered_visible__ === true && node.__visible__ : node.__visible__"
-            ng-class="enabledFilter ? (node.__filtered__ === true? 'success': '') : (node.__selected__ ? ' active':'')"
-            ng-click="onSelect(node)">
-            <td tree-dnd-node-handle
-                ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__)}"
-                ng-class="expandingProperty.cellClass" compile="expandingProperty.cellTemplate">
-                <a data-nodrag>
-                     <!--<i ng-class="node.__icon_class__" ng-click="toggleExpand(node)" class="tree-icon"></i>-->
-                     <!--<i ng-click="toggleExpand(node)" class="tree-icon"></i>-->
-                </a>
+            <tr tree-dnd-node="node" ng-repeat="node in tree_nodes track by node.__hashKey__ "
+                ng-show="enabledFilter ? node.__filtered_visible__ === true && node.__visible__ : node.__visible__"
+                ng-class="enabledFilter ? (node.__filtered__ === true? 'success': '') : (node.__selected__ ? ' active':'')"
+                ng-click="onSelect(node)">
+                <td tree-dnd-node-handle
+                    ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__)}"
+                    ng-class="expandingProperty.cellClass" compile="expandingProperty.cellTemplate">
+                    <a data-nodrag>
+                        <!--<i ng-class="node.__icon_class__" ng-click="toggleExpand(node)" class="tree-icon"></i>-->
+                        <!--<i ng-click="toggleExpand(node)" class="tree-icon"></i>-->
+                    </a>
 
-                <span class="product-info">{{node['name']}}</span> 
-                <div class="description" ng-bind-html="node['description']">                    
-                </div>
-                <!--<span class="product-info">{{node.description}}</span>-->
-                <div ng-if="node.edit" style="margin-left: 1.3em;">
-                    <input type="text" ng-model="node['description1']" />
-                </div>
-                <div class="description" ng-if="!node.edit">
-                    {{node['description1']}}
-                </div>
-            </td>
-            <td ng-repeat="col in colDefinitions" ng-class="col.cellClass" ng-style="col.cellStyle"
-                compile="col.cellTemplate">
-                <div ng-if="!node.edit || col.field != 'qty'">
-                    {{ col.filter ? col.filter(node[col.field]) : node[col.field]}}
-                </div>
-                <div ng-if="node.edit && col.field == 'qty'">
-                    <div class="input-group spinner">
-                        <input type="text" ng-model="node['qty']" class="form-control" value="42">
-                        <div class="input-group-btn-vertical">
-                            <button class="btn btn-default" type="button" ng-click="node['qty'] = node['qty'] + 1"><i class="fa fa-caret-up"></i></button>
-                            <button class="btn btn-default" type="button" ng-click="node['qty'] = node['qty'] - 1"><i class="fa fa-caret-down"></i></button>
+                    <span class="product-info">{{node['name']}}</span>
+                    <div class="description" ng-bind-html="node['description']">
+                    </div>
+                    <!--<span class="product-info">{{node.description}}</span>-->
+                    <div ng-if="node.edit" style="margin-left: 1.3em;">
+                        <input type="text" ng-model="node['description1']" />
+                    </div>
+                    <div class="description" ng-if="!node.edit">
+                        {{node['description1']}}
+                    </div>
+                </td>
+                <td ng-repeat="col in colDefinitions" ng-class="col.cellClass" ng-style="col.cellStyle"
+                    compile="col.cellTemplate">
+                    <div ng-if="!node.edit || col.field != 'qty'">
+                        {{ col.filter ? col.filter(node[col.field]) : node[col.field]}}
+                    </div>
+                    <div ng-if="node.edit && col.field == 'qty'">
+                        <div class="input-group spinner">
+                            <input type="text" ng-model="node['qty']" class="form-control" value="42">
+                            <div class="input-group-btn-vertical">
+                                <button class="btn btn-default" type="button" ng-click="node['qty'] = node['qty'] + 1"><i class="fa fa-caret-up"></i></button>
+                                <button class="btn btn-default" type="button" ng-click="node['qty'] = node['qty'] - 1"><i class="fa fa-caret-down"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </td>
-        </tr>
+                </td>
+            </tr>
         </tbody>
     </table>
-</script>
-<script type="text/javascript">
-//    (function ($) {
-//        $('body').on('click', '.spinner .btn:first-of-type', function() {
-//            $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
-//        });
-//        $('body').on('click', '.spinner .btn:last-of-type', function() {
-//            $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
-//        });
-//    })(jQuery);
 </script>

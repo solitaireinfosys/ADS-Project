@@ -23,7 +23,7 @@ angular.module('app')
                     }
                 })
                 .state('app.assemblies_builder', {
-                    url: "/assemblies_builder/:id",
+                    url: "/assemblies_builder/:id/:name",
                     templateUrl: "pages/operations/assemblies-builder/assemblies-builder.html",
                     controller: 'AssembliesBuilderCtrl',
                     resolve: {
