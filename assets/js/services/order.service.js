@@ -55,7 +55,7 @@
                 url: SETTINGS.ORDER_GET_SERVICE,
                 data: {
                     "description": form.description,
-                    "customerId": form.selected,
+                    "customerId": form.selected.id,
                     "status":"NEW"
                 }
             })

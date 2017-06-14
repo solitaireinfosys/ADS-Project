@@ -55,8 +55,8 @@ angular.module('app')
             }
             
             $scope.createOrder = function (form)
-            {
-                $('#createOrder').modal('hide');
+            {            	
+            	$('#createOrder').modal('hide');
                 OrderService.CreateOrder(form)
                     .success(function (result) {
                         $scope.newOrder = result.data;
