@@ -155,8 +155,12 @@
             <!--<span>Product Item</span><span>Product SKU</span>-->
             <!--<span class="btn-add-product icon-button" title="Add product" ng-if="node.__expanded__" ng-click="addProductItem(node)"></span>-->
             <div class="description" ng-show="node.__expanded__">
-                {{node.description}}
+                <span>{{ node.description | limitTo: 150 }}{{node.description.length > 150 ? '...' : ''}}</span>
             </div>
+            
+            <!--<div class="description" ng-show="node.__expanded__">
+                {{node.description}}
+            </div>-->
         </ng-container>
 
         <ng-container ng-if="node.type != 'product'">
@@ -211,6 +215,8 @@
                 <span>{{node['name']}}</span>
                 <div class="description" ng-bind-html="node['description']">
                 </div>
+
+
                 <!--<div ng-if="node.edit" style="margin-left: 1.3em;">
                     <input type="text" class="form-control" ng-model="node['description1']" />
                 </div>-->
