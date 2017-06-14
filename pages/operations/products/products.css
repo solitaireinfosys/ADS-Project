@@ -2,8 +2,24 @@
     display: none
 }
 
+
+h3 {
+    color: #0e94c5 !important;
+}
+
+.btns {
+    width: 165px;
+}
+
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 472px;
+        margin: 30px auto;
+    }
+}
 h4 {
-    text-transform: none !important;
+    color:black;
 }
 
 .filterBox {
@@ -62,12 +78,12 @@ ul {
 .header-container h1{
     margin:0!important;    
 }
-.header-container h4{
+.header-container {
     margin: -9px 0px!important;
     font-size:20px;
 }
 .header-container h1,
-.header-container h4{
+.header-container {
     color: #00698c;
 }
 .FilteredORclear{

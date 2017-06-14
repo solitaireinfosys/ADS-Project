@@ -149,7 +149,7 @@
                 <tbody>
                     <tr ng-repeat="product in products | filter:search">
                         <td>{{product.name}}</td>
-                        <td ng-bind-html="{{product.description}}"></td>
+                        <td>{{product.description}}</td>
                         <td>{{product.inventory_level}}</td>
                         <td>{{product.price}}</td>
                         <td><a href="#/products/{{product._id}}">View</a></td>
