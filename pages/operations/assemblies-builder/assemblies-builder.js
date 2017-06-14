@@ -62,10 +62,25 @@ angular.module('app')
                 	var groubedByBrand = groupBy(result, 'brand_id')
                 	var count = 1;
                 	Object.keys(groubedByBrand).forEach(function (brand) {
-                		finalData.push({
+                        var brandname = "";
+                        for (var i = 0; i < brand.length; i++) {
+
+                            if (brand == 0) {
+                                brandname = "Wagner Systems";
+                            }
+                            else if (brand == 38) {
+                                brandname = "Walther Pilot";
+                            }
+                            else {
+                                brandname = "C. A. Technologies";
+                            }
+                        }
+
+
+                        finalData.push({
                 			'id': brand,
                 			'ParentId': 1,
-                			'name': 'Brand Name',
+                            'name': brandname,
                 			'type': 'brand',
                 		});
 
