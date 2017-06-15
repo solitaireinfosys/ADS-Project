@@ -11,16 +11,53 @@ angular.module('app')
         	$scope.date = new Date();
         	$scope.date = "ASM-" + $filter('date')($scope.date, 'MMddyyyyhhmm');
         	$scope.regex = /^ASM-([0-9]{12})$/;
-
+            var page = 1;
+            var prod = [];
         	function showModal(form) {
         		$('#createOrEdit').modal('show');
 
-        	}
+            }
+
+
+            function getProd(page) {
+                AssembliesService.getAllBundles()
+                    .success(function (result) {
+                        $scope.bundles = result;
+                    });
+            }
+
+            var x = 1;
+            var loopArray = function () {
+                customAlert(x, function (result) {
+                    if (result.length > 0) {
+                        x++;
+                        loopArray();
+                    }
+                    else {
+                        console.log(prod.length);
+                        $scope.bundles = prod;
+                    }
+                });
+            }
+
+
+            loopArray();
+
+            function customAlert(x, callback) {
+
+                AssembliesService.getAllBundles(x)
+                    .success(function (result) {
+                        $.merge(prod, result);
+                        $scope.bundles = result;
+                        callback(result);
+                    });
+            }
+
+
         	$scope.getBundle = function () {
         		AssembliesService.getAllBundles()
                     .success(function (result) {
                     	$scope.bundles = result;
-
                     });
         	};
         	$scope.getBundle();
@@ -32,14 +69,7 @@ angular.module('app')
         		AssembliesService.SaveAssemblies(val)
                     .success(function (data) {
                     	$scope.getBundle();
-                    	//console.log(data);
-                    	//setTimeout(function () {
-                    	//	console.log(name)
-                    	//	//$state.go("app.assemblies_builder", { id: data.data._id, name: data.data.name.String[0].Assembly_id });
-                    	//	console.log(val.Assemblyid)
-                    	//	$scope.$apply();
-                    	//}, 10);
-                    	//return false;
+                    	
                     });
         	}
         	$scope.deleteBundle = function (id) {

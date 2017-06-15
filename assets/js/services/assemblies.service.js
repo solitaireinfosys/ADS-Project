@@ -17,10 +17,10 @@
         };
 
         /** @ngInject */
-        function getAllBundles() {
+        function getAllBundles(page) {
             return $http({
                     method: 'GET',
-                    url: SETTINGS.BUNDLE_GET_SERVICE,
+                    url: SETTINGS.BUNDLE_GET_SERVICE + page,
                 })
                 .success(function(data) {
                     return data;

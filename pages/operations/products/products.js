@@ -3,35 +3,65 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('ProductsCtrl', ['$scope', 'ProductService', '$sce',
-        function ($scope, ProductService, $sce) {
+    .controller('ProductsCtrl', ['$scope', 'ProductService', 'AuthService', '$sce',
+        function ($scope, ProductService, AuthService, $sce) {
+            var page = 1;
+            var prod = [];
             $scope.search = "";
-            $scope.getProducts = function () {
 
-                ProductService.getAllProducts()
+            //function getProd(page) {
+            //    ProductService.getAllProducts(page)
+            //        .success(function (result) {
+            //            return result;
+            //        });
+            //}
+
+            //var x = 1;
+            //var loopArray = function () {
+            //    customAlert(x, function (result) {
+            //        if (result.length > 0) {
+            //            x++;
+            //            loopArray();
+            //        }
+            //        else {
+            //            console.log(prod.length);
+            //            $scope.products = prod;
+            //        }
+            //    });
+            //}
+
+            
+            //loopArray();
+
+            //function customAlert(x, callback) {
+            //    ProductService.getAllProducts(x)
+            //        .success(function (result) {
+            //            $.merge(prod, result);
+            //            callback(result);
+            //        });
+
+            //}
+            
+
+            $scope.getProducts = function () {
+                ProductService.getAllProducts(page)
                     .success(function (result) {
                         $scope.products = result;
                     });
+                
+                
+
             };
+
             $scope.getProducts();
 
-            $scope.getSingleProduct=function(){
+            $scope.getSingleProduct = function () {
                 ProductService.getProductbyId(id)
-                .success(function(result){
-                    $scope.product=result;
-                });
+                    .success(function (result) {
+                        $scope.product = result;
+                    });
             };
-             //$scope.getSingleProduct(id);
-
-            // $scope.group1 = [{
-            //     title: "PRODUCT",
-            //     icon: "glyphicon glyphicon-education",
-            //     items: [{ "item-title": "PRODUCT 1" }, { "item-title": "PRODUCT 2" }]
-            // }, {
-            //     title: "TYPE",
-            //     icon: "glyphicon glyphicon-list-alt",
-            //     items: [{ "item-title": "TYPE 3" }, { "item-title": "TYPE 4" }]
-            // },];
+            
             $scope.group2 = [{
                 title: "BRAND",
                 icon: "glyphicon glyphicon-list-alt",

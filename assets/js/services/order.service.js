@@ -26,10 +26,10 @@
                 .error(function (data) { })
         }
         /** @ngInject */
-        function getAllOrders() {
+        function getAllOrders(page) {
             return $http({
                     method: 'GET',
-                    url: SETTINGS.ORDER_GET_SERVICE,
+                    url: SETTINGS.ORDER_GET_SERVICE + page,
                 })
                 .success(function(data) {
                     return data;
@@ -37,11 +37,11 @@
                 .error(function(data) {})
         }
 
-        function getCustomers() {
+        function getCustomers(page) {
 
             return $http({
                 method: 'GET',
-                url: SETTINGS.CUSTOMER_GET_SERVICE
+                url: SETTINGS.CUSTOMER_GET_SERVICE + page,
             })
                 .success(function (data) {
                     return data;

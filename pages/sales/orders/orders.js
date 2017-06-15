@@ -9,9 +9,43 @@ angular.module('app')
             $scope.userInput = [];
             $scope.search = "";
             $scope.selected = "";
+            var page = 1;
+            var prod = [];
             function showModal() {
                 $('#createOrder').modal('show');
             }
+            //function getProd(page) {
+            //    OrderService.getAllOrders(page)
+            //        .success(function (result) {
+            //            return result;
+            //        });
+            //}
+
+            var x = 1;
+            var loopArray = function () {
+                customAlert(x, function (result) {
+                    if (result.length > 0) {
+                        x++;
+                        loopArray();
+                    }
+                    else {
+                        console.log(prod.length);
+                        $scope.Orders = prod;
+                    }
+                });
+            }
+
+
+            loopArray();
+
+            function customAlert(x, callback) {
+                OrderService.getAllOrders(x)
+                    .success(function (result) {
+                        $.merge(prod, result);
+                        callback(result);
+                    });
+            }
+
             
             $scope.Save = function () {
                 angular.element('#createOrder .close').click();
@@ -22,14 +56,18 @@ angular.module('app')
             }
 
             $scope.getOrders = function () {
-                OrderService.getAllOrders()
+                OrderService.getAllOrders(page)
                     .success(function (result) {
                         $scope.Orders = result;
                     });
             };
+            $scope.getOrders();
 
-            $scope.getCustomers = function () {
-                OrderService.getCustomers()
+
+            
+            $scope.getCustomers = function (Customerpage) {
+                
+                OrderService.getCustomers(Customerpage)
                     .success(function (result) {
                         $scope.items = result;
                         
@@ -37,7 +75,7 @@ angular.module('app')
             };
 
             $scope.getCustomers();
-            $scope.getOrders();
+            
 
             $scope.clickThis = function (val) {
                 $state.go("app.createorders", { id: val});

@@ -15,10 +15,10 @@
         };
 
         /** @ngInject */
-        function getAllCustomers() {
+        function getAllCustomers(page) {
             return $http({
                     method: 'GET',
-                    url: SETTINGS.CUSTOMER_GET_SERVICE,
+                    url: SETTINGS.CUSTOMER_GET_SERVICE + page,
                 })
                 .success(function(data) {
                     return data;
