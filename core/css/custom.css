@@ -47,6 +47,7 @@ input{
 .page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li > a {
     font-size: 15px;
     color: #9797A5;
+    width: 100%;
 }
 
 .page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li:hover > a {

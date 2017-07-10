@@ -16,7 +16,8 @@ angular.module('app')
                                 return $ocLazyLoad.load([
                                     'pages/sales/customers/customers_sales.js',
                                     'pages/sales/customers/customers_sales.css',
-                                     'core/css/table.css'
+                                    'core/css/table.css',
+                                    'core/css/pages_custom.css'
                                 ]);
                             });
                         }]
@@ -35,7 +36,8 @@ angular.module('app')
                                 return $ocLazyLoad.load([
                                     'pages/sales/orders/orders.js',
                                     'pages/sales/orders/orders.css',
-                                    'core/css/table.css'
+                                    'core/css/table.css',
+                                    'core/css/pages_custom.css'
                                 ]);
                             });
                         }]

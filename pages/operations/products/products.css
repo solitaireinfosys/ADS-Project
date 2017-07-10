@@ -177,3 +177,7 @@ cursor: pointer;
         margin-top: -29px;
    margin-left: 20px;
 }
+.table tbody tr td:last-child {
+    text-align: center;
+    text-transform: uppercase;
+}

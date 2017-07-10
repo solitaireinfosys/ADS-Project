@@ -4,3 +4,7 @@
 .dataTables_length{
     display: none
 }
+
+.table tbody tr td:last-child {
+    text-transform: uppercase;
+}

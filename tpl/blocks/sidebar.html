@@ -16,7 +16,7 @@ BEGIN SIDEBAR -->
     <!-- BEGIN SIDEBAR MENU -->
     <div class="sidebar-menu">
         <ul class="menu-items">
-            <li>
+            <li class="m-t-30">
                 <a href="#">
                     <span class="title">Sales</span>
                     <span class="arrow"></span>
@@ -24,19 +24,16 @@ BEGIN SIDEBAR -->
                 <span class="icon-thumbnail"><i class="pg-grid"></i></span>
                 <ul class="sub-menu">
                     <li>
-                        <a ui-sref="app.customers" class="detailed">
-                            <span class="title">Customers</span>
-                        </a>
+                      <a ui-sref="app.customers" class="detailed">
+                        <span href="title">Customers</span>
+                        <span class="icon-thumbnail">CS</span>
+                      </a>
                     </li>
-                    <!--  <li>
-                <a href="#/app/sales/customers">Customers</a>
-                <span class="icon-thumbnail">CS</span>
-              </li> -->
                     <li>
                       <a ui-sref="app.order" class="detailed">
-                            <span class="title">Orders</span>
-                        </a>
-                        <!-- <span class="icon-thumbnail">OR</span> -->
+                        <span href="title">Orders</span>
+                        <span class="icon-thumbnail">OR</span>
+                      </a>
                     </li>
                 </ul>
             </li>
@@ -48,8 +45,10 @@ BEGIN SIDEBAR -->
                 <span class="icon-thumbnail"><i class="pg-grid"></i></span>
                 <ul class="sub-menu">
                     <li>
-                        <a href="#">Targets</a>
+                      <a href="#" class="detailed">
+                        <span href="title">Targets</span>
                         <span class="icon-thumbnail">TR</span>
+                      </a>
                     </li>
                 </ul>
             </li>
@@ -60,22 +59,26 @@ BEGIN SIDEBAR -->
                 </a>
                 <span class="icon-thumbnail"><i class="pg-grid"></i></span>
                 <ul class="sub-menu">
-                    <li>
-                        <a ui-sref="app.assemblies" class="detailed">
-                            <span class="title">Assemblies</span>
-                        </a>
-                    </li>
-                      <li>
-                        <a ui-sref="app.products" class="detailed">
-                            <span class="title">Products</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Inventory</a>
-                        <span class="icon-thumbnail">IV</span>
-                    </li>
+                  <li>
+                    <a ui-sref="app.assemblies" class="detailed">
+                      <span href="title">Assemblies</span>
+                      <span class="icon-thumbnail">AS</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a ui-sref="app.products" class="detailed">
+                      <span class="title">Products</span>
+                      <span class="icon-thumbnail">PR</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="detailed">
+                      <span href="title">Inventory</span>
+                      <span class="icon-thumbnail">IV</span>
+                    </a>
+                  </li>
                 </ul>
-            </li>
+              </li>
             <!--  <li class="m-t-30" ng-class="{'open active':includes('app.dashboard')}">
             <a href="#" class="detailed">
               <span class="title">Dashboard</span>

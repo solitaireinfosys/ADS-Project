@@ -1,0 +1,9 @@
+.table tbody tr td {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.table tbody tr:nth-child(odd) {
+    background: #fafafa;
+}

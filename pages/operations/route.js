@@ -16,7 +16,8 @@ angular.module('app')
                                 return $ocLazyLoad.load([
                                     'pages/operations/assemblies/assemblies.js',
                                     'pages/operations/assemblies/assemblies.css',
-                                     'core/css/table.css'
+                                    'core/css/table.css',
+                                    'core/css/pages_custom.css'
                                 ]);
                             });
                         }]
@@ -59,7 +60,8 @@ angular.module('app')
                                 return $ocLazyLoad.load([
                                     'pages/operations/products/products.js',
                                     'pages/operations/products/products.css',
-                                    'core/css/table.css'
+                                    'core/css/table.css',
+                                    'core/css/pages_custom.css'
                                 ]);
                             });
                         }]

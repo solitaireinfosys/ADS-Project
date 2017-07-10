@@ -1,0 +1,23 @@
+{
+  "name": "forked_repo_test_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewSparrowww/forked_repo_test_task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewSparrowww/forked_repo_test_task/issues"
+  },
+  "homepage": "https://github.com/AndrewSparrowww/forked_repo_test_task#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0"
+  }
+}
