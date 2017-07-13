@@ -1,82 +1,90 @@
-<div class="jumbotron jumbotronBg" data-pages="parallax">
+<link rel="stylesheet" type="text/css" href="pages/table/table.css"> 
+<div class="jumbotron assemblies-header" data-pages="parallax">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
         <div class="inner" style="transform: translateY(0px); opacity: 1;">
             <!-- START BREADCRUMB -->
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="#/app/dashboard">Dashboard</a>
                 </li>
-                <li><a href="#" class="active">ASSEMBLIES</a>
+                <li><a class="active">ASSEMBLIES</a>
                 </li>
             </ul>
             <!-- END BREADCRUMB -->
         </div>
     </div>
 </div>
-<div class="header-container">
+
+<div class="header-container black-text">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
-        <div>
-            <h1>ASSEMBLIES</h1>
-        </div>
-        <div>
-            <h3 class="inline">This is a complete list of all current customers</h3>
-            <button class="btn btn-custom btn-cons pull-right" ng-click='showModal()'>CREATE NEW ASSEMBLY</button>
+        <div class="assemblies-header-wrap">
+            <div class="row text-uppercase">
+                <h1>ASSEMBLIES</h1>
+            </div>
+            <div class="row">
+                <h3 class="inline assemblies-subtitle">This is a complete list of all current customers</h3>
+                <button class="btn btn-primary pull-right text-uppercase btn-custom create-new-assembly" ng-click="showModal()">CREATE NEW ASSEMBLY</button>
+            </div>
         </div>
     </div>
 </div>
-<div class="container-fluid container-fixed-lg">
-    <!-- START PANEL -->
-    <div class="panel panel-transparent">
-        <div class="panel-heading">
-            <div class="panel-title">
-            </div>
-            <div class="pull-right">
-                <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" ng-model="search" placeholder="Search">
+<div class="assemblies-header-bottom"></div>
+
+<div class="panel-table-container">
+    <div class="container-fluid container-fixed-lg">
+        <!-- START PANEL -->
+        <div class="panel panel-transparent">
+            <div class="panel-heading">
+                <div class="panel-title">
                 </div>
+                <div class="pull-right">
+                    <div class="col-xs-12">
+                        <input type="text" id="search-table" class="form-control assemblies-input pull-right" ng-model="search" placeholder="Search">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
+            <div class="panel-body">
+                <table  datatable="ng" class="table expanding table-hover table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
+                    <thead>
+                        <tr>
+                            <th class="">ASSEMBLY ID</th>
+                            <th class="">MANUFACTURE</th>
+                            <th class="">DESCRIPTION</th>
+                            <th class="">CREATED BY</th>
+                            <th class="">KEYWORDS</th>
+                            <th class="">DATE CREATED</th>
+                            <th class="">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="bundle in bundles | filter:search">
+                            <td>{{bundle.name.String[0].str.split(',')[0]}}</td>
+                            <td>{{bundle.name.String[0].str.split(',')[1]}}</td>
+                            <td>{{bundle.description}}</td>
+                            <td>{{bundle.dateCreated| date:"yyyy/MM/dd"}}</td>
+                            <td>{{bundle.dateUpdated| date:"yyyy/MM/dd"}}</td>
+                            <td>{{bundle.status}}</td>
+                            <td><a ng-click="viewAssembly(bundle.name.String[0].str.split(',')[0])">VIEW</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="panel-body">
-            <table  datatable="ng" class="table expanding table-hover table-condensed" id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
-                <thead>
-                    <tr>
-                        <th class="">ASSEMBLY ID</th>
-                        <th class="">ASSEMBLY NAME</th>
-                        <th class="">DESCRIPTION</th>
-                        <th class="">CREATED DATE</th>
-                        <th class="">UPDATED DATE</th>
-                        <th>STATUS</th>
-                        <th class="">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="bundle in bundles | filter:search">
-                        <td>{{bundle.name.String[0].str.split(',')[0]}}</td>
-                        <td>{{bundle.name.String[0].str.split(',')[1]}}</td>
-                        <td>{{bundle.description}}</td>
-                        <td>{{bundle.dateCreated| date:"yyyy/MM/dd"}}</td>
-                        <td>{{bundle.dateUpdated| date:"yyyy/MM/dd"}}</td>
-                        <td>{{bundle.status}}</td>
-                        <td><a href="#" ng-click='clickThis(bundle._id)'>Edit</a> | <a href="">VIEW</a> | <a href="" ng-click='deleteBundle(bundle._id)'>DELETE</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <!-- END PANEL -->
     </div>
-    <!-- END PANEL -->
 </div>
 <!-- MODAL STICK UP  -->
 <div class="modal stick-up" id="createOrEdit" tabindex="-1" role="dialog" aria-labelledby="createOrEdit" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog assemblies-modal-wrap">
         <div class="modal-content">
             <div class="modal-header clearfix ">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
                 </button>
-                <h5 class="pull-left"><span class="semi-bold">New</span> Assembly</h5>
+                <h5 class="pull-left"><span class="semi-bold assemblies-semi-bold">New</span> Assembly</h5>
             </div>
             <div class="modal-body">
-                <p>Form creates a new assembly.</p>
+                <p class="assemblies-form-subtitle">Form creates a new assembly.</p>
                 <form name="userForm" novalidate>
                     <div class="form-group form-group-default" ng-class="{ 'has-error' : userForm.assembly.$invalid && !userForm.assembly.$pristine }">
                         <label for="assembly">Assembly id</label>
@@ -88,11 +96,11 @@
                         <input type="text" name="manufacturer" class="form-control" ng-model="form.Name" required>
                     </div>
                     <div class="row">
-                    <div class="ol-sm-4 col-md-4 m-t-10 sm-m-t-10 ">
-                        <button type="submit" class="btn btn-warning btn-block m-t-5" data-dismiss="modal">Cancel</button>
+                    <div class="col-sm-4 col-md-4 m-t-10 sm-m-t-10 ">
+                        <button type="submit" class="btn btn-warning btn-block m-t-5 assemblies-cancel-btn" data-dismiss="modal">Cancel</button>
                           </div>
                         <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 m-t-10 sm-m-t-10">
-                        <button type="submit" class="btn btn-complete active btn-block m-t-5" ng-disabled="userForm.$invalid" ng-click="Save(form)">Submit</button>
+                        <button type="submit" class="btn btn-complete active btn-block m-t-5 assemblies-submit-btn" ng-disabled="userForm.$invalid" ng-click="Save(form)">Submit</button>
                     </div>
                     </div>
                 </form>

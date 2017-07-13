@@ -18,7 +18,7 @@
 }
 .table {
      margin-top: 10px !important; 
-
+}
 h5{
  text-transform: none !important;
 }
@@ -32,3 +32,10 @@ h5{
 .NoBg{
     background-color: transparent!important;
 }
+.header-btn-config {
+    font-weight: bold;
+}
+.jumbotron {
+    margin-top: -20px;
+    margin-bottom: 0px;
+} 

@@ -16,15 +16,15 @@
         </div>
     </div>
 </div>
-<div class="header-container">
+<div class="header-container" style="height: 105px;">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
         <div>
-            <h1>ASSEMBLYNAME</h1>            
+            <h1 style="margin: 10px 0 0;">{{getid}}</h1>            
         </div>
         <div>
-            <h5 class="inline" style="text-transform: none !important;">Build the assembly save it and add more later.</h5>
-             <button class="btn btnSave btn-success pull-right" ng-click="saveAssembly()">SAVE ASSEMBLY</button>
-                        <button class="btn btnImport btn-cons pull-right" ng-click="showModal()">IMPORT ASSEMBLY</button>
+            <h5 class="inline" style="text-transform: none !important;  margin-top: 0;">Build the assembly save it and add more later.</h5>
+            <button class="btn btnSave btn-success pull-right header-btn-config" ng-click="saveAssembly()">SAVE ASSEMBLY</button>
+            <button class="btn btnImport btn-cons pull-right header-btn-config" ng-click="showModal()" style="margin-right: 20px;">IMPORT ASSEMBLY</button>
         </div>
     </div>
 </div>

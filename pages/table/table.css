@@ -1,0 +1,26 @@
+.dataTables_filter { visibility: hidden;}
+.jumbotron {
+    margin-bottom: 0;
+}
+div.header-container {
+    line-height: 10px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0 10px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    background: white;
+}
+div.header-container.tall {
+    height: 180px;
+}
+div.header-container h1,h3 {
+    color: #00668C;
+    margin: 0;
+}
+div.header-container h1 {
+    font-size: 35px;
+    font-family: 'Titillium Regular', sans-serif;
+}
+div.header-container h3 {
+    font-size: 20px;
+    font-family: 'Titillium Light', sans-serif;
+}

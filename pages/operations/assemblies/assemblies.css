@@ -8,7 +8,71 @@ h3{
 .btns{
 	width: 165px;
 }
-
+.assemblies-header {
+	margin-top: -20px;
+}
+.create-new-assembly {
+	border-radius: 2px;
+	font-family: 'Titillium Regular', sans-serif;
+	font-weight: bold;
+}
+.create-new-assembly:hover {
+	color: #fff !important;
+}
+.assemblies-subtitle {
+	text-transform: none;
+}
+.assemblies-input:focus {
+	background: #f2ecec !important;
+}
+.panel-table-container {
+	background: #fff;
+}
+.assemblies-header-bottom {
+	height: 10px;
+	background: #f0f0f0;
+}
+.assemblies-semi-bold {
+	color: #999999;
+}
+.assemblies-modal-wrap {
+	width: 625px !important;
+}
+.assemblies-form-subtitle {
+	color: #999999;
+}
+.assemblies-cancel-btn {
+	background: #d9a300;
+	border: none;
+	border-radius: 2px;
+	text-transform: uppercase;
+	width: 200px;
+	font-family: 'Titillium Light', sans-serif;
+	font-size: 16px;
+	height: 35px;
+}
+.assemblies-submit-btn {
+	background: #00668c !important;
+	border: none;
+	border-radius: 2px;
+	text-transform: uppercase;
+	width: 200px;
+	font-family: 'Titillium Light', sans-serif;
+	font-size: 16px;
+	height: 35px;
+	margin-left: -16px;
+}
+.sorting_asc {
+	color: #00668c !important;
+}
+.assemblies-header-wrap {
+	padding-left: 20px;
+}
+.paginate_button {
+	background: transparent !important;
+	border: none !important;
+	outline: none !important;
+}
 
 @media (min-width: 768px){
 .modal-dialog {

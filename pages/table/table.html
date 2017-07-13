@@ -1,0 +1,334 @@
+<link rel="stylesheet" type="text/css" href="pages/table/table.css">
+<div class="jumbotron" data-pages="parallax">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="inner" style="transform: translateY(0px); opacity: 1;">
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li><a href="#" class="active">Data table</a>
+                </li>
+            </ul>
+            <!-- END BREADCRUMB -->
+        </div>
+    </div>
+</div>
+<script>
+    $('#add_tall_class').click(function (e) {
+        e.preventDefault();
+        var $container = $('div.header-container');
+        if ($container.hasClass('tall')) {
+            $('div.header-container').removeClass('tall');
+        } else {
+            $('div.header-container').addClass('tall');
+        }
+    });
+</script>
+<a href="" id="add_tall_class">Toggle tall class on page info top-bar container</a>
+<div class="header-container">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="row">
+            <h1>{PAGE_TITLE}</h1>
+        </div>
+        <div class="row">
+            <h3 class="inline">{PAGE_SUBTITLE}</h3>
+            <button class="btn btn-primary btn-cons pull-right">Create new item</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-fixed-lg">
+    <!-- START PANEL -->
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+            </div>
+            <div class="pull-right">
+                <div class="col-xs-12">
+                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-keyup="filter($event)">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <table class="table expanding table-hover table-condensed table-detailed" id="expandingTable" ui-jq="dataTable" ui-options="options">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Places</th>
+                    <th>Activities</th>
+                    <th>Status</th>
+                    <th>Last Update</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr role="row">
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        Among the children
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>you want English, Scottish, Welsh, Irish, British, European or UK even a British (name other original country you came form or have roots to E.G. A British Japanese or a 5th generation</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        A day to remember
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>UK was on top of the art world 18-19 century had the best food, best cloths and best entertainment back then) it was a hyper nation</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        Life’s sadness shared
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>he world speaks English. Common law, Magna Carta and the Bill of Rights are its wonderful legacy</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="v-align-middle semi-bold">
+                        First Tour
+                    </td>
+                    <td class="v-align-middle">
+                        <a href="" class="btn btn-tag">United States</a>
+                        <a href="" class="btn btn-tag">India</a>
+                        <a href="" class="btn btn-tag">China</a>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>Public</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <p>April 13,2014 10:13</p>
+                    </td>
+                    <td class="v-align-middle">
+                        <i class="fa fa-edit"></i><i class="fa fa-times"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END PANEL -->
+</div>

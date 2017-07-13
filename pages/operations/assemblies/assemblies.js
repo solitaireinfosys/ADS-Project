@@ -41,7 +41,7 @@ angular.module('app')
             }
 
 
-            loopArray();
+            /*loopArray();
 
             function customAlert(x, callback) {
 
@@ -51,13 +51,14 @@ angular.module('app')
                         $scope.bundles = result;
                         callback(result);
                     });
-            }
+            }*/
 
 
         	$scope.getBundle = function () {
         		AssembliesService.getAllBundles()
                     .success(function (result) {
                     	$scope.bundles = result;
+                        console.log(result);
                     });
         	};
         	$scope.getBundle();
@@ -66,10 +67,12 @@ angular.module('app')
         	$scope.Save = function (val) {
         		angular.element('#createOrEdit .close').click();
 
+                console.log(val);
+
         		AssembliesService.SaveAssemblies(val)
                     .success(function (data) {
                     	$scope.getBundle();
-                    	
+                        $state.go("app.assemblies_builder", { id: val.Assemblyid });
                     });
         	}
         	$scope.deleteBundle = function (id) {
@@ -83,5 +86,9 @@ angular.module('app')
         		$state.go("app.assemblies_builder", { id: val });
         		//$location.path("/app/assemblies_builder/" + val);
         	}
+
+            $scope.viewAssembly = function(id) {
+                $state.go("app.assemblies_builder", { id: id });
+            }
 
         }]);
