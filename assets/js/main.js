@@ -5,6 +5,10 @@
 
 angular.module('app')
     .controller('AppCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
+        
+        // Change version here (mm/dd/yyyy)
+        $rootScope.versionDate = "07/14/17";
+        //
 
         // App globals
         $scope.app = {
