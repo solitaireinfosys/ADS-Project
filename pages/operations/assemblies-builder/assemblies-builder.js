@@ -45,7 +45,8 @@ angular.module('app')
     	function getProducts() {
     		editAssembliesService.getAllProducts()
                 .success(function (result) {
-
+                    console.log('result here');
+                    console.log(result);
                 	finalData.push({
                 		'id': 1,
                 		'ParentId': null,
@@ -307,8 +308,8 @@ angular.module('app')
     		editAssembliesService.getAssemblies(getid)
 				.success(function (result) {
 					console.log(result.name);
-					$scope.assemblyid = result.name.String[0].str.split(',')[0];
-					$scope.assemblyname = result.name.String[0].str.split(',')[1];
+					$scope.assemblyid = result.id;
+					$scope.assemblyname = result.name;
 					$scope.rightTreeData = result.products;
 					$scope.rightTreeData = $TreeDnDConvert.line2tree($scope.rightTreeData, 'id', 'ParentId');
 					return false;

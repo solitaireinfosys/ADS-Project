@@ -253,7 +253,6 @@ angular.module('app')
             displayName: 'Name'
         };
 
-        getAssemblies()
         function getAssemblies() {
             editOrderService.getAssemblies()
                 .success(function (result) {
@@ -289,6 +288,8 @@ angular.module('app')
                     $scope.leftTreeAssembliesData = $TreeDnDConvert.line2tree($scope.leftTreeAssembliesData, 'id', 'ParentId');
                 });
         };
+        
+        getAssemblies()
 
         $scope.leftTreeAssembliesCols = [
 

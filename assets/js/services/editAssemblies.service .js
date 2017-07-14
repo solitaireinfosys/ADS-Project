@@ -8,6 +8,7 @@
 	function editAssembliesService($http, SETTINGS, $q, $location) {
 
 		var editAssemblies = {};
+		var page = 1;
 
 		return {
 			getAssemblies: getAssemblies,
@@ -46,10 +47,11 @@
 		function getAllProducts() {
 			return $http({
 				method: 'GET',
-				url: SETTINGS.PRODUCT_GET_PRODUCT,
+				url: SETTINGS.PRODUCT_GET_PRODUCT + page,
 			})
                 .success(function (data) {
                 	return data;
+                	console.log(data);
                 })
                 .error(function (data) { })
 		}

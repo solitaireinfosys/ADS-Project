@@ -8,6 +8,7 @@
     function editOrderService($http, SETTINGS, $q, $location) {
 
         var editOrder = {};
+        var page = 1;
 
         return {
             getOrder: getOrder,
@@ -33,7 +34,7 @@
         function getAssemblies() {
             return $http({
                 method: 'GET',
-                url: SETTINGS.BUNDLE_GET_SERVICE,
+                url: SETTINGS.BUNDLE_GET_SERVICE + page,
             })
                 .success(function (data) {
                     return data;
@@ -108,7 +109,7 @@
         function getAllProducts() {
             return $http({
                 method: 'GET',
-                url: SETTINGS.PRODUCT_GET_PRODUCT,
+                url: SETTINGS.PRODUCT_GET_PRODUCT + page,
             })
                 .success(function (data) {
                     return data;
