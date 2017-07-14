@@ -39,3 +39,6 @@ h5{
     margin-top: -20px;
     margin-bottom: 0px;
 } 
+.header-container {
+    height: 110px !important;
+}
