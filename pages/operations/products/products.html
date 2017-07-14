@@ -41,7 +41,7 @@
                                     <div class="title-wrap">
                                         <span class="glyphicon glyphicon-education"></span> <span class="grouptitle"> PARTID_121</span>
                                     </div>
-                                    <i class="fs-16 pg-close pull-right m-t-10"></i>
+                                    <i class="fs-16 pg-close pull-right m-t-10" style="cursor: pointer"></i>
                                 </h4>
                             </div>
                         </div>
@@ -109,10 +109,10 @@
                         </div>
                         <div class="panel FA_Icon BgColor_1 panel-default" ng-repeat="group in group2">
                             <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title FA_Icon">
+                                <div class="panel-title FA_Icon">
                                     <a ng-class="{collapsed:!collapseOne}" ng-click="collapseOne=!collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class={{group.icon}}></span>
-                                <span class="grouptitle">{{group.title}} </span></a>
-                                </h4>
+                                    <span class="grouptitle">{{group.title}} </span></a>
+                                </div>
                             </div>
                             <div class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" ng-class="{in:collapseOne}">
                                 <div class="panel-body">

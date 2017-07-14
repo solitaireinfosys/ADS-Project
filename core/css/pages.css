@@ -9849,6 +9849,10 @@ Responsive Util
   margin: auto;
   height: 100%;
 }
+.btn-default-color {
+  background-color: #00668C !important;
+  border-color: #00668C !important;
+}
 /* Responsive handlers : Login
 ------------------------------------
 */
