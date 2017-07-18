@@ -50,10 +50,10 @@
                         <tr>
                             <th class="">ASSEMBLY ID</th>
                             <th class="">MANUFACTURE</th>
-                            <th class="">DESCRIPTION</th>
                             <th class="">CREATED BY</th>
                             <th class="">KEYWORDS</th>
                             <th class="">DATE CREATED</th>
+                            <th class="">STATUS</th>
                             <th class="">Actions</th>
                         </tr>
                     </thead>
@@ -61,8 +61,8 @@
                         <tr ng-repeat="bundle in bundles | filter:search">
                             <td>{{bundle.name.String[0].str.split(',')[0]}}</td>
                             <td>{{bundle.name.String[0].str.split(',')[1]}}</td>
-                            <td>{{bundle.description}}</td>
                             <td>{{bundle.dateCreated| date:"yyyy/MM/dd"}}</td>
+                            <td>Keyword</td>
                             <td>{{bundle.dateUpdated| date:"yyyy/MM/dd"}}</td>
                             <td>{{bundle.status}}</td>
                             <td><a ng-click="viewAssembly(bundle.name.String[0].str.split(',')[0])">VIEW</a></td>
@@ -100,7 +100,7 @@
                         <button type="submit" class="btn btn-warning btn-block m-t-5 assemblies-cancel-btn" data-dismiss="modal">Cancel</button>
                           </div>
                         <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 m-t-10 sm-m-t-10">
-                        <button type="submit" class="btn btn-complete active btn-block m-t-5 assemblies-submit-btn" ng-disabled="userForm.$invalid" ng-click="Save(form)">Submit</button>
+                        <button type="submit" class="btn btn-custom active btn-block m-t-5 assemblies-submit-btn" ng-disabled="userForm.$invalid" ng-click="Save(form)">Submit</button>
                     </div>
                     </div>
                 </form>

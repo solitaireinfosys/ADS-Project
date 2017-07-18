@@ -42,3 +42,17 @@ h5{
 .header-container {
     height: 110px !important;
 }
+.builder-id {
+    color: #000 !important;
+    margin: 10px 0 0;
+}
+.product-name {
+    max-width: 270px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 1.1;
+    cursor: pointer;
+    user-select: none;
+}

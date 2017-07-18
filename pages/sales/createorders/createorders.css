@@ -1,6 +1,7 @@
 .btnSave {
 	background-color: #089219;
     border-color: #089219;
+    margin-left: 10px;
 }
 .btnSave:hover{
 	background-color: #089219;
@@ -25,5 +26,6 @@ h5{
 .buildassembl {
     height: 500px !important;
 }
-
-
+.jumbotron {
+    margin-bottom: 0;
+}

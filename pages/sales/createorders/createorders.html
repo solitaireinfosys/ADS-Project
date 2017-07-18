@@ -22,7 +22,7 @@
 <div class="header-container">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
         <div>
-            <h1>ordername</h1>
+            <h1 style="color: #000">ordername</h1>
         </div>
         <div>
             <h5 class="inline" style="text-transform: none !important;">Create an order and send it later.</h5>
@@ -183,11 +183,11 @@
     <div class="list-group-item NoBg text-info level-{{node.__level__ }} {{node.type}}"
          ng-class="(node.__selected__ ? 'list-group-item-success ':' ') + $node_class"
          ng-click="onClick(node)"
-         ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {}">
+         ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {}" style="user-select: none;">
 
         <span class="expand-handler" ng-class="{expanded:node.__expanded__}" ng-click="node.__expanded__ = !node.__expanded__"></span>
         <ng-container ng-if="node.type == 'product'">
-            <span class="hidden-xs hidden-sm">{{node.name}}</span>
+        <span class="hidden-xs hidden-sm product-name" style="max-width: 270px; overflow: hidden; text-overflow: ellipsis; display: inline-block; white-space: nowrap; line-height: 1.1; cursor: pointer; user-select: none;">{{node.name}}</span>
 
 
             <span class="visible-xs visible-sm">{{ node.name | limitTo: 10 }}{{node.name.length > 10 ? '...' : ''}}</span>
@@ -228,11 +228,11 @@
     <div class="list-group-item NoBg text-info level-{{node.__level__ }} {{node.type}}"
          ng-class="(node.__selected__ ? 'list-group-item-success ':' ') + $node_class"
          ng-click="onClick(node)"
-         ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {}">
+         ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {}" style="user-select: none;">
 
         <span class="expand-handler" ng-class="{expanded:node.__expanded__}" ng-click="node.__expanded__ = !node.__expanded__"></span>
         <ng-container ng-if="node.type == 'Assemblies'">
-            <span>{{node.name}}</span>
+            <span style="max-width: 270px; overflow: hidden; text-overflow: ellipsis; display: inline-block; white-space: nowrap; line-height: 1.1; cursor: pointer; user-select: none;">{{node.name}}</span>
 
             <a class="pull-right btn-xs" data-nodrag title="Add product" ng-click="addProductItem(this)">
                 <span class="fs-14 pg-plus col-lg-offset-10" style="border:1px solid #B4B4B4;border-radius:50%;color:#B4B4B4;"></span>

@@ -19,7 +19,7 @@
 <div class="header-container" style="height: 105px;">
     <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
         <div>
-            <h1 style="margin: 10px 0 0;">{{getid}}</h1>            
+            <h1 class="builder-id">{{getid}}</h1>            
         </div>
         <div>
             <h5 class="inline" style="text-transform: none !important;  margin-top: 0;">Build the assembly save it and add more later.</h5>
@@ -143,12 +143,12 @@
     <div class="list-group-item NoBg text-info level-{{node.__level__ }} {{node.type}}"
          ng-class="(node.__selected__ ? 'list-group-item-success ':' ') + $node_class"
          ng-click="onClick(node)"
-         ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {}">
+         ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {}" style="user-select: none;">
 
         <span class="expand-handler" ng-class="{expanded:node.__expanded__}" ng-click="node.__expanded__ = !node.__expanded__"></span>
-        <ng-container ng-if="node.type == 'product'">
-            <span>{{node.name}}</span>
-            <a class="pull-right btn-xs" data-nodrag title="Add product" ng-click="addProductItem(this)">
+        <ng-container ng-if="node.type == 'product'" ng-click="addProductItem(this)">
+            <span class="product-name" ng-click="node.__expanded__ = !node.__expanded__">{{node.name}}</span>
+            <a class="pull-right btn-xs" data-nodrag title="Add product" >
                 <span class="fs-14 pg-plus" style="border:1px solid #B4B4B4;border-radius:50%;color:#B4B4B4;"></span>
             </a>
             <!--<span>Product Item</span><span>Product SKU</span>-->
@@ -200,7 +200,7 @@
         <tr tree-dnd-node="node" ng-repeat="node in tree_nodes track by node.__hashKey__ "
             ng-show="enabledFilter ? node.__filtered_visible__ === true && node.__visible__ : node.__visible__"
             ng-class="enabledFilter ? (node.__filtered__ === true? 'success': '') : (node.__selected__ ? ' active':'')"
-            ng-click="onSelect(node)">
+            ng-click="onSelect(node)" data-nodrag>
             <td tree-dnd-node-handle
                 ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__)}"
                 ng-class="expandingProperty.cellClass" compile="expandingProperty.cellTemplate">

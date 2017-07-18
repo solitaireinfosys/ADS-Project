@@ -58,9 +58,10 @@ angular.module('app')
                             })
                             .then(function () {
                                 return $ocLazyLoad.load([
+                                    'assets/lib/angular-tree-dnd/dist/ng-tree-dnd.css',
                                     'pages/sales/createorders/createorders.js',
                                     'pages/sales/createorders/createorders.css',
-                                    'assets/lib/angular-tree-dnd/dist/ng-tree-dnd.css'
+                                    'core/css/table.css'
                                 ]);
                             });
                         }]
