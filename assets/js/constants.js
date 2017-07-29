@@ -1,7 +1,7 @@
 angular.module('app')
     .constant('SETTINGS', (function() {
         // Define your variable
-        var MS00 = 'http://ec2-54-193-113-199.us-west-1.compute.amazonaws.com:8000';
+        var MS00 = 'http://ec2-54-215-254-100.us-west-1.compute.amazonaws.com:64000';
         var MS06 = 'http://ec2-54-183-115-168.us-west-1.compute.amazonaws.com:8080/api';
         var MS08 = 'http://ec2-52-52-101-206.us-west-1.compute.amazonaws.com:8080/api';
         var MS10 = 'http://ec2-52-52-101-206.us-west-1.compute.amazonaws.com:8080/api';
