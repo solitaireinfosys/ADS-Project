@@ -1,5 +1,5 @@
 angular.module('app')
-    .constant('SETTINGS', (function() {
+    .constant('SETTINGS', (function () {
         // Define your variable
         var MS00 = 'http://ec2-54-215-254-100.us-west-1.compute.amazonaws.com:64000';
         var MS06 = 'http://ec2-54-183-115-168.us-west-1.compute.amazonaws.com:8080/api';
@@ -15,16 +15,17 @@ angular.module('app')
             MATERIALS_SERVICE: MS08,
             BILL_OF_MATERIALS_SERVICE: MS10,
             COSTED_BILL_OF_MATERIALS_SERVICE: MS10,
-            CUSTOMER_GET_SERVICE: MS13+'/customer?page=',
-            ORDER_GET_SERVICE:MS13+'/orders?page=',
-            PRODUCT_GET_PRODUCT:MS13+'/products?page=',
-            BUNDLE_GET_SERVICE:MS13+'/bundles?page=',
+            CUSTOMER_GET_SERVICE: MS13 + '/customer?page=',
+            ORDER_GET_SERVICE: MS13 + '/orders?page=',
+            PRODUCT_GET_PRODUCT: MS13 + '/products?page=',
+            BUNDLE_GET_SERVICE: MS13 + '/bundles?page=',
             ORDER_GETBYID_SERVICE: MS13 + '/orders/',
             ASSEMBLIES_GETBYID_SERVICE: MS13 + '/bundles/',
             UPDATE_BUNDLE_BY_ID: MS13 + '/bundles/',
-            COMPANY_GET_SERVICE: MS13+'/company?page=',
+            COMPANY_GET_SERVICE: MS13 + '/company?page=',
+            VENDOR_GET_SERVICE: MS13 + '/vendor?page=',
             // AUTH_TOKEN: token,
-                JWT: {
+            JWT: {
                 "name": "smith_token"
             }
         }
