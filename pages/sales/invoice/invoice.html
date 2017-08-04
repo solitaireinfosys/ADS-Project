@@ -105,7 +105,7 @@
                     <div class="row-sm-height">
                         <div class="col-md-9 col-sm-height sm-no-padding">
                             <p class="small no-margin">Invoice to</p>
-                            <h5 class="semi-bold m-t-0">{{order.billing_address.first_name + order.billing_address.last_name }}</h5>
+                            <h5 class="semi-bold m-t-0">{{order.billing_address.first_name +" " + order.billing_address.last_name }}</h5>
                             <address>
                                 <strong>Pages Incoperated.</strong>
                                 <br>page.inc
@@ -117,12 +117,12 @@
                             <br>
                             <div>
                                 <div class="pull-left font-montserrat bold all-caps">Invoice No :</div>
-                                <div class="pull-right">0047</div>
+                                <div class="pull-right">{{order._id}}</div>
                                 <div class="clearfix"></div>
                             </div>
                             <div>
                                 <div class="pull-left font-montserrat bold all-caps">Invoice date :</div>
-                                <div class="pull-right">29/09/14</div>
+                                <div class="pull-right">{{order.dateCreated | date:"dd/MM/yy" }}</div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
