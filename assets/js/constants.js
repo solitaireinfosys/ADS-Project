@@ -24,6 +24,7 @@ angular.module('app')
             UPDATE_BUNDLE_BY_ID: MS13 + '/bundles/',
             COMPANY_GET_SERVICE: MS13 + '/company?page=',
             VENDOR_GET_SERVICE: MS13 + '/vendor?page=',
+            PURCHASE_ORDER_GET_SERVICE: MS13 + '/purchaseorder?page=',
             // AUTH_TOKEN: token,
             JWT: {
                 "name": "smith_token"

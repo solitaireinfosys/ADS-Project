@@ -44,4 +44,25 @@ angular.module('app')
                         }]
                     }
                 })
+
+                .state('app.purchaseorders', {
+                    url: "/purchaseorder",
+                    templateUrl: "pages/erp/purchase-orders/purchase-orders.html",
+                    controller: 'PurchaseOrdersCtrl',
+                    resolve: {
+                        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                            return $ocLazyLoad.load(['dataTables'], {
+                                insertBefore: '#lazyload_placeholder'
+                            })
+                                .then(function () {
+                                    return $ocLazyLoad.load([
+                                        'pages/erp/purchase-orders/purchase-orders.js',
+                                        'pages/erp/purchase-orders/purchase-orders.css',
+                                        'core/css/table.css',
+                                        'core/css/pages_custom.css'
+                                    ]);
+                                });
+                        }]
+                    }
+                })
         }]);

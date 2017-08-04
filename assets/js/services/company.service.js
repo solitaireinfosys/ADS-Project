@@ -15,7 +15,6 @@
         
         /** @ngInject */
         function getAllCompanies(page) {
-            console.log("getAllCompanies called");
             return $http({
                 method: 'GET',
                 url: SETTINGS.COMPANY_GET_SERVICE + page,
