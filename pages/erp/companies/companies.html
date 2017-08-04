@@ -1,0 +1,79 @@
+<div class="jumbotron" data-pages="parallax">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div class="inner" style="transform: translateY(0px); opacity: 1;">
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#" class="active">Companies</a>
+                </li>
+            </ul>
+            <!-- END BREADCRUMB -->
+        </div>
+    </div>
+</div>
+<div class="header-container">
+    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <div>
+            <h1>COMPANIES</h1>
+        </div>
+        <div>
+            <h3 class="inline">This is a complete list of all the companies.</h3>
+            <button class="btn btn-custom btn-cons pull-right" ng-click='showModal()'>ADD NEW COMPANY</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+    <!-- START PANEL -->
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+            </div>
+            <div class="pull-right">
+                <div class="col-xs-12">
+                    <input type="text" id="search-table" class="form-control pull-right" ng-model="search" placeholder="Search">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <div class="">
+                <table datatable="ng" class="table table-condensed " id="table" ui-jq="dataTable" ui-options="DT_options" dt-instance="dtInstance">
+                    <thead>
+                        <tr>
+                            <th class="">NAME</th>
+                            <th class="sorting_disabled">ADDRESS</th>
+                            <th class="">CITY</th>
+                            <th class="">STATE</th>
+                            <th class="">POST CODE</th>
+                            <th>TYPE</th>
+                            <th>CATEGORY</th>
+                            <th>STATUS</th>
+                            <th class="">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="company in Companies | filter:search">
+                            <td>{{company.name}}</td>
+                            <td>{{company.addressLine1 + " " + company.addressLine2 }}</td>
+                            <td>{{company.city}}</td>
+                            <td>{{company.state}}</td>
+                            <td>{{company.postcode}}</td>
+                            <td>{{company.type}}</td>
+                            <td>{{company.category}}</td>
+                            <td>{{company.status}}</td>
+                            <td>
+                                <a href="#" ng-click="">View</a>
+                                <a href="#" ng-click="">Edit</a>
+                                <a href="#" ng-click="">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- END PANEL -->
+</div>
