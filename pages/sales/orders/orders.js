@@ -102,6 +102,11 @@ angular.module('app')
                 
                 
             }
+
+            $scope.getOrderDetails = function (orderId)
+            {
+                $state.go("app.invoice", { id: orderId });
+            }
         }
        
 

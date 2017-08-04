@@ -17,17 +17,22 @@
                         <li class="dropdown">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text m-r-10"></i> Squarespace <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="">Action</a>
+                                <li>
+                                    <a href="">Action</a>
                                 </li>
-                                <li><a href="">Another action</a>
+                                <li>
+                                    <a href="">Another action</a>
                                 </li>
-                                <li><a href="">Something else here</a>
+                                <li>
+                                    <a href="">Something else here</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="">Separated link</a>
+                                <li>
+                                    <a href="">Separated link</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="">One more separated link</a>
+                                <li>
+                                    <a href="">One more separated link</a>
                                 </li>
                             </ul>
                         </li>
@@ -35,29 +40,36 @@
                 </div>
                 <div class="col-sm-4">
                     <ul class="nav navbar-nav navbar-center">
-                        <li><a href="">Open</a>
+                        <li>
+                            <a href="">Open</a>
                         </li>
-                        <li><a href="" data-toggle="tooltip" data-placement="bottom" title="Print"><i class="fa fa-print"></i></a>
+                        <li>
+                            <a href="" data-toggle="tooltip" data-placement="bottom" title="Print"><i class="fa fa-print"></i></a>
                         </li>
-                        <li><a href="" data-toggle="tooltip" data-placement="bottom" title="Download"><i class="fa fa-download"></i></a>
+                        <li>
+                            <a href="" data-toggle="tooltip" data-placement="bottom" title="Download"><i class="fa fa-download"></i></a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-sm-4">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="" class="p-r-10"><img width="25" height="25" alt="" class="icon-pdf" ui-jq="unveil" data-src-retina="assets/img/invoice/pdf2x.png" data-src="assets/img/invoice/pdf.png" src="assets/img/invoice/pdf2x.png">
+                            <a href="" class="p-r-10">
+                                <img width="25" height="25" alt="" class="icon-pdf" ui-jq="unveil" data-src-retina="assets/img/invoice/pdf2x.png" data-src="assets/img/invoice/pdf.png" src="assets/img/invoice/pdf2x.png">
                             </a>
                         </li>
                         <li>
-                            <a href="" class="p-r-10"><img width="25" height="25" alt="" class="icon-image" ui-jq="unveil" data-src-retina="assets/img/invoice/image2x.png" data-src="assets/img/invoice/image.png" src="assets/img/invoice/image2x.png">
+                            <a href="" class="p-r-10">
+                                <img width="25" height="25" alt="" class="icon-image" ui-jq="unveil" data-src-retina="assets/img/invoice/image2x.png" data-src="assets/img/invoice/image.png" src="assets/img/invoice/image2x.png">
                             </a>
                         </li>
                         <li>
-                            <a href="" class="p-r-10"><img width="25" height="25" alt="" class="icon-doc" ui-jq="unveil" data-src-retina="assets/img/invoice/doc2x.png" data-src="assets/img/invoice/doc.png" src="assets/img/invoice/doc2x.png">
+                            <a href="" class="p-r-10">
+                                <img width="25" height="25" alt="" class="icon-doc" ui-jq="unveil" data-src-retina="assets/img/invoice/doc2x.png" data-src="assets/img/invoice/doc.png" src="assets/img/invoice/doc2x.png">
                             </a>
                         </li>
-                        <li><a href="" class="p-r-10" onclick="$.Pages.setFullScreen(document.querySelector('html'));"><i class="fa fa-expand"></i></a>
+                        <li>
+                            <a href="" class="p-r-10" onclick="$.Pages.setFullScreen(document.querySelector('html'));"><i class="fa fa-expand"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -93,12 +105,12 @@
                     <div class="row-sm-height">
                         <div class="col-md-9 col-sm-height sm-no-padding">
                             <p class="small no-margin">Invoice to</p>
-                            <h5 class="semi-bold m-t-0">Darren Forthway</h5>
+                            <h5 class="semi-bold m-t-0">{{order.billing_address.first_name + order.billing_address.last_name }}</h5>
                             <address>
                                 <strong>Pages Incoperated.</strong>
                                 <br>page.inc
-                                <br> 1600 Amphitheatre Pkwy, Mountain View,
-                                <br> CA 94043, United States
+                                <br> {{order.billing_address.street_1}}, {{order.billing_address.city}}
+                                <br> {{order.billing_address.state}} {{order.billing_address.zip}}, {{order.billing_address.country}}
                             </address>
                         </div>
                         <div class="col-md-3 col-sm-height col-bottom sm-no-padding sm-p-b-20">
@@ -122,43 +134,21 @@
                             <tr>
                                 <th class="">Task Description</th>
                                 <th class="text-center">Rate</th>
-                                <th class="text-center">Hours</th>
+                                <th class="text-center">Qty</th>
                                 <th class="text-right">Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr ng-repeat="product in products">
                                 <td class="">
-                                    <p class="text-black">Character Illustration</p>
+                                    <p class="text-black">{{product.name}}</p>
                                     <p class="small hint-text">
-                                        Character Design projects from the latest top online portfolios on Behance.
+                                        {{product.description}}
                                     </p>
                                 </td>
-                                <td class="text-center">$65.00</td>
-                                <td class="text-center">84</td>
-                                <td class="text-right">$5,376.00</td>
-                            </tr>
-                            <tr>
-                                <td class="">
-                                    <p class="text-black">Cross Heart Charity Branding</p>
-                                    <p class="small hint-text">
-                                        Attempt to attach higher credibility to a new product by associating it with a well established company name
-                                    </p>
-                                </td>
-                                <td class="text-center">$89.00</td>
-                                <td class="text-center">100</td>
-                                <td class="text-right">$8,900.00</td>
-                            </tr>
-                            <tr>
-                                <td class="">
-                                    <p class="text-black">iOs App</p>
-                                    <p class="small hint-text">
-                                        A video game franchise Inspired primarily by a sketch of stylized wingless - Including Branding / Graphics / Motion Picture &amp; Videos
-                                    </p>
-                                </td>
-                                <td class="text-center">$100.00</td>
-                                <td class="text-center">500</td>
-                                <td class="text-right">$50,000.00</td>
+                                <td class="text-center">{{product.cost | currency}}</td>
+                                <td class="text-center">{{product.qty}}</td>
+                                <td class="text-right">{{product.total | currency}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -178,15 +168,15 @@
                     <div class="row row-sm-height b-a b-grey">
                         <div class="col-sm-2 col-sm-height col-middle p-l-25 sm-p-t-15 sm-p-l-15 clearfix sm-p-b-15">
                             <h5 class="font-montserrat all-caps small no-margin hint-text bold">Advance</h5>
-                            <h3 class="no-margin">$21,000.00</h3>
+                            <h3 class="no-margin">{{'0' | currency}}</h3>
                         </div>
                         <div class="col-sm-5 col-sm-height col-middle clearfix sm-p-b-15">
-                            <h5 class="font-montserrat all-caps small no-margin hint-text bold">Discount (10%)</h5>
-                            <h3 class="no-margin">$645.00</h3>
+                            <h5 class="font-montserrat all-caps small no-margin hint-text bold">Discount</h5>
+                            <h3 class="no-margin">{{order.discount? order.discount : '0' | currency}}</h3>
                         </div>
                         <div class="col-sm-5 text-right bg-menu col-sm-height padding-15">
                             <h5 class="font-montserrat all-caps small no-margin hint-text text-white bold">Total</h5>
-                            <h1 class="no-margin text-white">$64,276.00</h1>
+                            <h1 class="no-margin text-white">{{totalAmount | currency}}</h1>
                         </div>
                     </div>
                 </div>

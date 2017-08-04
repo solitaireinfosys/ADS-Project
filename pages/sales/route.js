@@ -120,7 +120,7 @@ angular.module('app')
                     }
                 })
                 .state('app.invoice', {
-                    url: "/invoice",
+                    url: "/invoice/:id",
                     templateUrl: "pages/sales/invoice/invoice.html",
                     controller: 'InvoiceCtrl',
                     resolve: {

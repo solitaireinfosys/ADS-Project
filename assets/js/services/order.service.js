@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('app')
@@ -14,6 +14,7 @@
             CreateOrder: CreateOrder,
             getCustomers: getCustomers,
             deleteorder: deleteorder,
+            getOrderById: getOrderById
         };
         function deleteorder(id) {
             return $http({
@@ -28,14 +29,26 @@
         /** @ngInject */
         function getAllOrders(page) {
             return $http({
-                    method: 'GET',
-                    url: SETTINGS.ORDER_GET_SERVICE + page,
-                })
-                .success(function(data) {
+                method: 'GET',
+                url: SETTINGS.ORDER_GET_SERVICE + page,
+            })
+                .success(function (data) {
                     return data;
                 })
-                .error(function(data) {})
+                .error(function (data) { })
         }
+
+        function getOrderById(id) {
+            return $http({
+                method: 'GET',
+                url: SETTINGS.ORDER_GETBYID_SERVICE + id,
+            })
+                .success(function (data) {
+                    return data;
+                })
+                .error(function (data) { })
+        }
+
 
         function getCustomers(page) {
 
@@ -56,7 +69,7 @@
                 data: {
                     "description": form.description,
                     "customerId": form.selected.id,
-                    "status":"NEW"
+                    "status": "NEW"
                 }
             })
                 .success(function (data) {

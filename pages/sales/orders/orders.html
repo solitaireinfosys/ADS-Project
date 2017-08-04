@@ -70,13 +70,13 @@
 													<td>{{order.dateCreated| date:"yyyy/MM/dd"}}</td>
 													<td>{{order.dateUpdated| date:"yyyy/MM/dd"}}</td>
 													<td>{{order.discount}}</td>
-													<td>{{order.qty}}</td>
+													<td>{{order.qty}}</td> -->
 
 													<td>{{order.status}}</td>
 													<td>
-														<a href="#/app/invoice">View</a>
-														<a href="#" ng-click='clickThis(order._id)'>Edit</a>
-														<a href="" ng-click="delete(order._id,$index)">Delete</a>
+														<a ng-click="getOrderDetails(order._id)">View</a>
+														<!--<a href="#" ng-click='clickThis(order._id)'>Edit</a>
+														<a href="" ng-click="delete(order._id,$index)">Delete</a>-->
 													</td>
 												</tr>
 
