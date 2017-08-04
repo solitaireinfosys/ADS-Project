@@ -176,7 +176,7 @@
                         </div>
                         <div class="col-sm-5 text-right bg-menu col-sm-height padding-15">
                             <h5 class="font-montserrat all-caps small no-margin hint-text text-white bold">Total</h5>
-                            <h1 class="no-margin text-white">{{totalAmount | currency}}</h1>
+                            <h1 class="no-margin text-white">{{totalAmount? totalAmount : '0' | currency}}</h1>
                         </div>
                     </div>
                 </div>
